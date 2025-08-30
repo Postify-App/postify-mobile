@@ -1,0 +1,11 @@
+bricks:
+  i18n:
+    path: /Users/ibrahimelnemr/Development/tools/mason_mvvm_architecture/bricks/i18n
+  readme:
+    path: /Users/ibrahimelnemr/Development/tools/mason_mvvm_architecture/bricks/readme
+  assets:
+    path: /Users/ibrahimelnemr/Development/tools/mason_mvvm_architecture/bricks/assets
+  core:
+    path: /Users/ibrahimelnemr/Development/tools/mason_mvvm_architecture/bricks/core
+  feature:
+    path: /Users/ibrahimelnemr/Development/tools/mason_mvvm_architecture/bricks/feature
