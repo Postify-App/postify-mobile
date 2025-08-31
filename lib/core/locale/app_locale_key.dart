@@ -6,7 +6,7 @@ class AppLocaleKey {
   static const String save = "save";
   static const String send = "send";
   static const String search = "search";
-  static const String continueKey = "continue"; 
+  static const String continueKey = "continue";
   static const String skip = "skip";
   static const String validateName = "validateName";
   static const String validateEmail = "validateEmail";
@@ -39,6 +39,7 @@ class AppLocaleKey {
   static const String pleaseEnterYourNumberToContinue =
       "pleaseEnterYourNumberToContinue";
   static const String next = "next";
+  static const String verify = "verify";
   static const String joinForUs = "joinForUs";
   static const String otp = "otp";
   static const String pleaseEnterTheOtCodeSentTo = "pleaseEnterTheOtCodeSentTo";

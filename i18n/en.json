@@ -82,5 +82,6 @@
   "signUpWithGoogle": "Sign Up with Google",
   "sendNewCode": "Send me a new code",
   "verificationCode": "Verification code",
-  "enterVerificationCode": "Enter the code we sent you!"
+  "enterVerificationCode": "Enter the code we sent you!",
+  "verify" : "Verify"
   }

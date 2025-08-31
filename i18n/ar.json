@@ -82,6 +82,7 @@
   "signUpWithGoogle": "إنشاء حساب عبر Google",
   "sendNewCode": "أرسل لي رمزًا جديدًا",
   "verificationCode": "رمز التحقق",
-  "enterVerificationCode": "أدخل الرمز الذي أرسلناه إليك!"
+  "enterVerificationCode": "أدخل الرمز الذي أرسلناه إليك!",
+  "verify" : "تأكيد"
   }
   

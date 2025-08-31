@@ -53,7 +53,7 @@ class CustomFormField extends StatefulWidget {
     this.readOnly = false,
     this.prefixIcon,
     this.suffixIcon,
-    this.radius = 5,
+    this.radius = 12,
     this.fillColor,
     this.focusColor,
     this.unFocusColor,
