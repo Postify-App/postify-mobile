@@ -1,15 +1,36 @@
 import 'package:equatable/equatable.dart';
+import 'package:postify/core/images/app_images.dart';
+import 'package:postify/core/locale/app_locale_key.dart';
 
 class OnBoardingModel extends Equatable {
+  final String title;
+  final String description;
+  final String image;
 
-  final String name;
-
-  const OnBoardingModel({required this.name});
-
-  factory OnBoardingModel.fromJson(Map<String, dynamic> json) => OnBoardingModel(name: json['name']);
-
-
+  const OnBoardingModel({
+    required this.title,
+    required this.description,
+    required this.image,
+  });
 
   @override
-  List<Object> get props => [name];
+  List<Object> get props => [title, description, image];
 }
+
+List<OnBoardingModel> onBoardingList = [
+  OnBoardingModel(
+    title: AppLocaleKey.welcomeToPostify,
+    description: AppLocaleKey.introText,
+    image: AppImages.assetsImagesOnBoarding1,
+  ),
+  OnBoardingModel(
+    title: AppLocaleKey.shareEffortlessly,
+    description: AppLocaleKey.shareEffortlesslyDesc,
+    image: AppImages.assetsImagesOnBoarding2,
+  ),
+  OnBoardingModel(
+    title: AppLocaleKey.discoverWhatMatters,
+    description: AppLocaleKey.discoverWhatMattersDesc,
+    image: AppImages.assetsImagesOnBoarding3,
+  ),
+];

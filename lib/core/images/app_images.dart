@@ -78,17 +78,45 @@ class AppImages {
   /// assets/global_icon/warning.svg
   static const String assetsGlobalIconWarning = "assets/global_icon/warning.svg";
 
-  /// Assets for assetsImagesSingIn
-  /// assets/images/singIn.png
-  static const String assetsImagesSingIn = "assets/images/singIn.png";
+  /// Assets for assetsImagesAppLogo
+  /// assets/images/appLogo.png
+  static const String assetsImagesAppLogo = "assets/images/appLogo.png";
+
+  /// Assets for assetsImagesAuthTopBackground
+  /// assets/images/authTopBackground.png
+  static const String assetsImagesAuthTopBackground = "assets/images/authTopBackground.png";
+
+  /// Assets for assetsImagesOnBoarding1
+  /// assets/images/onBoarding1.png
+  static const String assetsImagesOnBoarding1 = "assets/images/onBoarding1.png";
+
+  /// Assets for assetsImagesOnBoarding2
+  /// assets/images/onBoarding2.png
+  static const String assetsImagesOnBoarding2 = "assets/images/onBoarding2.png";
+
+  /// Assets for assetsImagesOnBoarding3
+  /// assets/images/onBoarding3.png
+  static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
   /// Assets for assetsSvgArrowDown
   /// assets/svg/arrowDown.svg
   static const String assetsSvgArrowDown = "assets/svg/arrowDown.svg";
 
+  /// Assets for assetsSvgEmailFeild
+  /// assets/svg/emailFeild.svg
+  static const String assetsSvgEmailFeild = "assets/svg/emailFeild.svg";
+
   /// Assets for assetsSvgFillStar
   /// assets/svg/fillStar.svg
   static const String assetsSvgFillStar = "assets/svg/fillStar.svg";
+
+  /// Assets for assetsSvgGoogleLogo
+  /// assets/svg/googleLogo.svg
+  static const String assetsSvgGoogleLogo = "assets/svg/googleLogo.svg";
+
+  /// Assets for assetsSvgNameFeild
+  /// assets/svg/nameFeild.svg
+  static const String assetsSvgNameFeild = "assets/svg/nameFeild.svg";
 
   /// Assets for assetsSvgRatingStar
   /// assets/svg/ratingStar.svg

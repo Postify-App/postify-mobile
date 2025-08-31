@@ -9,17 +9,14 @@ void main() async {
   await ServiceInitialize.initialize();
   runApp(
     EasyLocalization(
-      supportedLocales: const [
-        Locale('ar'),
-        Locale('en'),
-      ],
+      supportedLocales: const [Locale('ar'), Locale('en')],
       path: 'i18n',
-      fallbackLocale: const Locale('ar'),
-      startLocale: const Locale('ar'),
+      fallbackLocale: const Locale('en'),
+      startLocale: const Locale('en'),
       saveLocale: true,
       child: BlocProvider(
         create: (context) => AppThemeCubit()..initial(),
-        child: Postify()
+        child: Postify(),
       ),
     ),
   );

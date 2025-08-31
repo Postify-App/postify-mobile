@@ -16,29 +16,29 @@ class Postify extends StatefulWidget {
 }
 
 class _PostifyState extends State<Postify> {
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (_, child) {
-          return MaterialApp(
-              localizationsDelegates: [
-                ...context.localizationDelegates,
-                CountryLocalizations.delegate,
-              ],
-              supportedLocales: context.supportedLocales,
-              locale: context.locale,
-              debugShowCheckedModeBanner: false,
-              theme: appThemeData(context),
-              builder: BotToastInit(),
-              navigatorObservers: [BotToastNavigatorObserver()],
-              initialRoute: RoutesName.splashScreen,
-              onGenerateRoute: AppRouters.onGenerateRoute,
-              navigatorKey: AppRouters.navigatorKey,
-            );
-        });
+      designSize: const Size(393, 852),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child) {
+        return MaterialApp(
+          localizationsDelegates: [
+            ...context.localizationDelegates,
+            CountryLocalizations.delegate,
+          ],
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          debugShowCheckedModeBanner: false,
+          theme: appThemeData(context),
+          builder: BotToastInit(),
+          navigatorObservers: [BotToastNavigatorObserver()],
+          initialRoute: RoutesName.splashScreen,
+          onGenerateRoute: AppRouters.onGenerateRoute,
+          navigatorKey: AppRouters.navigatorKey,
+        );
+      },
+    );
   }
 }
