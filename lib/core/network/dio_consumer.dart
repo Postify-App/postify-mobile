@@ -1,33 +1,35 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:postify/core/utils/constants.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../services/service_locator.imports.dart';
 import 'api_consumer.dart';
 import 'app_interceptors.dart';
-import 'end_points.dart';
 
 class DioConsumer implements ApiConsumer {
   final Dio client;
 
   DioConsumer({required this.client}) {
     client.options
-      ..baseUrl = EndPoints.baseUrl
+      ..baseUrl = Constants.baseUrl
       ..followRedirects = false;
     client.interceptors.add(sl<AppInterceptors>());
     if (kDebugMode) {
-      client.interceptors.addAll(kDebugMode
-          ? [
-              PrettyDioLogger(
-                requestHeader: true,
-                requestBody: true,
-                responseBody: true,
-                responseHeader: false,
-                compact: false,
-                error: true,
-                request: true,
-              ),
-            ]
-          : []);
+      client.interceptors.addAll(
+        kDebugMode
+            ? [
+                PrettyDioLogger(
+                  requestHeader: true,
+                  requestBody: true,
+                  responseBody: true,
+                  responseHeader: false,
+                  compact: false,
+                  error: true,
+                  request: true,
+                ),
+              ]
+            : [],
+      );
     }
   }
 
@@ -38,35 +40,47 @@ class DioConsumer implements ApiConsumer {
   }
 
   @override
-  Future post(String path,
-      {Map<String, dynamic>? body,
-      Map<String, dynamic>? queryParameters,
-      bool? isFormData}) async {
-    var response = await client.post(path,
-        data: isFormData == true ? FormData.fromMap(body!) : body,
-        queryParameters: queryParameters);
+  Future post(
+    String path, {
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParameters,
+    bool? isFormData,
+  }) async {
+    var response = await client.post(
+      path,
+      data: isFormData == true ? FormData.fromMap(body!) : body,
+      queryParameters: queryParameters,
+    );
     return response.data;
   }
 
   @override
-  Future put(String path,
-      {Map<String, dynamic>? body,
-      Map<String, dynamic>? queryParameters,
-      bool? isFormData}) async {
-    final response = await client.put(path,
-        data: isFormData == true ? FormData.fromMap(body!) : body,
-        queryParameters: queryParameters);
+  Future put(
+    String path, {
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParameters,
+    bool? isFormData,
+  }) async {
+    final response = await client.put(
+      path,
+      data: isFormData == true ? FormData.fromMap(body!) : body,
+      queryParameters: queryParameters,
+    );
     return response.data;
   }
 
   @override
-  Future delete(String path,
-      {Map<String, dynamic>? body,
-      Map<String, dynamic>? queryParameters,
-      bool? isFormData}) async {
-    final response = await client.delete(path,
-        data: isFormData == true ? FormData.fromMap(body!) : body,
-        queryParameters: queryParameters);
+  Future delete(
+    String path, {
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParameters,
+    bool? isFormData,
+  }) async {
+    final response = await client.delete(
+      path,
+      data: isFormData == true ? FormData.fromMap(body!) : body,
+      queryParameters: queryParameters,
+    );
     return response.data;
   }
 }
