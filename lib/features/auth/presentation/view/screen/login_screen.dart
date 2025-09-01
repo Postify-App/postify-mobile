@@ -1,19 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:postify/core/custom_widgets/buttons/custom_button.dart';
-import 'package:postify/core/custom_widgets/custom_form_field/custom_form_field.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
-import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/theme/app_colors.dart';
-import 'package:postify/core/theme/app_text_style.dart';
-import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/auth/presentation/view/widget/custom_auth_header.dart';
-import 'package:postify/features/auth/presentation/view/widget/or_widget.dart';
-import 'package:postify/features/auth/presentation/view/widget/sign_in_with_google_widget.dart';
+import 'package:postify/features/auth/presentation/view/widget/login_form_widget.dart.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -44,44 +36,7 @@ class LoginScreen extends StatelessWidget {
                         description: AppLocaleKey.signInToContinue.tr(),
                       ),
                       142.verticalSpace,
-                      CustomFormField(
-                        hintText: AppLocaleKey.enterYourEmail.tr(),
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: SvgPicture.asset(
-                            AppImages.assetsSvgEmailFeild,
-                          ),
-                        ),
-                      ),
-                      32.verticalSpace,
-                      CustomButton(text: AppLocaleKey.signIn.tr()),
-                      47.verticalSpace,
-                      const OrWidget(),
-                      24.verticalSpace,
-                      const SigninWithGoogleWidget(),
-                      50.verticalSpace,
-                      Center(
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: AppLocaleKey.dontHaveAnAccount.tr(),
-                                style: AppTextStyle.text16RSecond(context),
-                              ),
-                              const TextSpan(text: ' '),
-                              TextSpan(
-                                text: AppLocaleKey.signUp.tr(),
-                                style: AppTextStyle.text16RMain(context),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () => NavigatorMethods.pushNamed(
-                                    context,
-                                    RoutesName.signUpScreen,
-                                  ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      const LoginFormWidget(),
                     ],
                   ),
                 ),

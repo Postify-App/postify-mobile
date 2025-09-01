@@ -7,15 +7,15 @@ class AppRouters {
     if (settings.arguments != null) args = settings.arguments;
     switch (settings.name) {
       case RoutesName.splashScreen:
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case RoutesName.onBoardingScreen:
-        return MaterialPageRoute(builder: (_) => OnBoardingScreen());
+        return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
       case RoutesName.loginScreen:
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case RoutesName.signUpScreen:
-        return MaterialPageRoute(builder: (_) => SignUpScreen());
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case RoutesName.otpScreen:
-        return MaterialPageRoute(builder: (_) => OtpScreen());
+        return MaterialPageRoute(builder: (_) => OtpScreen(args: args));
       default:
         return null;
     }

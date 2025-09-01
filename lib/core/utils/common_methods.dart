@@ -1,6 +1,8 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+import 'package:postify/core/custom_widgets/custom_toast/custom_toast.dart';
 import '../cache/hive/hive_methods.dart';
 import '../custom_widgets/custom_select/custom_select_item.dart';
 import '../extension/context_extension.dart';
@@ -116,60 +118,51 @@ class CommonMethods {
     );
   }
 
-  // static void showToast({
-  //   required String message,
-  //   String? title,
-  //   //  String? icon,
-  //   ToastType type = ToastType.success,
-  //   Color? backgroundColor,
-  //   Color? textColor,
-  //   int seconds = 3,
-  // }) {
-  //   BotToast.showCustomText(
-  //     duration: Duration(seconds: seconds),
-  //     toastBuilder: (cancelFunc) => CustomToast(
-  //       type: type,
-  //       title: title,
-  //       message: message,
-  //       backgroundColor: backgroundColor,
-  //       //icon: icon,
-  //       textColor: textColor,
-  //     ),
-  //   );
-  // }
+  static void showToast({
+    required String message,
+    String? title,
+    //  String? icon,
+    ToastType type = ToastType.success,
+    Color? backgroundColor,
+    Color? textColor,
+    int seconds = 3,
+  }) {
+    BotToast.showCustomText(
+      duration: Duration(seconds: seconds),
+      toastBuilder: (cancelFunc) => CustomToast(
+        type: type,
+        title: title,
+        message: message,
+        backgroundColor: backgroundColor,
+        //icon: icon,
+        textColor: textColor,
+      ),
+    );
+  }
 
-  // static void showError({
-  //   required String message,
-  //   String? title,
-  //   String? icon,
-  //   Color? backgroundColor,
-  //   Color? textColor,
-  //   int seconds = 3,
-  // }) {
-  //   //  BotToast.showText(text: message,backgroundColor: backgroundColor );
+  static void showError({
+    required String message,
+    String? title,
+    String? icon,
+    Color? backgroundColor,
+    Color? textColor,
+    int seconds = 3,
+  }) {
+    //  BotToast.showText(text: message,backgroundColor: backgroundColor );
 
-  //   BotToast.showCustomText(
-  //     duration: Duration(seconds: seconds),
-  //     toastBuilder: (context) => CustomToast(
-  //       title: title,
-  //       message: message,
-  //       backgroundColor: backgroundColor,
-  //       //icon: icon,
-  //       textColor: textColor,
-  //     ),
-  //   );
-  // }
+    BotToast.showCustomText(
+      duration: Duration(seconds: seconds),
+      toastBuilder: (context) => CustomToast(
+        title: title,
+        message: message,
+        backgroundColor: backgroundColor,
+        //icon: icon,
+        textColor: textColor,
+      ),
+    );
+  }
 
-  // static Future<bool> hasConnection() async {
-  //   var connectivityResult = await (Connectivity().checkConnectivity());
-  //   if (connectivityResult.contains(ConnectivityResult.mobile)) {
-  //     return true;
-  //   } else if (connectivityResult.contains(ConnectivityResult.wifi)) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+
 
   static List<CustomSelectItem> dropdownMenuItems = [
     ...List.generate(
