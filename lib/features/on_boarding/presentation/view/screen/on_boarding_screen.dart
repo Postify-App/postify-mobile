@@ -48,9 +48,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: [
               ZoomIn(
                 duration: const Duration(milliseconds: 600),
-                child: Image.asset(item.image, fit: BoxFit.cover),
+                child: Padding(
+                  padding: EdgeInsets.only(top: index == 0 ? 40 : 0),
+                  child: Image.asset(item.image, fit: BoxFit.cover),
+                ),
               ),
-
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(

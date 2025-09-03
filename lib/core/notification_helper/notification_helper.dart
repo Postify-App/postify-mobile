@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationHelper {
@@ -89,7 +88,8 @@ class NotificationHelper {
   }
 
   static void _handleNotificationTap(
-      NotificationResponse notificationResponse) {
+    NotificationResponse notificationResponse,
+  ) {
     final String? payload = notificationResponse.payload;
     if (payload != null) {
       log("Notification tapped with payload: $payload");
@@ -101,7 +101,8 @@ class NotificationHelper {
   }
 
   Future<void> _firebaseMessagingBackgroundHandler(
-      RemoteMessage message) async {
+    RemoteMessage message,
+  ) async {
     log("Handling a background message: $message");
     display(message);
   }
