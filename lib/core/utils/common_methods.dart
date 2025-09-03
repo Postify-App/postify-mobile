@@ -12,12 +12,8 @@ import 'package:easy_localization/easy_localization.dart';
 import '../locale/app_locale_key.dart';
 import '../services/service_locator.imports.dart';
 
-
 class CommonMethods {
-  static void showAlertDialog({
-    String? title,
-    required String message,
-  }) {
+  static void showAlertDialog({String? title, required String message}) {
     showCupertinoDialog(
       context: AppRouters.navigatorKey.currentContext!,
       builder: (context) => CupertinoAlertDialog(
@@ -145,6 +141,7 @@ class CommonMethods {
     String? title,
     String? icon,
     Color? backgroundColor,
+    ToastType type = ToastType.error,
     Color? textColor,
     int seconds = 3,
   }) {
@@ -156,33 +153,33 @@ class CommonMethods {
         title: title,
         message: message,
         backgroundColor: backgroundColor,
+        type: type,
         //icon: icon,
         textColor: textColor,
       ),
     );
   }
 
-
-
-  static List<CustomSelectItem> dropdownMenuItems = [
-    ...List.generate(
-      20,
-      (index) => {
-        'id': index,
-        'value': AppRouters.navigatorKey.currentContext!.apiTr(
-          ar: 'العنصر ${index + 1}',
-          en: 'Item ${index + 1}',
-        ),
-      },
-    ),
-  ]
-      .map(
-        (e) => CustomSelectItem(
-          value: int.tryParse(e['id'].toString()),
-          name: e['value']?.toString() ?? "",
-        ),
-      )
-      .toList();
+  static List<CustomSelectItem> dropdownMenuItems =
+      [
+            ...List.generate(
+              20,
+              (index) => {
+                'id': index,
+                'value': AppRouters.navigatorKey.currentContext!.apiTr(
+                  ar: 'العنصر ${index + 1}',
+                  en: 'Item ${index + 1}',
+                ),
+              },
+            ),
+          ]
+          .map(
+            (e) => CustomSelectItem(
+              value: int.tryParse(e['id'].toString()),
+              name: e['value']?.toString() ?? "",
+            ),
+          )
+          .toList();
 
   static void changeLanguage(
     BuildContext context, {
@@ -257,16 +254,15 @@ class CommonMethods {
       ),
     );
   }
-   static Future<bool> hasConnection() async {
-  var isConnected=  await sl<InternetConnection>().hasInternetAccess;
+
+  static Future<bool> hasConnection() async {
+    var isConnected = await sl<InternetConnection>().hasInternetAccess;
     if (isConnected) {
       return true;
-    
     } else {
       return false;
     }
   }
-
 
   static bool endScroll(ScrollEndNotification t, VoidCallback onEnd) {
     if (t.metrics.pixels > 0 && t.metrics.atEdge) {
@@ -274,5 +270,4 @@ class CommonMethods {
     }
     return true;
   }
-
 }

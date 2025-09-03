@@ -7,9 +7,11 @@ import 'package:postify/core/custom_widgets/buttons/custom_button.dart';
 import 'package:postify/core/custom_widgets/custom_form_field/custom_otp_field.dart';
 import 'package:postify/core/enum/cubit_state/cubit_status.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
+import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/services/service_locator.imports.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/core/utils/common_methods.dart';
+import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/auth/data/model/auth_body_model.dart';
 import 'package:postify/features/auth/presentation/controller/auth_cubit.dart';
 import 'package:postify/features/auth/presentation/view/screen/otp_screen.dart';
@@ -67,7 +69,7 @@ class _OtpScreenFormWidgetState extends State<OtpScreenFormWidget> {
                   if (state.verifyOtpStatus == CubitStatus.failure) {
                     CommonMethods.showError(message: state.errorMessage);
                   } else if (state.verifyOtpStatus == CubitStatus.success) {
-                    //! Navigate to home screen
+                    NavigatorMethods.pushNamed(context, RoutesName.homeScreen);
                   }
                 },
                 builder: (context, state) {

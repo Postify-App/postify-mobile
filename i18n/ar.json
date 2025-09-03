@@ -83,6 +83,12 @@
   "sendNewCode": "أرسل لي رمزًا جديدًا",
   "verificationCode": "رمز التحقق",
   "enterVerificationCode": "أدخل الرمز الذي أرسلناه إليك!",
-  "verify" : "تأكيد"
+  "verify" : "تأكيد",
+  "yourBusinesses" : "أعمالك",
+  "initiate": "بدء",
+  "new": "جديد",
+  "business": "أعمال",
+  "add": "إضافة",
+  "recommendation": "توصية"
   }
   

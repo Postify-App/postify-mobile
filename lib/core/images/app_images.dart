@@ -86,6 +86,10 @@ class AppImages {
   /// assets/images/authTopBackground.png
   static const String assetsImagesAuthTopBackground = "assets/images/authTopBackground.png";
 
+  /// Assets for assetsImagesHomeLogo
+  /// assets/images/homeLogo.png
+  static const String assetsImagesHomeLogo = "assets/images/homeLogo.png";
+
   /// Assets for assetsImagesOnBoarding1
   /// assets/images/onBoarding1.png
   static const String assetsImagesOnBoarding1 = "assets/images/onBoarding1.png";
@@ -98,9 +102,17 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
+  /// Assets for assetsSvgAddBorder
+  /// assets/svg/addBorder.svg
+  static const String assetsSvgAddBorder = "assets/svg/addBorder.svg";
+
   /// Assets for assetsSvgArrowDown
   /// assets/svg/arrowDown.svg
   static const String assetsSvgArrowDown = "assets/svg/arrowDown.svg";
+
+  /// Assets for assetsSvgArrowRight
+  /// assets/svg/arrowRight.svg
+  static const String assetsSvgArrowRight = "assets/svg/arrowRight.svg";
 
   /// Assets for assetsSvgEmailFeild
   /// assets/svg/emailFeild.svg

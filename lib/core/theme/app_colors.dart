@@ -295,7 +295,7 @@ class AppColor {
     return const LinearGradient(
       begin: Alignment.topRight,
       end: Alignment.topLeft,
-      colors: [Color(0xff0B409C), Color(0xffFDB827)],
+      colors: [Color(0xff9412ED), Color(0xffE9D6FA)],
     );
   }
 

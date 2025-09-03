@@ -91,4 +91,11 @@ class AppLocaleKey {
   static const String sendNewCode = "sendNewCode";
   static const String verificationCode = "verificationCode";
   static const String enterVerificationCode = "enterVerificationCode";
+
+  static const String yourBusinesses = 'yourBusinesses';
+  static const String initiate = 'initiate';
+  static const String newKey = 'new';
+  static const String business = 'business';
+  static const String add = 'add';
+  static const String recommendation = 'recommendation';
 }

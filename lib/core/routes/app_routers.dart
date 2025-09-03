@@ -16,6 +16,8 @@ class AppRouters {
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case RoutesName.otpScreen:
         return MaterialPageRoute(builder: (_) => OtpScreen(args: args));
+      case RoutesName.homeScreen:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
         return null;
     }

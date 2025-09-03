@@ -16,7 +16,7 @@ void main() async {
       saveLocale: true,
       child: BlocProvider(
         create: (context) => AppThemeCubit()..initial(),
-        child: Postify(),
+        child: const Postify(),
       ),
     ),
   );
