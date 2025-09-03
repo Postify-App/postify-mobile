@@ -114,6 +114,18 @@ class AppImages {
   /// assets/svg/arrowRight.svg
   static const String assetsSvgArrowRight = "assets/svg/arrowRight.svg";
 
+  /// Assets for assetsSvgArrowTop
+  /// assets/svg/arrowTop.svg
+  static const String assetsSvgArrowTop = "assets/svg/arrowTop.svg";
+
+  /// Assets for assetsSvgBG
+  /// assets/svg/BG.svg
+  static const String assetsSvgBG = "assets/svg/BG.svg";
+
+  /// Assets for assetsSvgBusinessHere
+  /// assets/svg/businessHere.svg
+  static const String assetsSvgBusinessHere = "assets/svg/businessHere.svg";
+
   /// Assets for assetsSvgEmailFeild
   /// assets/svg/emailFeild.svg
   static const String assetsSvgEmailFeild = "assets/svg/emailFeild.svg";
@@ -126,6 +138,10 @@ class AppImages {
   /// assets/svg/googleLogo.svg
   static const String assetsSvgGoogleLogo = "assets/svg/googleLogo.svg";
 
+  /// Assets for assetsSvgInitialShape
+  /// assets/svg/initialShape.svg
+  static const String assetsSvgInitialShape = "assets/svg/initialShape.svg";
+
   /// Assets for assetsSvgNameFeild
   /// assets/svg/nameFeild.svg
   static const String assetsSvgNameFeild = "assets/svg/nameFeild.svg";
@@ -133,5 +149,13 @@ class AppImages {
   /// Assets for assetsSvgRatingStar
   /// assets/svg/ratingStar.svg
   static const String assetsSvgRatingStar = "assets/svg/ratingStar.svg";
+
+  /// Assets for assetsSvgShape
+  /// assets/svg/Shape.svg
+  static const String assetsSvgShape = "assets/svg/Shape.svg";
+
+  /// Assets for assetsSvgSocialAccountsShape
+  /// assets/svg/socialAccountsShape.svg
+  static const String assetsSvgSocialAccountsShape = "assets/svg/socialAccountsShape.svg";
 }
 

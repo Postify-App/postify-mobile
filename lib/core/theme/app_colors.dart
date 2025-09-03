@@ -141,8 +141,8 @@ class AppColor {
   static Color greenColor(BuildContext context, {bool listen = true}) {
     return AppTheme.getByTheme(
       context,
-      light: const Color(0xff0A8A0F),
-      dark: const Color(0xff0A8A0F),
+      light: const Color(0xff6BED12),
+      dark: const Color(0xff6BED12),
       listen: listen,
     );
   }

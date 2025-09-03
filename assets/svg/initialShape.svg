@@ -1,0 +1,18 @@
+<svg width="295" height="195" viewBox="0 0 295 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-16.1687" y="-19.8181" width="331.169" height="228.818"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(10px);clip-path:url(#bgblur_0_401_377_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_d_401_377)" data-figma-bg-blur-radius="20">
+<path d="M20.5661 40.6769C19.2629 29.5269 23.1943 18.4015 31.2136 10.5458C38.7022 3.21005 48.9977 -0.528269 59.4485 0.293699L132 6L216.5 13.5L268.298 16.2999C270.755 16.4327 273.185 16.8864 275.525 17.6494C287.14 21.437 295 32.2673 295 44.4844V57.25V109V149C295 171.091 277.091 189 255 189H215L23.3465 187.234C10.498 187.115 1.20506 174.919 4.5 162.5L19.25 122.418C24.6737 107.68 26.5499 91.8717 24.7268 76.2733L20.5661 40.6769Z" fill="#6BED12"/>
+<path d="M31.5635 10.9033C38.9489 3.66863 49.1025 -0.0186195 59.4092 0.791992L131.956 6.49707V6.49805L216.456 13.998L216.465 13.999H216.473L268.271 16.7988C270.685 16.9293 273.072 17.3755 275.37 18.125C286.779 21.8455 294.5 32.4838 294.5 44.4844V149C294.5 170.815 276.815 188.5 255 188.5H215.005L23.3516 186.733C10.8347 186.618 1.77911 174.742 4.97852 162.644L19.7197 122.591C25.1704 107.779 27.0559 91.891 25.2236 76.2148L21.0625 40.6191C19.7772 29.6228 23.6548 18.6507 31.5635 10.9033Z" stroke="#3A3A3A"/>
+</g>
+<defs>
+<filter id="filter0_d_401_377" x="-16.1687" y="-19.8181" width="331.169" height="228.818" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-3" dy="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.227451 0 0 0 0 0.227451 0 0 0 0 0.227451 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_401_377"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_401_377" result="shape"/>
+</filter>
+<clipPath id="bgblur_0_401_377_clip_path" transform="translate(16.1687 19.8181)"><path d="M20.5661 40.6769C19.2629 29.5269 23.1943 18.4015 31.2136 10.5458C38.7022 3.21005 48.9977 -0.528269 59.4485 0.293699L132 6L216.5 13.5L268.298 16.2999C270.755 16.4327 273.185 16.8864 275.525 17.6494C287.14 21.437 295 32.2673 295 44.4844V57.25V109V149C295 171.091 277.091 189 255 189H215L23.3465 187.234C10.498 187.115 1.20506 174.919 4.5 162.5L19.25 122.418C24.6737 107.68 26.5499 91.8717 24.7268 76.2733L20.5661 40.6769Z"/>
+</clipPath></defs>
+</svg>

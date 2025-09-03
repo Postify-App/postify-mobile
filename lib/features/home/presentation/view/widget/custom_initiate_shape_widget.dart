@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:postify/core/images/app_images.dart';
 import 'package:postify/features/home/data/painter/initiate_shape_painter.dart';
 
-class CustomInitiateShapeWidget extends StatelessWidget {
-  const CustomInitiateShapeWidget({super.key});
+class CustomInitiateSectionWidget extends StatelessWidget {
+  const CustomInitiateSectionWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +16,22 @@ class CustomInitiateShapeWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Positioned(
-            right: 0,
+            right: 10,
+            top: 20,
+            child: SvgPicture.asset(AppImages.assetsSvgInitialShape),
+          ),
+          Positioned(
+            right: 20,
+            top: 35,
             child: CustomPaint(
-              size: Size(297.w, 190.h),
-              painter: InitiateCustomPainter(),
+              size: Size(266.w, 170.h),
+              painter: AboveInitiateCustomPainter(),
             ),
           ),
           Positioned(
-            left: -20,
-            child: CustomPaint(
-              size: Size(327.w, 224.h),
-              painter: BehindInitiateCustomPainter(),
-            ),
+            left: -30,
+            top: -65,
+            child: SvgPicture.asset(AppImages.assetsSvgBG),
           ),
         ],
       ),

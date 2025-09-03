@@ -100,10 +100,17 @@ class _CustomButtonState extends State<CustomHomeButton>
             boxShadow: widget.hasShadow
                 ? widget.boxShadow ??
                       [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.08),
-                          offset: const Offset(0, 0),
-                          blurRadius: 6,
+                        const BoxShadow(
+                          color: Color(0xFF3A3A3A),
+                          blurRadius: 0,
+                          offset: Offset(-2, 5),
+                          spreadRadius: 0,
+                        ),
+                        const BoxShadow(
+                          color: Color(0x59000000),
+                          blurRadius: 50,
+                          offset: Offset(0, 0),
+                          spreadRadius: -25,
                         ),
                       ]
                 : null,

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
+import 'package:postify/features/home/presentation/view/widget/custom_business_card_section.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_home_button.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_initiate_shape_widget.dart';
 import 'package:postify/features/home/presentation/view/widget/wavy_background_widget.dart';
@@ -40,26 +41,43 @@ class HomeScreen extends StatelessWidget {
                         width: 200.w,
                         borderColor: AppColor.whiteColor(context),
                         hasShadow: true,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xFF3A3A3A),
-                            blurRadius: 0,
-                            offset: Offset(-2, 5),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x59000000),
-                            blurRadius: 50,
-                            offset: Offset(0, 0),
-                            spreadRadius: -25,
-                          ),
-                        ],
                       ),
                     ],
                   ),
-                  40.verticalSpace,
-                  const CustomInitiateShapeWidget(),
+                  50.verticalSpace,
+                  const CustomInitiateSectionWidget(),
+                  const CustomBusinessCardSectionWidget(),
                 ],
+              ),
+            ),
+            Positioned(
+              bottom: 35,
+              left: 35,
+              child: CustomHomeButton(
+                text: AppLocaleKey.add.tr(),
+                prefixIcon: SvgPicture.asset(AppImages.assetsSvgArrowTop),
+                width: 100.w,
+                height: 48.h,
+                color: AppColor.greenColor(context),
+                textColor: AppColor.blackColor(context),
+                hasShadow: true,
+              ),
+            ),
+            Positioned(
+              bottom: 25,
+              right: 10,
+              child: CustomHomeButton(
+                text: AppLocaleKey.recommendation.tr(),
+                suffixIcon: CircleAvatar(
+                  radius: 15,
+                  backgroundColor: AppColor.secondAppColor(context),
+                  child: SvgPicture.asset(AppImages.assetsSvgArrowRight),
+                ),
+                width: 213.w,
+                height: 48.h,
+                color: AppColor.greenColor(context),
+                textColor: AppColor.blackColor(context),
+                hasShadow: true,
               ),
             ),
           ],

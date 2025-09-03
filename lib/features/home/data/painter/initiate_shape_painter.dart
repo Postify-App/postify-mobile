@@ -3,12 +3,8 @@ import 'package:flutter/material.dart';
 class InitiateCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // Create gradient for the green button
     final gradient = const LinearGradient(
-      colors: [
-        Color(0xFF7ED321), // Bright green
-        Color(0xFF5CB85C), // Slightly darker green
-      ],
+      colors: [Color(0xFF7ED321), Color(0xFF5CB85C)],
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
     );
@@ -83,14 +79,12 @@ class InitiateCustomPainter extends CustomPainter {
     path_0.lineTo(size.width * 0.06971559, size.height * 0.2085995);
     path_0.close();
 
-    // Apply gradient fill
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
     paint0Fill.shader = gradient.createShader(
       Rect.fromLTWH(0, 0, size.width, size.height),
     );
     canvas.drawPath(path_0, paint0Fill);
 
-    // Add subtle shadow effect
     Path shadowPath = Path.from(path_0);
     shadowPath = shadowPath.shift(const Offset(2, 3));
     Paint shadowPaint = Paint()
@@ -99,7 +93,6 @@ class InitiateCustomPainter extends CustomPainter {
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
     canvas.drawPath(shadowPath, shadowPaint);
 
-    // Stroke path
     Path path_1 = Path();
     path_1.moveTo(size.width * 0.1069949, size.height * 0.05591436);
     path_1.cubicTo(
@@ -174,7 +167,7 @@ class InitiateCustomPainter extends CustomPainter {
     Paint paint1Stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2
-      ..color = const Color(0xFF4A5D23).withOpacity(0.8); // Darker green border
+      ..color = const Color(0xFF4A5D23).withOpacity(0.8);
     canvas.drawPath(path_1, paint1Stroke);
   }
 
@@ -184,16 +177,102 @@ class InitiateCustomPainter extends CustomPainter {
   }
 }
 
+class AboveInitiateCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(size.width * 0.09618582, size.height * 0.05727627);
+    path_0.cubicTo(
+      size.width * 0.1214690,
+      size.height * 0.01906426,
+      size.width * 0.1562142,
+      size.height * -0.0004076367,
+      size.width * 0.1914812,
+      size.height * 0.003871580,
+    );
+    path_0.lineTo(size.width * 0.4405172, size.height * 0.03409302);
+    path_0.lineTo(size.width * 0.4405172, size.height * 0.03408722);
+    path_0.lineTo(size.width * 0.7304559, size.height * 0.07379704);
+    path_0.lineTo(size.width * 0.7304904, size.height * 0.07380296);
+    path_0.lineTo(size.width * 0.7305249, size.height * 0.07380296);
+    path_0.lineTo(size.width * 0.9082835, size.height * 0.08863018);
+    path_0.cubicTo(
+      size.width * 0.9165402,
+      size.height * 0.08931893,
+      size.width * 0.9247011,
+      size.height * 0.09167219,
+      size.width * 0.9325632,
+      size.height * 0.09562781,
+    );
+    path_0.cubicTo(
+      size.width * 0.9716398,
+      size.height * 0.1152864,
+      size.width * 0.9980843,
+      size.height * 0.1715444,
+      size.width * 0.9980843,
+      size.height * 0.2350107,
+    );
+    path_0.lineTo(size.width * 0.9980843, size.height * 0.7882308);
+    path_0.cubicTo(
+      size.width * 0.9980843,
+      size.height * 0.9035503,
+      size.width * 0.9374138,
+      size.height * 0.9970414,
+      size.width * 0.8627395,
+      size.height * 0.9970414,
+    );
+    path_0.lineTo(size.width * 0.7254943, size.height * 0.9970414);
+    path_0.lineTo(size.width * 0.06775709, size.height * 0.9876864);
+    path_0.cubicTo(
+      size.width * 0.02499050,
+      size.height * 0.9870769,
+      size.width * -0.005947280,
+      size.height * 0.9244201,
+      size.width * 0.004976360,
+      size.height * 0.8605799,
+    );
+    path_0.lineTo(size.width * 0.05377816, size.height * 0.6559822);
+    path_0.cubicTo(
+      size.width * 0.07366322,
+      size.height * 0.5726154,
+      size.width * 0.08054444,
+      size.height * 0.4831793,
+      size.width * 0.07385939,
+      size.height * 0.3949355,
+    );
+    path_0.lineTo(size.width * 0.06019157, size.height * 0.2145030);
+    path_0.cubicTo(
+      size.width * 0.05578352,
+      size.height * 0.1563142,
+      size.width * 0.06907395,
+      size.height * 0.09825266,
+      size.width * 0.09618582,
+      size.height * 0.05727627,
+    );
+    path_0.close();
+
+    Paint paint0Stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
+    paint0Stroke.color = const Color(0xff3A3A3A).withOpacity(1.0);
+    canvas.drawPath(path_0, paint0Stroke);
+
+    Paint paint0Fill = Paint()..style = PaintingStyle.fill;
+    paint0Fill.color = const Color(0xffC2C2C2).withOpacity(0.63);
+    canvas.drawPath(path_0, paint0Fill);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
 class BehindInitiateCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // Create gradient for the purple background
     final gradient = const LinearGradient(
-      colors: [
-        Color(0xFF9B59B6), // Purple
-        Color(0xFF8E44AD), // Slightly darker purple
-        Color(0xFF663399), // Even darker purple
-      ],
+      colors: [Color(0xFFE9D6FA), Color(0xFFE9D6FA), Color(0xFFE9D6FA)],
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
     );
@@ -283,17 +362,15 @@ class BehindInitiateCustomPainter extends CustomPainter {
     path_0.lineTo(size.width * 0.08396947, size.height * 0.3086420);
     path_0.close();
 
-    // Apply gradient fill with opacity
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
     paint0Fill.shader = gradient.createShader(
       Rect.fromLTWH(0, 0, size.width, size.height),
     );
-    paint0Fill.color = paint0Fill.color.withOpacity(0.9);
+    paint0Fill.color = paint0Fill.color.withOpacity(0.4);
     canvas.drawPath(path_0, paint0Fill);
 
-    // Stroke path
     Path path_1 = Path();
-    path_1.moveTo(size.width * 0.2111959, size.height * 0.1558642);
+    path_1.moveTo(size.width * 0.2111959, size.height * 0.158642);
     path_1.lineTo(size.width * 0.8944020, size.height * 0.1558642);
     path_1.cubicTo(
       size.width * 0.9056285,
@@ -384,7 +461,7 @@ class BehindInitiateCustomPainter extends CustomPainter {
       ..strokeWidth = 1.5
       ..color = const Color(
         0xFF6A1B9A,
-      ).withOpacity(0.6); // Darker purple border
+      ).withValues(alpha: .6); // Darker purple border
     canvas.drawPath(path_1, paint1Stroke);
   }
 
