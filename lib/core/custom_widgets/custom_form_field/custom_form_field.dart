@@ -1,5 +1,6 @@
 import 'dart:ui' as ui;
 
+import 'package:animate_do/animate_do.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -82,157 +83,164 @@ class _CustomFormFieldState extends State<CustomFormField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.width ?? MediaQuery.of(context).size.width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              if (widget.title != null) ...{
-                Expanded(
-                  child: Text(
-                    widget.title!,
+    return FadeInLeft(
+      child: SizedBox(
+        width: widget.width ?? MediaQuery.of(context).size.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                if (widget.title != null) ...{
+                  Expanded(
+                    child: Text(
+                      widget.title!,
+                      style:
+                          widget.titleStyle ??
+                          AppTextStyle.formTitleStyle(context),
+                    ),
+                  ),
+                },
+                if (widget.otherSideTitle != null) ...{
+                  Text(
+                    widget.otherSideTitle!,
                     style:
                         widget.titleStyle ??
                         AppTextStyle.formTitleStyle(context),
                   ),
-                ),
-              },
-              if (widget.otherSideTitle != null) ...{
-                Text(
-                  widget.otherSideTitle!,
-                  style:
-                      widget.titleStyle ?? AppTextStyle.formTitleStyle(context),
-                ),
-              },
-            ],
-          ),
-          if (widget.title != null || widget.otherSideTitle != null) ...{
-            const SizedBox(height: 5),
-          },
-          Directionality(
-            textDirection: widget.textDirection != null
-                ? widget.textDirection!
-                : context.isRTL()
-                ? ui.TextDirection.rtl
-                : ui.TextDirection.ltr,
-            child: TextFormField(
-              onTapOutside: (event) {
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              controller: widget.controller,
-              onChanged: widget.onChanged,
-              validator: widget.validator,
-              onTap: widget.onTap,
-              readOnly: widget.readOnly,
-              keyboardType: widget.keyboardType,
-              obscureText: widget.isPassword ? _obscureText : false,
-              style: widget.textStyle ?? AppTextStyle.textFormStyle(context),
-              autovalidateMode:
-                  widget.autovalidateMode ?? AutovalidateMode.onUserInteraction,
-              maxLines: widget.maxLines,
-              cursorColor: widget.focusColor ?? AppColor.mainAppColor(context),
-              inputFormatters: widget.inputFormatters,
-              maxLength: widget.maxLength,
-              decoration: InputDecoration(
-                hintMaxLines: 2,
-                errorMaxLines: 2,
-                hintText: widget.hintText,
-                hintStyle: widget.hintStyle ?? AppTextStyle.hintStyle(context),
-                fillColor:
-                    widget.fillColor ??
-                    (widget.formFieldBorder == FormFieldBorder.underLine
-                        ? Colors.transparent
-                        : AppColor.textFormFillColor(context)),
-                filled: true,
-                border: _border(
-                  color:
-                      widget.unFocusColor ??
-                      AppColor.textFormBorderColor(context),
-                ),
-                disabledBorder: _border(
-                  color:
-                      widget.unFocusColor ??
-                      AppColor.textFormBorderColor(context),
-                ),
-                focusedBorder: _border(
-                  color: widget.unFocusColor ?? AppColor.mainAppColor(context),
-                ),
-                enabledBorder: _border(
-                  color:
-                      widget.unFocusColor ??
-                      AppColor.textFormBorderColor(context),
-                ),
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 10,
-                ),
-                prefixIcon:
-                    widget.country != null &&
-                        context.locale == const Locale('en')
-                    ? Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          widget.prefixIcon ?? const SizedBox(),
-                          TextButton(
-                            onPressed: null,
-                            // onPressed:
-                            //     widget.onCountrySelect != null ? _select : null,
-                            child: Text(
-                              '${widget.country?.flagEmoji} +${widget.country?.phoneCode}',
-                              style:
-                                  widget.textStyle ??
-                                  AppTextStyle.textFormStyle(context),
-                              textDirection: ui.TextDirection.ltr,
+                },
+              ],
+            ),
+            if (widget.title != null || widget.otherSideTitle != null) ...{
+              const SizedBox(height: 5),
+            },
+            Directionality(
+              textDirection: widget.textDirection != null
+                  ? widget.textDirection!
+                  : context.isRTL()
+                  ? ui.TextDirection.rtl
+                  : ui.TextDirection.ltr,
+              child: TextFormField(
+                onTapOutside: (event) {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                controller: widget.controller,
+                onChanged: widget.onChanged,
+                validator: widget.validator,
+                onTap: widget.onTap,
+                readOnly: widget.readOnly,
+                keyboardType: widget.keyboardType,
+                obscureText: widget.isPassword ? _obscureText : false,
+                style: widget.textStyle ?? AppTextStyle.textFormStyle(context),
+                autovalidateMode:
+                    widget.autovalidateMode ??
+                    AutovalidateMode.onUserInteraction,
+                maxLines: widget.maxLines,
+                cursorColor:
+                    widget.focusColor ?? AppColor.mainAppColor(context),
+                inputFormatters: widget.inputFormatters,
+                maxLength: widget.maxLength,
+                decoration: InputDecoration(
+                  hintMaxLines: 2,
+                  errorMaxLines: 2,
+                  hintText: widget.hintText,
+                  hintStyle:
+                      widget.hintStyle ?? AppTextStyle.hintStyle(context),
+                  fillColor:
+                      widget.fillColor ??
+                      (widget.formFieldBorder == FormFieldBorder.underLine
+                          ? Colors.transparent
+                          : AppColor.textFormFillColor(context)),
+                  filled: true,
+                  border: _border(
+                    color:
+                        widget.unFocusColor ??
+                        AppColor.textFormBorderColor(context),
+                  ),
+                  disabledBorder: _border(
+                    color:
+                        widget.unFocusColor ??
+                        AppColor.textFormBorderColor(context),
+                  ),
+                  focusedBorder: _border(
+                    color:
+                        widget.unFocusColor ?? AppColor.mainAppColor(context),
+                  ),
+                  enabledBorder: _border(
+                    color:
+                        widget.unFocusColor ??
+                        AppColor.textFormBorderColor(context),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 10,
+                  ),
+                  prefixIcon:
+                      widget.country != null &&
+                          context.locale == const Locale('en')
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            widget.prefixIcon ?? const SizedBox(),
+                            TextButton(
+                              onPressed: null,
+                              // onPressed:
+                              //     widget.onCountrySelect != null ? _select : null,
+                              child: Text(
+                                '${widget.country?.flagEmoji} +${widget.country?.phoneCode}',
+                                style:
+                                    widget.textStyle ??
+                                    AppTextStyle.textFormStyle(context),
+                                textDirection: ui.TextDirection.ltr,
+                              ),
                             ),
-                          ),
-                        ],
-                      )
-                    : widget.prefixIcon,
-                suffixIcon:
-                    widget.country != null &&
-                        context.locale == const Locale('ar')
-                    ? Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          TextButton(
-                            onPressed: null,
-                            // onPressed:
-                            //     widget.onCountrySelect != null ? _select : null,
-                            child: Text(
-                              '${widget.country?.flagEmoji} +${widget.country?.phoneCode}',
-                              style:
-                                  widget.textStyle ??
-                                  AppTextStyle.textFormStyle(context),
-                              textDirection: ui.TextDirection.ltr,
+                          ],
+                        )
+                      : widget.prefixIcon,
+                  suffixIcon:
+                      widget.country != null &&
+                          context.locale == const Locale('ar')
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextButton(
+                              onPressed: null,
+                              // onPressed:
+                              //     widget.onCountrySelect != null ? _select : null,
+                              child: Text(
+                                '${widget.country?.flagEmoji} +${widget.country?.phoneCode}',
+                                style:
+                                    widget.textStyle ??
+                                    AppTextStyle.textFormStyle(context),
+                                textDirection: ui.TextDirection.ltr,
+                              ),
                             ),
+                            widget.suffixIcon ?? const SizedBox(),
+                          ],
+                        )
+                      : widget.isPassword
+                      ? InkWell(
+                          onTap: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                          child: Icon(
+                            _obscureText
+                                ? Icons.visibility_off_rounded
+                                : Icons.visibility_rounded,
+                            size: 20,
+                            color:
+                                widget.passwordColor ??
+                                AppColor.hintColor(context),
                           ),
-                          widget.suffixIcon ?? const SizedBox(),
-                        ],
-                      )
-                    : widget.isPassword
-                    ? InkWell(
-                        onTap: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
-                        child: Icon(
-                          _obscureText
-                              ? Icons.visibility_off_rounded
-                              : Icons.visibility_rounded,
-                          size: 20,
-                          color:
-                              widget.passwordColor ??
-                              AppColor.hintColor(context),
-                        ),
-                      )
-                    : widget.suffixIcon,
+                        )
+                      : widget.suffixIcon,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

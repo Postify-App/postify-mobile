@@ -1,17 +1,22 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:postify/core/custom_widgets/buttons/custom_button.dart';
-import 'package:postify/core/custom_widgets/custom_form_field/custom_otp_field.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
-import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/auth/presentation/view/widget/custom_auth_header.dart';
+import 'package:postify/features/auth/presentation/view/widget/otp_screen_form_widget.dart';
+
+class OtpScreenArgs {
+  final String email;
+  final String? name;
+
+  OtpScreenArgs({required this.email, this.name});
+}
 
 class OtpScreen extends StatelessWidget {
-  const OtpScreen({super.key});
+  const OtpScreen({super.key, required this.args});
+  final OtpScreenArgs args;
 
   @override
   Widget build(BuildContext context) {
@@ -40,29 +45,7 @@ class OtpScreen extends StatelessWidget {
                         description: AppLocaleKey.enterVerificationCode.tr(),
                       ),
                       171.verticalSpace,
-                      CustomOtpField(
-                        length: 6,
-                        fieldWidth: 60,
-                        fieldHeight: 60,
-                        spacing: 20,
-                        showNumbers: false,
-                        onCompleted: (code) {
-                          print('OTP Completed: $code');
-                        },
-                      ),
-                      54.verticalSpace,
-                      CustomButton(text: AppLocaleKey.verify.tr()),
-                      18.verticalSpace,
-                      Center(
-                        child: FadeInUpBig(
-                          from: 30,
-                          duration: const Duration(milliseconds: 500),
-                          child: Text(
-                            AppLocaleKey.sendNewCode.tr(),
-                            style: AppTextStyle.text14RMain(context),
-                          ),
-                        ),
-                      ),
+                      OtpScreenFormWidget(args: args),
                     ],
                   ),
                 ),
