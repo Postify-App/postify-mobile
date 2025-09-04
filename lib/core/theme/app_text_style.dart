@@ -466,4 +466,40 @@ class AppTextStyle {
       color: color ?? AppColor.mainAppColor(context, listen: listen),
     );
   }
+
+  static TextStyle text40LightSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 40,
+      fontWeight: FontWeight.w300,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text40SBSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 40,
+      fontWeight: FontWeight.w600,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text40BWhite(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 40,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.whiteColor(context, listen: listen),
+    );
+  }
 }

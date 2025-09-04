@@ -78,14 +78,10 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget>
             ),
             32.verticalSpace,
             BlocConsumer<AuthCubit, AuthState>(
-              listenWhen: (previous, current) =>
-                  previous.registerStatus != current.registerStatus,
-              buildWhen: (previous, current) =>
-                  previous.registerStatus != current.registerStatus,
               listener: (context, state) {
                 if (state.registerStatus == CubitStatus.failure) {
                   CommonMethods.showError(message: state.errorMessage);
-                } else if (state.loginStatus == CubitStatus.success) {
+                } else if (state.registerStatus == CubitStatus.success) {
                   NavigatorMethods.pushNamed(
                     context,
                     RoutesName.otpScreen,

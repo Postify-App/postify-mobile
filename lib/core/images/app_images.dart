@@ -102,6 +102,10 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
+  /// Assets for assetsSvgAboveInitiate
+  /// assets/svg/aboveInitiate.svg
+  static const String assetsSvgAboveInitiate = "assets/svg/aboveInitiate.svg";
+
   /// Assets for assetsSvgAddBorder
   /// assets/svg/addBorder.svg
   static const String assetsSvgAddBorder = "assets/svg/addBorder.svg";

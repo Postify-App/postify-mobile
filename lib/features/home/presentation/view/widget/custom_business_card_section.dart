@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:postify/core/images/app_images.dart';
 
 class CustomBusinessCardSectionWidget extends StatelessWidget {
-  const   CustomBusinessCardSectionWidget({super.key});
+  const CustomBusinessCardSectionWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +15,18 @@ class CustomBusinessCardSectionWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Positioned(
-            left: -30,
+            left: -30.w,
             top: 0,
             child: SvgPicture.asset(AppImages.assetsSvgBusinessHere),
           ),
           Positioned(
-            left: 15,
-            bottom: -50,
+            left: 15.w,
+            bottom: -30.h,
             child: SvgPicture.asset(AppImages.assetsSvgSocialAccountsShape),
           ),
           Positioned(
             right: 0,
-            bottom: -65,
+            bottom: -50.h,
             child: SvgPicture.asset(AppImages.assetsSvgShape),
           ),
         ],

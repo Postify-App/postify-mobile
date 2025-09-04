@@ -3,29 +3,32 @@ import 'package:hive/hive.dart';
 
 import '../../theme/theme_enum.dart';
 
-
 class HiveMethods {
   static final _box = Hive.box('app');
 
   static String getLang() {
-    return _box.get('lang', defaultValue: 'ar');
+    return _box.get('lang', defaultValue: 'en');
   }
 
   static void updateLang(Locale locale) {
     _box.put('lang', locale.languageCode);
   }
 
-  static String? getToken() {
-    return _box.get('token');
+  static String? getAccessToken() => _box.get('accessToken');
+
+  static void updateAccessToken(String accessToken) {
+    _box.put('accessToken', accessToken);
   }
 
+  static String? getRefreshToken() => _box.get('refreshToken');
 
-  static void updateToken(String token) {
-    _box.put('token', token);
+  static void updateRefreshToken(String refreshToken) {
+    _box.put('refreshToken', refreshToken);
   }
 
-  static void deleteToken() {
-    _box.delete('token');
+  static void deleteTokens() {
+    _box.delete('accessToken');
+    _box.delete('refreshToken');
   }
 
   static bool isFirstTime() {
@@ -37,10 +40,7 @@ class HiveMethods {
   }
 
   static ThemeEnum getTheme() {
-    return _box.get(
-      'theme',
-      defaultValue: ThemeEnum.light,
-    );
+    return _box.get('theme', defaultValue: ThemeEnum.light);
   }
 
   static void updateThem(ThemeEnum theme) {

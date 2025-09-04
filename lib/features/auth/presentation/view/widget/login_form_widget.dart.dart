@@ -66,10 +66,6 @@ class _LoginFormWidgetState extends State<LoginFormWidget>
             ),
             32.verticalSpace,
             BlocConsumer<AuthCubit, AuthState>(
-              listenWhen: (previous, current) =>
-                  previous.loginStatus != current.loginStatus,
-              buildWhen: (previous, current) =>
-                  previous.loginStatus != current.loginStatus,
               listener: (context, state) {
                 if (state.loginStatus == CubitStatus.failure) {
                   CommonMethods.showError(message: state.errorMessage);

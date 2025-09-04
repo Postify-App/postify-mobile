@@ -1,30 +1,31 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:postify/core/routes/routes_name.dart';
+import 'package:postify/core/utils/common_methods.dart';
+import 'package:postify/features/auth/presentation/controller/auth_cubit.dart';
+
 import '../cache/hive/hive_methods.dart';
+import '../locale/app_locale_key.dart';
 import '../routes/app_routers_import.dart';
-import '../utils/common_methods.dart';
-import '../utils/navigator_methods.dart';
 import 'status_code.dart';
-import '../routes/routes_name.dart';
 
 class AppInterceptors extends Interceptor {
-  AppInterceptors();
+  final Dio dio;
   static bool isInternet = true;
+  AppInterceptors(this.dio);
+
   @override
   Future<void> onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    isInternet = true;
     debugPrint('REQUEST[${options.method}] => PATH: ${options.path}');
-
-    options.headers['Content-Type'] = 'application/json';
-    options.headers['Accept'] = 'application/json';
     options.headers['Accept-Language'] = HiveMethods.getLang();
-
-    if (HiveMethods.getToken() != null) {
-      options.headers['Authorization'] = "Bearer ${HiveMethods.getToken()}";
+    if (HiveMethods.getAccessToken() != null) {
+      options.headers['Authorization'] =
+          "Bearer ${HiveMethods.getAccessToken()}";
     }
 
     // Check internet connectivity before sending request
@@ -49,11 +50,10 @@ class AppInterceptors extends Interceptor {
     );
 
     if (response.statusCode == StatusCode.unauthorized) {
-      HiveMethods.deleteToken();
-      NavigatorMethods.pushNamedAndRemoveUntil(
+      HiveMethods.deleteTokens();
+      Navigator.of(
         AppRouters.navigatorKey.currentContext!,
-        RoutesName.loginScreen,
-      );
+      ).pushReplacementNamed(RoutesName.loginScreen);
       return;
     }
 
@@ -61,28 +61,42 @@ class AppInterceptors extends Interceptor {
   }
 
   @override
-  void onError(DioException err, ErrorInterceptorHandler handler) {
-    if (err.response?.statusCode == StatusCode.unauthorized) {
-      HiveMethods.deleteToken();
-      NavigatorMethods.pushNamedAndRemoveUntil(
-        AppRouters.navigatorKey.currentContext!,
-        RoutesName.loginScreen,
-      );
-      return;
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
+    debugPrint(
+      'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}',
+    );
+
+    if (err.response?.statusCode == StatusCode.unauthorized &&
+        err.response?.data['message'] ==
+            'Your access token is invalid or has expired.') {
+      try {
+        await AppRouters.navigatorKey.currentContext!
+            .read<AuthCubit>()
+            .refreshToken();
+        err.requestOptions.headers['Authorization'] =
+            "Bearer ${HiveMethods.getAccessToken()}";
+        final retryRequest = await dio.fetch(err.requestOptions);
+        return handler.resolve(retryRequest);
+      } catch (refreshError) {
+        HiveMethods.deleteTokens();
+        Navigator.of(
+          AppRouters.navigatorKey.currentContext!,
+        ).pushReplacementNamed(RoutesName.loginScreen);
+        handler.reject(err);
+      }
     }
-    // debugPrint('ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
 
-    // // Handle no internet connection error
-    // if (err.type == DioExceptionType.unknown && err.error == 'No Internet Connection') {
-    //   showDialog(
-    //     context: AppRouters.navigatorKey.currentContext!,
-    //     builder: (_) => AlertDialog(
-    //       title: Text(AppLocaleKey.noInternet.tr()),
-    //       content: Text(AppLocaleKey.pleaaddNotesCheckYourConnectionAndTryAgain.tr()),
-    //     ),
-    //   );
-    // }
+    if (err.type == DioExceptionType.unknown &&
+        err.error == 'No Internet Connection') {
+      showDialog(
+        context: AppRouters.navigatorKey.currentContext!,
+        builder: (_) => AlertDialog(
+          title: Text(AppLocaleKey.noInternet.tr()),
+          content: Text(AppLocaleKey.pleaseCheckYourConnectionAndTryAgain.tr()),
+        ),
+      );
+    }
 
-    super.onError(err, handler);
+    return handler.next(err);
   }
 }

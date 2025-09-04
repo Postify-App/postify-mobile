@@ -17,18 +17,22 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      // if (HiveMethods.isFirstTime()) {
-      //   NavigatorMethods.pushNamedAndRemoveUntil(
-      //     context,
-      //     RoutesName.onBoardingScreen,
-      //   );
-      // } else {
-      //   NavigatorMethods.pushNamedAndRemoveUntil(
-      //     context,
-      //     RoutesName.loginScreen,
-      //   );
-      // }
-      NavigatorMethods.pushNamedAndRemoveUntil(context, RoutesName.homeScreen);
+      if (HiveMethods.isFirstTime()) {
+        NavigatorMethods.pushNamedAndRemoveUntil(
+          context,
+          RoutesName.onBoardingScreen,
+        );
+      } else if (HiveMethods.getAccessToken() != null) {
+        NavigatorMethods.pushNamedAndRemoveUntil(
+          context,
+          RoutesName.homeScreen,
+        );
+      } else {
+        NavigatorMethods.pushNamedAndRemoveUntil(
+          context,
+          RoutesName.loginScreen,
+        );
+      }
     });
   }
 

@@ -8,7 +8,7 @@ Future<void> initDependencies() async {
     () => ConnectionCheckerImpl(sl()),
   );
 
-  sl.registerLazySingleton<AppInterceptors>(() => AppInterceptors());
+  sl.registerLazySingleton<AppInterceptors>(() => AppInterceptors(sl()));
   //Core
   sl.registerLazySingleton<InternetConnection>(() => InternetConnection());
   sl.registerLazySingleton<Dio>(() => Dio());

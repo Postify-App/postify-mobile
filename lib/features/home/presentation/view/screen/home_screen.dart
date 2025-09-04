@@ -16,14 +16,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.mainAppColor(context),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 10),
+      body: SafeArea(
         child: Stack(
           children: [
             const Positioned.fill(child: LiquidGlassBackground()),
             Positioned(
-              top: 25,
-              left: 10,
+              top: 25.h,
+              left: 10.w,
               child: Image.asset(AppImages.assetsImagesHomeLogo),
             ),
             Padding(
@@ -51,8 +50,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 35,
-              left: 35,
+              bottom: 35.h,
+              left: 35.w,
               child: CustomHomeButton(
                 text: AppLocaleKey.add.tr(),
                 prefixIcon: SvgPicture.asset(AppImages.assetsSvgArrowTop),
@@ -64,8 +63,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 25,
-              right: 10,
+              bottom: 15.h,
+              right: 15.w,
               child: CustomHomeButton(
                 text: AppLocaleKey.recommendation.tr(),
                 suffixIcon: CircleAvatar(
