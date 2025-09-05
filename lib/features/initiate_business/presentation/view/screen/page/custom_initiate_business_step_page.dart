@@ -32,7 +32,6 @@ class CustomInitiateBusinessStepPage extends StatelessWidget {
           Text(step.title, style: AppTextStyle.text28SBWhite(context)),
           const SizedBox(height: 8),
           Text(step.subtitle, style: AppTextStyle.text16MWhite(context)),
-          const SizedBox(height: 40),
           Expanded(child: step.content),
           Padding(
             padding: const EdgeInsets.only(bottom: 40),

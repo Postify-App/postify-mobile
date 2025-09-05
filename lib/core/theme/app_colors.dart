@@ -12,6 +12,15 @@ class AppColor {
     );
   }
 
+  static Color lightMainAppColor(BuildContext context, {bool listen = true}) {
+    return AppTheme.getByTheme(
+      context,
+      light: const Color(0xFFE9D6FA),
+      dark: const Color(0xFFE9D6FA),
+      listen: listen,
+    );
+  }
+
   static Color secondAppColor(BuildContext context, {bool listen = true}) {
     return AppTheme.getByTheme(
       context,

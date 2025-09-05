@@ -103,6 +103,7 @@ class _InitiateBusinessScreenState extends State<InitiateBusinessScreen> {
   @override
   void dispose() {
     _pageController.dispose();
+    currentPageNotifier.dispose();
     super.dispose();
   }
 }

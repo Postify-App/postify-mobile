@@ -110,13 +110,17 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
-  /// Assets for assetsImagesSelectTopicButtonShape
-  /// assets/images/selectTopicButtonShape.png
-  static const String assetsImagesSelectTopicButtonShape = "assets/images/selectTopicButtonShape.png";
+  /// Assets for assetsImagesSelectedTopicButtonShape
+  /// assets/images/SelectedTopicButtonShape.png
+  static const String assetsImagesSelectedTopicButtonShape = "assets/images/SelectedTopicButtonShape.png";
 
   /// Assets for assetsImagesToneOfVoiceCardShape
   /// assets/images/toneOfVoiceCardShape.png
   static const String assetsImagesToneOfVoiceCardShape = "assets/images/toneOfVoiceCardShape.png";
+
+  /// Assets for assetsImagesTopicButtonShape
+  /// assets/images/TopicButtonShape.png
+  static const String assetsImagesTopicButtonShape = "assets/images/TopicButtonShape.png";
 
   /// Assets for assetsImagesTopicCardShape
   /// assets/images/topicCardShape.png

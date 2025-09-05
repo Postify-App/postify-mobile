@@ -83,7 +83,7 @@ class _CustomButtonState extends State<CustomHomeButton>
 
   @override
   Widget build(BuildContext context) {
-    return FadeInDown(
+    return FadeInUp(
       child: ScaleTransition(
         scale: _scaleAnimation,
         child: Container(

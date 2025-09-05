@@ -479,6 +479,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text32BSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 32,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text28SBWhite(
     BuildContext context, {
     bool listen = true,
