@@ -2,9 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:postify/core/cache/hive/hive_methods.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
+import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/theme/app_colors.dart';
+import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_business_card_section.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_home_button.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_initiate_shape_widget.dart';
@@ -60,6 +63,13 @@ class HomeScreen extends StatelessWidget {
                 color: AppColor.greenColor(context),
                 textColor: AppColor.blackColor(context),
                 hasShadow: true,
+                onPressed: () {
+                  HiveMethods.deleteTokens();
+                  NavigatorMethods.pushNamedAndRemoveUntil(
+                    context,
+                    RoutesName.loginScreen,
+                  );
+                },
               ),
             ),
             Positioned(

@@ -92,6 +92,25 @@
   "recommendation": "توصية",
   "failedToGetGoogleCredentials" : "فشل في الحصول على بيانات اعتماد Google",
   "googleSignInCancelled" : "تم إلغاء تسجيل الدخول عبر Google من قبل المستخدم",
-  "googleSignInFailed" : "فشل تسجيل الدخول عبر Google"
+  "googleSignInFailed" : "فشل تسجيل الدخول عبر Google",
+  "back" : "رجوع",
+  "logout" : "تسجيل الخروج",
+  "chooseTopic": "اختر الموضوع",
+  "toneOfVoice": "نغمة الصوت",
+  "targetAudience": "الجمهور المستهدف",
+  "businessInfo": "معلومات العمل",
+  "enterBusinessName": "أدخل اسم عملك",
+  "enterEmailAddress": "أدخل بريدك الإلكتروني",
+  "businessDescription": "وصف العمل",
+  "enterLocation": "أدخل موقعك",
+  "businessSize": "حجم العمل",
+  "uploadLogo": "ارفع الشعار",
+  "done": "تم",
+  "socialMedia": "وسائل التواصل الاجتماعي",
+  "linkYourAccounts": "اربط حساباتك",
+  "whatBusinessBasedOn": "على ماذا يعتمد عملك!",
+  "howBrandSound": "كيف يجب أن يبدو صوت علامتك التجارية",
+  "whoTryingToReach": "من تحاول الوصول إليه",
+  "setupBusinessProfile": "لنقم بإعداد ملف عملك"
   }
   

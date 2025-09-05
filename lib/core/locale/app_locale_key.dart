@@ -102,4 +102,23 @@ class AppLocaleKey {
       "failedToGetGoogleCredentials";
   static const String googleSignInCancelled = "googleSignInCancelled";
   static const String googleSignInFailed = "googleSignInFailed";
+  static const String back = "back";
+  static const String logout = "logout";
+  static const chooseTopic = 'chooseTopic';
+  static const toneOfVoice = 'toneOfVoice';
+  static const targetAudience = 'targetAudience';
+  static const businessInfo = 'businessInfo';
+  static const enterBusinessName = 'enterBusinessName';
+  static const enterEmailAddress = 'enterEmailAddress';
+  static const businessDescription = 'businessDescription';
+  static const enterLocation = 'enterLocation';
+  static const businessSize = 'businessSize';
+  static const uploadLogo = 'uploadLogo';
+  static const done = 'done';
+  static const socialMedia = 'socialMedia';
+  static const linkYourAccounts = 'linkYourAccounts';
+  static const whatBusinessBasedOn = 'whatBusinessBasedOn';
+  static const howBrandSound = 'howBrandSound';
+  static const whoTryingToReach = 'whoTryingToReach';
+  static const setupBusinessProfile = 'setupBusinessProfile';
 }

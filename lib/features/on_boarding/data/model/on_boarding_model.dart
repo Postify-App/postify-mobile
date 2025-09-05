@@ -18,17 +18,17 @@ class OnBoardingModel extends Equatable {
 }
 
 List<OnBoardingModel> onBoardingList = [
-  OnBoardingModel(
+  const OnBoardingModel(
     title: AppLocaleKey.welcomeToPostify,
     description: AppLocaleKey.introText,
     image: AppImages.assetsImagesOnBoarding1,
   ),
-  OnBoardingModel(
+  const OnBoardingModel(
     title: AppLocaleKey.shareEffortlessly,
     description: AppLocaleKey.shareEffortlesslyDesc,
     image: AppImages.assetsImagesOnBoarding2,
   ),
-  OnBoardingModel(
+  const OnBoardingModel(
     title: AppLocaleKey.discoverWhatMatters,
     description: AppLocaleKey.discoverWhatMattersDesc,
     image: AppImages.assetsImagesOnBoarding3,

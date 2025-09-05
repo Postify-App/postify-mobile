@@ -419,6 +419,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text16BSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text12RLightGrey(
     BuildContext context, {
     bool listen = true,
@@ -464,6 +476,18 @@ class AppTextStyle {
       fontSize: 28,
       fontWeight: FontWeight.w600,
       color: color ?? AppColor.mainAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text28SBWhite(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 28,
+      fontWeight: FontWeight.w600,
+      color: color ?? AppColor.whiteColor(context, listen: listen),
     );
   }
 

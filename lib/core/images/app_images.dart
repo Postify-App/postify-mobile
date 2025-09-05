@@ -86,6 +86,14 @@ class AppImages {
   /// assets/images/authTopBackground.png
   static const String assetsImagesAuthTopBackground = "assets/images/authTopBackground.png";
 
+  /// Assets for assetsImagesBackShape
+  /// assets/images/backShape.png
+  static const String assetsImagesBackShape = "assets/images/backShape.png";
+
+  /// Assets for assetsImagesGlassEffect
+  /// assets/images/glassEffect.png
+  static const String assetsImagesGlassEffect = "assets/images/glassEffect.png";
+
   /// Assets for assetsImagesHomeLogo
   /// assets/images/homeLogo.png
   static const String assetsImagesHomeLogo = "assets/images/homeLogo.png";
@@ -102,6 +110,18 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
+  /// Assets for assetsImagesSelectTopicButtonShape
+  /// assets/images/selectTopicButtonShape.png
+  static const String assetsImagesSelectTopicButtonShape = "assets/images/selectTopicButtonShape.png";
+
+  /// Assets for assetsImagesToneOfVoiceCardShape
+  /// assets/images/toneOfVoiceCardShape.png
+  static const String assetsImagesToneOfVoiceCardShape = "assets/images/toneOfVoiceCardShape.png";
+
+  /// Assets for assetsImagesTopicCardShape
+  /// assets/images/topicCardShape.png
+  static const String assetsImagesTopicCardShape = "assets/images/topicCardShape.png";
+
   /// Assets for assetsSvgAboveInitiate
   /// assets/svg/aboveInitiate.svg
   static const String assetsSvgAboveInitiate = "assets/svg/aboveInitiate.svg";
@@ -109,6 +129,10 @@ class AppImages {
   /// Assets for assetsSvgAddBorder
   /// assets/svg/addBorder.svg
   static const String assetsSvgAddBorder = "assets/svg/addBorder.svg";
+
+  /// Assets for assetsSvgArrowBack
+  /// assets/svg/arrowBack.svg
+  static const String assetsSvgArrowBack = "assets/svg/arrowBack.svg";
 
   /// Assets for assetsSvgArrowDown
   /// assets/svg/arrowDown.svg

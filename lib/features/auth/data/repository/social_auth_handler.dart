@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,6 +21,7 @@ class SocialAuthHandler {
           FirebaseAuthFailure(AppLocaleKey.failedToGetGoogleCredentials.tr()),
         );
       }
+      log('Google ID Token: ${googleAuth.idToken}');
       return Right(googleAuth.idToken);
     } on FirebaseAuthException catch (e) {
       return Left(FirebaseAuthFailure.fromGoogleError(e.code));

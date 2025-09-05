@@ -2,9 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:postify/core/extension/animation_extensions/tap_scale_animation_extension.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
+import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/theme/app_text_style.dart';
+import 'package:postify/core/utils/navigator_methods.dart';
 
 class CustomInitiateSectionWidget extends StatelessWidget {
   const CustomInitiateSectionWidget({super.key});
@@ -34,6 +37,7 @@ class CustomInitiateSectionWidget extends StatelessWidget {
                   top: 15.h,
                   left: 25.w,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       RichText(
                         text: TextSpan(
@@ -58,9 +62,12 @@ class CustomInitiateSectionWidget extends StatelessWidget {
                         style: AppTextStyle.text40SBSecond(context),
                         textAlign: TextAlign.start,
                       ),
-                      SvgPicture.asset(AppImages.assetsSvgAddBorder),
                     ],
                   ),
+                ),
+                Positioned(
+                  bottom: 10,
+                  child: SvgPicture.asset(AppImages.assetsSvgAddBorder),
                 ),
               ],
             ),
@@ -72,6 +79,10 @@ class CustomInitiateSectionWidget extends StatelessWidget {
           ),
         ],
       ),
+    ).onTapScaleAnimation(
+      onTap: () {
+        NavigatorMethods.pushNamed(context, RoutesName.initiateBusinessScreen);
+      },
     );
   }
 }
