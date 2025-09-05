@@ -1,37 +1,29 @@
 import 'package:dartz/dartz.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:postify/core/error/failures.dart';
+import 'package:postify/core/locale/app_locale_key.dart';
 
 class SocialAuthHandler {
-  final GoogleSignIn googleSignIn;
-  final FirebaseAuth firebaseAuth;
-
-  SocialAuthHandler(this.googleSignIn, this.firebaseAuth);
+  SocialAuthHandler();
 
   Future<Either<Failure, String?>> signInWithGoogle() async {
     try {
-      await googleSignIn.initialize(); // required in v7
-      final googleUser = await googleSignIn
-          .authenticate(); // replacement for signIn()
-
-      // if (googleUser == null) {
-      //   return Left(FirebaseAuthFailure(
-      //     AppLocaleKey.googleSignInCancelled.tr()
-      //   ));
-      // }
-
+      final googleSignIn = GoogleSignIn.instance;
+      await googleSignIn.initialize();
+      final googleUser = await googleSignIn.authenticate();
       final googleAuth = googleUser.authentication;
-
       if (googleAuth.idToken == null) {
         return Left(
-          FirebaseAuthFailure('AppLocaleKey.failedToGetGoogleCredentials.tr()'),
+          FirebaseAuthFailure(AppLocaleKey.failedToGetGoogleCredentials.tr()),
         );
       }
-
       return Right(googleAuth.idToken);
     } on FirebaseAuthException catch (e) {
       return Left(FirebaseAuthFailure.fromGoogleError(e.code));
+    } on GoogleSignInException catch (e) {
+      return Left(FirebaseAuthFailure.fromGoogleError(e.code.name));
     } catch (e) {
       return Left(FirebaseAuthFailure(e.toString()));
     }

@@ -89,6 +89,9 @@
   "new": "جديد",
   "business": "أعمال",
   "add": "إضافة",
-  "recommendation": "توصية"
+  "recommendation": "توصية",
+  "failedToGetGoogleCredentials" : "فشل في الحصول على بيانات اعتماد Google",
+  "googleSignInCancelled" : "تم إلغاء تسجيل الدخول عبر Google من قبل المستخدم",
+  "googleSignInFailed" : "فشل تسجيل الدخول عبر Google"
   }
   

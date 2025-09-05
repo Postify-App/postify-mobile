@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:postify/features/auth/data/repository/auth_repository.dart';
+import 'package:postify/features/auth/data/repository/social_auth_handler.dart';
 import 'package:postify/features/auth/presentation/controller/auth_cubit.dart';
 import '../network/api_consumer.dart';
 import '../network/app_interceptors.dart';

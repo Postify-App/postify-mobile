@@ -98,4 +98,8 @@ class AppLocaleKey {
   static const String business = 'business';
   static const String add = 'add';
   static const String recommendation = 'recommendation';
+  static const String failedToGetGoogleCredentials =
+      "failedToGetGoogleCredentials";
+  static const String googleSignInCancelled = "googleSignInCancelled";
+  static const String googleSignInFailed = "googleSignInFailed";
 }

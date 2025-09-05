@@ -102,22 +102,33 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   //! signin with google
-  // Future<void> signInWithGoogle({String? profileType}) async {
-  //   emit(state.copyWith(signInWithGoogleStatus: CubitStatus.loading));
-  //   final result =
-  //       await authBaseRepository.signInWithGoogle(profileType: profileType);
-  //   result.fold((failure) {
-  //     CommonMethods.showError(
-  //       message: failure.errMessage,
-  //     );
-  //     emit(state.copyWith(
-  //         signInWithGoogleStatus: CubitStatus.failure,
-  //         errorMessage: failure.errMessage));
-  //   }, (user) {
-  //     HiveMethods.updateAccessToken(user.accessToken);
-  //     HiveMethods.updateRefreshToken(user.refreshToken);
-  //     emit(state.copyWith(
-  //         signInWithGoogleStatus: CubitStatus.success, userModel: user.user));
-  //   });
-  // }
+  Future<void> signInWithGoogle() async {
+    emit(state.copyWith(signInWithGoogleStatus: CubitStatus.loading));
+    final result = await authRepository.signInWithGoogle();
+    result.fold(
+      (failure) {
+        CommonMethods.showError(message: failure.errMessage);
+        emit(
+          state.copyWith(
+            signInWithGoogleStatus: CubitStatus.failure,
+            errorMessage: failure.errMessage,
+          ),
+        );
+      },
+      (user) {
+        if (user.accessToken != null) {
+          HiveMethods.updateAccessToken(user.accessToken!);
+        }
+        if (user.refreshToken != null) {
+          HiveMethods.updateRefreshToken(user.refreshToken!);
+        }
+        emit(
+          state.copyWith(
+            signInWithGoogleStatus: CubitStatus.success,
+            userModel: user,
+          ),
+        );
+      },
+    );
+  }
 }

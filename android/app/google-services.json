@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "893290630566",
+    "project_id": "postify-ddf6e",
+    "storage_bucket": "postify-ddf6e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893290630566:android:a2d1db8f07aa0d8b41d367",
+        "android_client_info": {
+          "package_name": "com.example.postify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893290630566-3fdiikloqpdilojrrekakbv2jq9n9daf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.postify",
+            "certificate_hash": "7a63d0944b53e977d31e0d3a0210eec7d8a00db3"
+          }
+        },
+        {
+          "client_id": "893290630566-0b4pjo6ajqgd3jtff8d18jmik4qqjki5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5uPLiKRUT05_CP5DkpZygNEOLgrx_ZWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893290630566-0b4pjo6ajqgd3jtff8d18jmik4qqjki5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "893290630566-m44193n32arnjlofq8b2fh4mjjt7n5ip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.postify"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

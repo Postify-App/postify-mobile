@@ -89,5 +89,8 @@
   "new" : "New",
   "business" : "Business",
   "add" : "ADD",
-  "recommendation" : "Recommendation"
+  "recommendation" : "Recommendation",
+  "failedToGetGoogleCredentials" : "Failed to get Google credentials",
+  "googleSignInCancelled" : "Google sign-in was cancelled by the user",
+  "googleSignInFailed" : "Google sign-in failed"
   }
