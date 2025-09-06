@@ -121,4 +121,23 @@ class AppLocaleKey {
   static const howBrandSound = 'howBrandSound';
   static const whoTryingToReach = 'whoTryingToReach';
   static const setupBusinessProfile = 'setupBusinessProfile';
+  static const whatsYourMainGoal = 'whatsYourMainGoal';
+  static const String locationServiceDisabled = 'location_service_disabled';
+  static const String locationPermissionDenied = 'location_permission_denied';
+  static const String locationPermissionDeniedForever =
+      'location_permission_denied_forever';
+  static const String locationPermissionUnableToDetermine =
+      'location_permission_unable_to_determine';
+  static const String locationServiceDisabledException =
+      'location_service_disabled_exception';
+  static const String locationPermissionDeniedException =
+      'location_permission_denied_exception';
+  static const String locationPositionUpdateError =
+      'location_position_update_error';
+  static const String selectLocation = 'select_location';
+  static const String continueWithoutCurrentLocation =
+      'continue_without_current_location';
+  static const String usingDefaultLocation = 'using_default_location';
+  static const String searchAboutLocation = 'searchAboutLocation';
+  static const String businessLocation = 'businessLocation';
 }

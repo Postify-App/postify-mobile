@@ -6,4 +6,5 @@ class RoutesName {
   static const String otpScreen = 'otpScreen';
   static const String homeScreen = 'homeScreen';
   static const String initiateBusinessScreen = 'initiateBusinessScreen';
+  static const String mapScreen = 'mapScreen';
 }

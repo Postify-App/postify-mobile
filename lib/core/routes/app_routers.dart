@@ -22,6 +22,8 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (_) => const InitiateBusinessScreen(),
         );
+      case RoutesName.mapScreen:
+        return MaterialPageRoute(builder: (_) => const MapScreen());
       default:
         return null;
     }

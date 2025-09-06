@@ -111,6 +111,19 @@
   "whatBusinessBasedOn": "على ماذا يعتمد عملك!",
   "howBrandSound": "كيف يجب أن يبدو صوت علامتك التجارية",
   "whoTryingToReach": "من تحاول الوصول إليه",
-  "setupBusinessProfile": "لنقم بإعداد ملف عملك"
+  "setupBusinessProfile": "لنقم بإعداد ملف عملك",
+  "whatsYourMainGoal" : "ما هو هدفك الرئيسي مع بوستيفاي؟",
+  "location_service_disabled": "خدمات الموقع معطلة",
+  "location_permission_denied": "تم رفض إذن الموقع",
+  "location_permission_denied_forever": "تم رفض إذن الموقع بشكل دائم",
+  "location_permission_unable_to_determine": "غير قادر على تحديد إذن الموقع",
+  "location_service_disabled_exception": "خدمات الموقع معطلة (استثناء)",
+  "location_permission_denied_exception": "تم رفض إذن الموقع (استثناء)",
+  "location_position_update_error": "حدث خطأ أثناء تحديث الموقع",
+  "select_location": "اختر الموقع",
+  "continue_without_current_location": "المتابعة بدون الموقع الحالي",
+  "using_default_location": "يتم استخدام الموقع الافتراضي",
+  "searchAboutLocation" : "البحث عن الموقع",
+  "businessLocation" : "موقع العمل"
   }
   

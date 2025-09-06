@@ -19,6 +19,7 @@ class CustomTextFormFieldDropdownOverlay extends StatefulWidget {
   final CubitStatus? cubitState;
   final String? Function(String?)? validator;
   final String? selectedItem;
+  final Color? fillColor;
 
   const CustomTextFormFieldDropdownOverlay({
     super.key,
@@ -32,6 +33,7 @@ class CustomTextFormFieldDropdownOverlay extends StatefulWidget {
     this.cubitState,
     this.validator,
     this.selectedItem,
+    this.fillColor,
   });
 
   @override
@@ -65,8 +67,9 @@ class _CustomTextFormFieldDropdownOverlayState
                 child: widget.items.isEmpty
                     ? const Center(
                         child: Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Text("لا يوجد بيانات")),
+                          padding: EdgeInsets.all(10.0),
+                          child: Text("لا يوجد بيانات"),
+                        ),
                       )
                     : Scrollbar(
                         interactive: true,
@@ -82,22 +85,27 @@ class _CustomTextFormFieldDropdownOverlayState
                                       widget.items[index].name;
                                   value = widget.items[index].value;
                                 });
-                                widget
-                                    .onItemSelected(widget.items[index].value);
+                                widget.onItemSelected(
+                                  widget.items[index].value,
+                                );
                                 _isDropdownVisible.value = false;
                                 _removeOverlay();
                               },
                               child: Container(
                                 color: value == widget.items[index].value
-                                    ? AppColor.mainAppColor(context)
-                                        .withValues(alpha: .1)
+                                    ? AppColor.mainAppColor(
+                                        context,
+                                      ).withValues(alpha: .1)
                                     : Colors.transparent,
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                      horizontal: 10.w, vertical: 8.h),
-                                  child: Text(widget.items[index].name,
-                                      style:
-                                          AppTextStyle.text14BSecond(context)),
+                                    horizontal: 10.w,
+                                    vertical: 8.h,
+                                  ),
+                                  child: Text(
+                                    widget.items[index].name,
+                                    style: AppTextStyle.text14BSecond(context),
+                                  ),
                                 ),
                               ),
                             );
@@ -143,6 +151,7 @@ class _CustomTextFormFieldDropdownOverlayState
           }
         },
         validator: widget.validator,
+        fillColor: widget.fillColor,
         title: widget.title,
         hintText: widget.hintText,
         controller: _selectedItemEc,
@@ -156,7 +165,8 @@ class _CustomTextFormFieldDropdownOverlayState
                   child: isVisible
                       ? RotatedBox(
                           quarterTurns: 2,
-                          child: SvgPicture.asset(AppImages.assetsSvgArrowDown))
+                          child: SvgPicture.asset(AppImages.assetsSvgArrowDown),
+                        )
                       : SvgPicture.asset(AppImages.assetsSvgArrowDown),
                 ),
               ),
