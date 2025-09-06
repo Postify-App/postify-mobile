@@ -60,9 +60,11 @@ class CustomUploadBusinessLogo extends StatelessWidget {
             ImageMethods.pickImageBottomSheet(
               context,
               onSuccessCamera: (file) {
+                Navigator.pop(context);
                 selectedLogo.value = file.path;
               },
               onSuccessGallery: (files) {
+                Navigator.pop(context);
                 selectedLogo.value = files.first.path;
               },
             );

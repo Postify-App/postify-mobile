@@ -80,7 +80,7 @@ class AuthRepositoryImpl implements AuthRepository {
     return handleDioRequest(
       request: () async {
         final response = await apiConsumer.post(
-          EndPoints.sendOtp,
+          EndPoints.verifyOtp,
           body: {"idToken": googleIdToken},
         );
         return UserModel.fromJson(response);
