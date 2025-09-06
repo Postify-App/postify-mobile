@@ -20,7 +20,7 @@ class TopicCardShape extends CustomPainter {
       size.height * 0.2077206,
       size.width * 0.4185898,
       size.height * 0.2077206,
-    );
+    );  
     path_0.cubicTo(
       size.width * 0.5015008,
       size.height * 0.2077206,
