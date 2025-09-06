@@ -90,6 +90,10 @@ class AppImages {
   /// assets/images/backShape.png
   static const String assetsImagesBackShape = "assets/images/backShape.png";
 
+  /// Assets for assetsImagesBusinessSize
+  /// assets/images/businessSize.svg
+  static const String assetsImagesBusinessSize = "assets/images/businessSize.svg";
+
   /// Assets for assetsImagesGlassEffect
   /// assets/images/glassEffect.png
   static const String assetsImagesGlassEffect = "assets/images/glassEffect.png";
@@ -97,6 +101,10 @@ class AppImages {
   /// Assets for assetsImagesHomeLogo
   /// assets/images/homeLogo.png
   static const String assetsImagesHomeLogo = "assets/images/homeLogo.png";
+
+  /// Assets for assetsImagesLocation
+  /// assets/images/location.svg
+  static const String assetsImagesLocation = "assets/images/location.svg";
 
   /// Assets for assetsImagesOnBoarding1
   /// assets/images/onBoarding1.png
@@ -110,9 +118,17 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
+  /// Assets for assetsImagesSelectedToneCard
+  /// assets/images/selectedToneCard.png
+  static const String assetsImagesSelectedToneCard = "assets/images/selectedToneCard.png";
+
   /// Assets for assetsImagesSelectedTopicButtonShape
   /// assets/images/SelectedTopicButtonShape.png
   static const String assetsImagesSelectedTopicButtonShape = "assets/images/SelectedTopicButtonShape.png";
+
+  /// Assets for assetsImagesToneCard
+  /// assets/images/toneCard.png
+  static const String assetsImagesToneCard = "assets/images/toneCard.png";
 
   /// Assets for assetsImagesToneOfVoiceCardShape
   /// assets/images/toneOfVoiceCardShape.png
@@ -125,6 +141,10 @@ class AppImages {
   /// Assets for assetsImagesTopicCardShape
   /// assets/images/topicCardShape.png
   static const String assetsImagesTopicCardShape = "assets/images/topicCardShape.png";
+
+  /// Assets for assetsImagesUploadLogo
+  /// assets/images/uploadLogo.png
+  static const String assetsImagesUploadLogo = "assets/images/uploadLogo.png";
 
   /// Assets for assetsSvgAboveInitiate
   /// assets/svg/aboveInitiate.svg

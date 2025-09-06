@@ -17,4 +17,6 @@ class Constants {
       "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4";
   static const String baseUrl =
       'https://postify-api-d0a4haegh6ascugv.uaenorth-01.azurewebsites.net/api/v1/';
+  static const String googleMapsApiKey =
+      "AIzaSyBhVCRwaYlmeEnZKiaagiu8b3XzSgGbxoQ";
 }

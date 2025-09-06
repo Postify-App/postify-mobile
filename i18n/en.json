@@ -111,5 +111,18 @@
   "whatBusinessBasedOn": "What your business based on!",
   "howBrandSound": "How should your brand sound",
   "whoTryingToReach": "Who are you trying to reach",
-  "setupBusinessProfile": "Let’s set up your business profile"
+  "setupBusinessProfile": "Let’s set up your business profile",
+  "whatsYourMainGoal": "What’s your main goal with Postify?",
+  "location_service_disabled": "Location services are disabled",
+  "location_permission_denied": "Location permission denied",
+  "location_permission_denied_forever": "Location permission permanently denied",
+  "location_permission_unable_to_determine": "Unable to determine location permission",
+  "location_service_disabled_exception": "Location services are disabled (exception)",
+  "location_permission_denied_exception": "Location permission denied (exception)",
+  "location_position_update_error": "Error updating location",
+  "select_location": "Select Location",
+  "continue_without_current_location": "Continue without current location",
+  "using_default_location": "Using default location",
+  "searchAboutLocation" : "Search about location",
+  "businessLocation" : "Business Location"
   }

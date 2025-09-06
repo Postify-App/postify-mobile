@@ -1,17 +1,24 @@
 part of 'initiate_business_cubit.dart';
 
 class InitiateBusinessState extends Equatable {
-    final CubitStatus status;
+  final CubitStatus status;
+  final int currentPage;
 
+  const InitiateBusinessState({
+    this.status = CubitStatus.initial,
+    this.currentPage = 0,
+  });
 
-  const InitiateBusinessState({this.status = CubitStatus.initial});
-
-  InitiateBusinessState copyWith({CubitStatus? status}){
-    return InitiateBusinessState(status: status ?? this.status);
+  InitiateBusinessState copyWith({
+    CubitStatus? status,
+    int? currentPage,
+  }) {
+    return InitiateBusinessState(
+      status: status ?? this.status,
+      currentPage: currentPage ?? this.currentPage,
+    );
   }
 
-
-
   @override
-  List<Object> get props => [status];
+  List<Object> get props => [status, currentPage];
 }
