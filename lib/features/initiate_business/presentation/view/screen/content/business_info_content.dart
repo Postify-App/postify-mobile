@@ -116,7 +116,7 @@ class _BusinessInfoContentState extends State<BusinessInfoContent> {
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) {
+                    builder: (_) {
                       return BlocProvider.value(
                         value: context.read<InitiateBusinessCubit>(),
                         child: MapScreen(
