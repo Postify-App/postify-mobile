@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:postify/core/custom_widgets/custom_form_field/custom_form_field.dart';
 import 'package:postify/core/custom_widgets/overlay/custom_text_form_feild_drop_down_overlay.dart';
+import 'package:postify/core/custom_widgets/validation/validation_mixin.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
@@ -22,10 +23,12 @@ class BusinessInfoContent extends StatefulWidget {
   State<BusinessInfoContent> createState() => _BusinessInfoContentState();
 }
 
-class _BusinessInfoContentState extends State<BusinessInfoContent> {
+class _BusinessInfoContentState extends State<BusinessInfoContent>
+    with ValidationMixin {
   late final Debouncer _nameDebouncer;
   late final Debouncer _emailDebouncer;
   late final Debouncer _descriptionDebouncer;
+  final formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -52,113 +55,119 @@ class _BusinessInfoContentState extends State<BusinessInfoContent> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        spacing: 16.h,
-        children: [
-          16.verticalSpace,
-          CustomFormField(
-            hintText: AppLocaleKey.enterBusinessName.tr(),
-            prefixIcon: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: SvgPicture.asset(AppImages.assetsSvgNameFeild),
+      child: Form(
+        key: formKey,
+        child: Column(
+          spacing: 16.h,
+          children: [
+            16.verticalSpace,
+            CustomFormField(
+              hintText: AppLocaleKey.enterBusinessName.tr(),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SvgPicture.asset(AppImages.assetsSvgNameFeild),
+              ),
+              fillColor: AppColor.lightMainAppColor(context),
+              validator: validateName,
+              onChanged: (value) {
+                if (formKey.currentState!.validate()) {
+                  context.read<InitiateBusinessCubit>().setBusinessInfo(
+                    name: value,
+                  );
+                }
+              },
             ),
-            fillColor: AppColor.lightMainAppColor(context),
-            onChanged: (value) {
-              _nameDebouncer(() {
-                context.read<InitiateBusinessCubit>().setBusinessInfo(
-                  name: value,
-                );
-              });
-            },
-          ),
-          CustomFormField(
-            hintText: AppLocaleKey.enterEmailAddress.tr(),
-            prefixIcon: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: SvgPicture.asset(AppImages.assetsSvgEmailFeild),
+            CustomFormField(
+              hintText: AppLocaleKey.enterEmailAddress.tr(),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SvgPicture.asset(AppImages.assetsSvgEmailFeild),
+              ),
+              fillColor: AppColor.lightMainAppColor(context),
+              onChanged: (value) {
+                if (formKey.currentState!.validate()) {
+                  context.read<InitiateBusinessCubit>().setBusinessInfo(
+                    email: value,
+                  );
+                }
+              },
+              validator: validateEmail,
             ),
-            fillColor: AppColor.lightMainAppColor(context),
-            onChanged: (value) {
-              _emailDebouncer(() {
-                context.read<InitiateBusinessCubit>().setBusinessInfo(
-                  email: value,
-                );
-              });
-            },
-          ),
-          CustomFormField(
-            hintText: AppLocaleKey.businessDescription.tr(),
-            maxLines: 4,
-            fillColor: AppColor.lightMainAppColor(context),
-            onChanged: (value) {
-              _descriptionDebouncer(() {
-                context.read<InitiateBusinessCubit>().setBusinessInfo(
-                  description: value,
-                );
-              });
-            },
-          ),
-          BlocBuilder<InitiateBusinessCubit, InitiateBusinessState>(
-            buildWhen: (previous, current) =>
-                previous.createBusinessBody != current.createBusinessBody,
-            builder: (context, state) {
-              return CustomFormField(
-                hintText: AppLocaleKey.enterLocation.tr(),
-                controller: TextEditingController(
-                  text: state.createBusinessBody?.location ?? '',
-                ),
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SvgPicture.asset(AppImages.assetsSvgLocation),
-                ),
-                fillColor: AppColor.lightMainAppColor(context),
-                readOnly: true,
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) {
-                      return BlocProvider.value(
-                        value: context.read<InitiateBusinessCubit>(),
-                        child: MapScreen(
-                          args: MapScreenArgs(
-                            latLng:
-                                state.createBusinessBody?.latitude != null &&
-                                    state.createBusinessBody?.longitude != null
-                                ? LatLng(
-                                    double.parse(
-                                      state.createBusinessBody!.latitude!,
-                                    ),
-                                    double.parse(
-                                      state.createBusinessBody!.longitude!,
-                                    ),
-                                  )
-                                : null,
-                          ),
-                        ),
-                      );
-                    },
+            CustomFormField(
+              hintText: AppLocaleKey.businessDescription.tr(),
+              maxLines: 4,
+              fillColor: AppColor.lightMainAppColor(context),
+              onChanged: (value) {
+                _descriptionDebouncer(() {
+                  context.read<InitiateBusinessCubit>().setBusinessInfo(
+                    description: value,
+                  );
+                });
+              },
+            ),
+            BlocBuilder<InitiateBusinessCubit, InitiateBusinessState>(
+              buildWhen: (previous, current) =>
+                  previous.createBusinessBody != current.createBusinessBody,
+              builder: (context, state) {
+                return CustomFormField(
+                  hintText: AppLocaleKey.enterLocation.tr(),
+                  controller: TextEditingController(
+                    text: state.createBusinessBody?.location ?? '',
                   ),
-                ),
-              );
-            },
-          ),
-          CustomTextFormFieldDropdownOverlay(
-            inCenter: true,
-            items: businessSizes,
-            onItemSelected: (value) {
-              context.read<InitiateBusinessCubit>().setBusinessInfo(
-                size: value,
-              );
-            },
-            prefixIcon: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: SvgPicture.asset(AppImages.assetsSvgBusinessSize),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: SvgPicture.asset(AppImages.assetsSvgLocation),
+                  ),
+                  fillColor: AppColor.lightMainAppColor(context),
+                  readOnly: true,
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) {
+                        return BlocProvider.value(
+                          value: context.read<InitiateBusinessCubit>(),
+                          child: MapScreen(
+                            args: MapScreenArgs(
+                              latLng:
+                                  state.createBusinessBody?.latitude != null &&
+                                      state.createBusinessBody?.longitude !=
+                                          null
+                                  ? LatLng(
+                                      double.parse(
+                                        state.createBusinessBody!.latitude!,
+                                      ),
+                                      double.parse(
+                                        state.createBusinessBody!.longitude!,
+                                      ),
+                                    )
+                                  : null,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                );
+              },
             ),
-            hintText: AppLocaleKey.businessSize.tr(),
-            fillColor: AppColor.lightMainAppColor(context),
-          ),
-          const CustomUploadBusinessLogo(),
-        ],
+            CustomTextFormFieldDropdownOverlay(
+              inCenter: true,
+              items: businessSizes,
+              onItemSelected: (value) {
+                context.read<InitiateBusinessCubit>().setBusinessInfo(
+                  size: value,
+                );
+              },
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SvgPicture.asset(AppImages.assetsSvgBusinessSize),
+              ),
+              hintText: AppLocaleKey.businessSize.tr(),
+              fillColor: AppColor.lightMainAppColor(context),
+            ),
+            const CustomUploadBusinessLogo(),
+          ],
+        ),
       ),
     );
   }

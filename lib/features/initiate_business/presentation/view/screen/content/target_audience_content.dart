@@ -34,9 +34,7 @@ class TargetAudienceContent extends StatelessWidget {
           ),
         ),
         const MainGoalGridWidget(),
-        SliverToBoxAdapter(
-          child: SizedBox(height: 24.h), // Bottom spacing
-        ),
+        SliverToBoxAdapter(child: SizedBox(height: 24.h)),
       ],
     );
   }

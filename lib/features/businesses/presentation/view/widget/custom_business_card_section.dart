@@ -21,12 +21,12 @@ class CustomBusinessCardSectionWidget extends StatelessWidget {
           ),
           Positioned(
             left: 15.w,
-            bottom: -30.h,
+            bottom: -30,
             child: SvgPicture.asset(AppImages.assetsSvgSocialAccountsShape),
           ),
           Positioned(
             right: 0,
-            bottom: -50.h,
+            bottom: -50,
             child: SvgPicture.asset(AppImages.assetsSvgShape),
           ),
         ],

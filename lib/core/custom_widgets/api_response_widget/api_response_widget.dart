@@ -127,13 +127,37 @@ class ApiResponseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (child is SliverGrid ||
+        child is SliverList ||
+        child is SliverToBoxAdapter) {
+      // 👇 نسخة خاصة للـ Slivers
+      switch (cubitState) {
+        case CubitStatus.initial:
+          return initialChild
+              ? child
+              : const SliverToBoxAdapter(child: SizedBox());
+        case CubitStatus.loading:
+          return loadingWidget ??
+              _buildSliverLoading(loadingSize, loadingColor);
+        case CubitStatus.success:
+          if (isEmpty) {
+            return emptyWidget ?? _buildSliverEmpty(axis, noDataMessage);
+          } else {
+            return child;
+          }
+        case CubitStatus.failure:
+          if (AppInterceptors.isInternet == false) {
+            return offlineWidget ?? _buildSliverOffline(onReload, axis);
+          }
+          return errorWidget ??
+              _buildSliverError(onReload, axis, exceptionMessage);
+      }
+    }
+
+    // 👇 النسخة العادية (مش sliver)
     switch (cubitState) {
       case CubitStatus.initial:
-        if (initialChild) {
-          return child;
-        } else {
-          return const SizedBox();
-        }
+        return initialChild ? child : const SizedBox();
       case CubitStatus.loading:
         return loadingWidget ??
             Center(
@@ -150,10 +174,10 @@ class ApiResponseWidget extends StatelessWidget {
         }
       case CubitStatus.failure:
         if (AppInterceptors.isInternet == false) {
-          return Center(
-            child:
-                offlineWidget ?? OfflineWidget(onReload: onReload, axis: axis),
-          );
+          return offlineWidget ??
+              Center(
+                child: OfflineWidget(onReload: onReload, axis: axis),
+              );
         }
         return errorWidget ??
             Center(
