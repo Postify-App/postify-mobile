@@ -5,9 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:postify/core/enum/cubit_state/cubit_status.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
+import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/core/utils/common_methods.dart';
+import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/businesses/presentation/view/widget/custom_home_button.dart';
 import 'package:postify/features/initiate_business/data/enum/initiate_business_step_type_enum.dart';
 import 'package:postify/features/initiate_business/data/extension/initiate_business_step_extension.dart';
@@ -48,7 +50,10 @@ class CustomInitiateBusinessStepPage extends StatelessWidget {
                     current.createBusinessStatus,
                 listener: (context, state) {
                   if (state.createBusinessStatus == CubitStatus.success) {
-                    // NavigatorMethods.pushNamedAndRemoveUntil(context, RoutesName.homeScreen);
+                    NavigatorMethods.pushNamedAndRemoveUntil(
+                      context,
+                      RoutesName.homeScreen,
+                    );
                   }
                   if (state.createBusinessStatus == CubitStatus.failure) {
                     CommonMethods.showError(message: state.errorMessage);
