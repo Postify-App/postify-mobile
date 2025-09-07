@@ -28,7 +28,7 @@ class _InitiateBusinessScreenState extends State<InitiateBusinessScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) =>
-          sl<InitiateBusinessCubit>()..fetchAllInitiateBusinessData(),
+          sl<InitiateBusinessCubit>()..initializeFirstPage(),
       child: Scaffold(
         backgroundColor: AppColor.mainAppColor(context),
         body: SafeArea(

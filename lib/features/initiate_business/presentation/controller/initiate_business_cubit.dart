@@ -11,10 +11,17 @@ import '../../../../core/enum/cubit_state/cubit_status.dart';
 
 part 'initiate_business_state.dart';
 
+//! I wanna enhancement this cubit by dividing it into smaller cubits for better performance and scalability but for now it will do the job
+//! The comments will help you understand the logic behind this cubit enshaAllah
+
 class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
   final InitiateBusinessRepository initiateBusinessRepository;
+
   InitiateBusinessCubit(this.initiateBusinessRepository)
     : super(const InitiateBusinessState());
+
+  //! THIS IS TO KEEP TRACK OF LOADED STEPS TO AVOID RELOADING DATA
+  final Set<InitiateBusinessStepType> _loadedSteps = {};
 
   final List<InitiateBusinessStepType> steps = [
     InitiateBusinessStepType.topic,
@@ -26,7 +33,10 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
 
   void nextPage(InitiateBusinessStepType step) {
     if (validateStep(step) && state.currentPage < steps.length - 1) {
-      emit(state.copyWith(currentPage: state.currentPage + 1));
+      final nextPageIndex = state.currentPage + 1;
+      emit(state.copyWith(currentPage: nextPageIndex));
+      //! LOAD DATA FOR NEXT STEP
+      _loadDataForStep(steps[nextPageIndex]);
     } else if (validateStep(step) && state.currentPage == steps.length - 1) {
       createBusiness(state.createBusinessBody!);
     } else {
@@ -44,6 +54,41 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
 
   void setPage(int index) {
     emit(state.copyWith(currentPage: index));
+    //! LOAD DATA FOR THE STEP IF NOT LOADED YET WHEN NAVIGATE TO A NEW STEP
+    _loadDataForStep(steps[index]);
+  }
+
+  void _loadDataForStep(InitiateBusinessStepType step) {
+    if (_loadedSteps.contains(step)) return;
+
+    switch (step) {
+      case InitiateBusinessStepType.topic:
+        if (state.mainTopicsStatus != CubitStatus.success) {
+          getMainTopics();
+        }
+        break;
+      case InitiateBusinessStepType.tone:
+        if (state.toneOfVoiceStatus != CubitStatus.success) {
+          getToneOfVoice();
+        }
+        break;
+      case InitiateBusinessStepType.target:
+        if (state.targetAudienceStatus != CubitStatus.success) {
+          getTargetAudience();
+        }
+        if (state.mainGoalStatus != CubitStatus.success) {
+          getMainGoal();
+        }
+        break;
+      case InitiateBusinessStepType.businessInfo:
+      case InitiateBusinessStepType.social:
+        _loadedSteps.add(step);
+        break;
+    }
+  }
+
+  void initializeFirstPage() {
+    _loadDataForStep(steps[0]);
   }
 
   //! Initiate Business Data Methods
@@ -58,9 +103,15 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
         ),
       ),
 
-      (data) => emit(
-        state.copyWith(mainTopicsStatus: CubitStatus.success, mainTopics: data),
-      ),
+      (data) {
+        emit(
+          state.copyWith(
+            mainTopicsStatus: CubitStatus.success,
+            mainTopics: data,
+          ),
+        );
+        _loadedSteps.add(InitiateBusinessStepType.topic);
+      },
     );
   }
 
@@ -75,12 +126,15 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
         ),
       ),
 
-      (data) => emit(
-        state.copyWith(
-          toneOfVoiceStatus: CubitStatus.success,
-          toneOfVoice: data,
-        ),
-      ),
+      (data) {
+        emit(
+          state.copyWith(
+            toneOfVoiceStatus: CubitStatus.success,
+            toneOfVoice: data,
+          ),
+        );
+        _loadedSteps.add(InitiateBusinessStepType.tone);
+      },
     );
   }
 
@@ -95,9 +149,11 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
         ),
       ),
 
-      (data) => emit(
-        state.copyWith(mainGoalStatus: CubitStatus.success, mainGoal: data),
-      ),
+      (data) {
+        emit(
+          state.copyWith(mainGoalStatus: CubitStatus.success, mainGoal: data),
+        );
+      },
     );
   }
 
@@ -112,22 +168,16 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
         ),
       ),
 
-      (data) => emit(
-        state.copyWith(
-          targetAudienceStatus: CubitStatus.success,
-          targetAudience: data,
-        ),
-      ),
+      (data) {
+        emit(
+          state.copyWith(
+            targetAudienceStatus: CubitStatus.success,
+            targetAudience: data,
+          ),
+        );
+        _loadedSteps.add(InitiateBusinessStepType.target);
+      },
     );
-  }
-
-  Future<void> fetchAllInitiateBusinessData() async {
-    Future.wait([
-      getMainTopics(),
-      getToneOfVoice(),
-      getMainGoal(),
-      getTargetAudience(),
-    ]);
   }
 
   Future<void> createBusiness(CreateBusinessBody body) async {
