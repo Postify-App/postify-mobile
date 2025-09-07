@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:postify/core/extension/animation_extensions/tap_scale_animation_extension.dart';
 import 'package:postify/core/images/app_images.dart';
@@ -9,12 +10,18 @@ import 'package:postify/core/images/image_methods.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
+import 'package:postify/features/initiate_business/presentation/controller/initiate_business_cubit.dart';
 
-class CustomUploadBusinessLogo extends StatelessWidget {
-  const CustomUploadBusinessLogo({super.key, required this.selectedLogo});
+class CustomUploadBusinessLogo extends StatefulWidget {
+  const CustomUploadBusinessLogo({super.key});
 
-  final ValueNotifier<String?> selectedLogo;
+  @override
+  State<CustomUploadBusinessLogo> createState() =>
+      _CustomUploadBusinessLogoState();
+}
 
+class _CustomUploadBusinessLogoState extends State<CustomUploadBusinessLogo> {
+  ValueNotifier<String?> selectedLogo = ValueNotifier<String?>(null);
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -62,10 +69,16 @@ class CustomUploadBusinessLogo extends StatelessWidget {
               onSuccessCamera: (file) {
                 Navigator.pop(context);
                 selectedLogo.value = file.path;
+                context.read<InitiateBusinessCubit>().setBusinessInfo(
+                  logo: file.path,
+                );
               },
               onSuccessGallery: (files) {
                 Navigator.pop(context);
                 selectedLogo.value = files.first.path;
+                context.read<InitiateBusinessCubit>().setBusinessInfo(
+                  logo: files.first.path,
+                );
               },
             );
           },

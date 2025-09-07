@@ -1,22 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:postify/core/extension/animation_extensions/tap_scale_animation_extension.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
 
-class ToneOfVoiceCard extends StatelessWidget {
-  const ToneOfVoiceCard({
+class CustomAddSocialCard extends StatelessWidget {
+  const CustomAddSocialCard({
     super.key,
-    required this.model,
     required this.isSelected,
     required this.onTap,
+    required this.model,
   });
-
-  final InitiateGeneralModel model;
   final bool isSelected;
   final VoidCallback onTap;
+  final InitiateGeneralModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -61,20 +58,11 @@ class ToneOfVoiceCard extends StatelessWidget {
               ],
             ),
             child: Center(
-              child: SvgPicture.network(
+              child: Image.asset(
                 model.logo ?? '',
-                placeholderBuilder: (context) =>
-                    const CupertinoActivityIndicator(),
-                colorFilter: ColorFilter.mode(
-                  AppColor.blackColor(context),
-                  BlendMode.srcIn,
-                ),
                 width: 20,
                 height: 20,
                 fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  return const SizedBox();
-                },
               ),
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:postify/core/extension/context_extension.dart';
-import 'package:postify/features/home/data/painter/lequid_glass_painter.dart';
+import 'package:postify/features/initiate_business/data/painter/lequid_glass_painter.dart';
 
 class LiquidGlassBackground extends StatefulWidget {
   const LiquidGlassBackground({super.key});

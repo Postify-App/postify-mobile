@@ -22,6 +22,7 @@ class ApiResponseWidget extends StatelessWidget {
   final String? noDataMessage;
   final String? exceptionMessage;
   final Color? loadingColor;
+
   const ApiResponseWidget({
     super.key,
     required this.cubitState,
@@ -41,6 +42,89 @@ class ApiResponseWidget extends StatelessWidget {
     this.initialChild = false,
   });
 
+  //! Factory constructor for sliver version
+  factory ApiResponseWidget.sliver({
+    required CubitStatus cubitState,
+    required Widget sliverChild,
+    required void Function()? onReload,
+    required bool isEmpty,
+    double loadingSize = 35,
+    Widget? loadingWidget,
+    Axis axis = Axis.vertical,
+    String? noDataMessage,
+    String? exceptionMessage,
+    Widget? errorWidget,
+    Widget? emptyWidget,
+    Widget? offlineWidget,
+    Color? loadingColor,
+    Widget? unauthorizedWidget,
+    bool initialChild = false,
+  }) {
+    return ApiResponseWidget(
+      cubitState: cubitState,
+      onReload: onReload,
+      isEmpty: isEmpty,
+      loadingSize: loadingSize,
+      loadingWidget:
+          loadingWidget ?? _buildSliverLoading(loadingSize, loadingColor),
+      axis: axis,
+      noDataMessage: noDataMessage,
+      exceptionMessage: exceptionMessage,
+      errorWidget:
+          errorWidget ?? _buildSliverError(onReload, axis, exceptionMessage),
+      emptyWidget: emptyWidget ?? _buildSliverEmpty(axis, noDataMessage),
+      offlineWidget: offlineWidget ?? _buildSliverOffline(onReload, axis),
+      loadingColor: loadingColor,
+      unauthorizedWidget: unauthorizedWidget,
+      initialChild: initialChild,
+      child: sliverChild,
+    );
+  }
+
+  static Widget _buildSliverLoading(double size, Color? color) {
+    return SliverFillRemaining(
+      hasScrollBody: false,
+      child: Center(
+        child: CustomLoading(size: size, color: color),
+      ),
+    );
+  }
+
+  static Widget _buildSliverError(
+    void Function()? onReload,
+    Axis axis,
+    String? message,
+  ) {
+    return SliverFillRemaining(
+      hasScrollBody: false,
+      child: Center(
+        child: ExceptionWidget(
+          message: message,
+          axis: axis,
+          onReload: onReload,
+        ),
+      ),
+    );
+  }
+
+  static Widget _buildSliverEmpty(Axis axis, String? message) {
+    return SliverFillRemaining(
+      hasScrollBody: false,
+      child: Center(
+        child: NoDataWidget(message: message, axis: axis),
+      ),
+    );
+  }
+
+  static Widget _buildSliverOffline(void Function()? onReload, Axis axis) {
+    return SliverFillRemaining(
+      hasScrollBody: false,
+      child: Center(
+        child: OfflineWidget(onReload: onReload, axis: axis),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     switch (cubitState) {
@@ -58,7 +142,9 @@ class ApiResponseWidget extends StatelessWidget {
       case CubitStatus.success:
         if (isEmpty) {
           return emptyWidget ??
-              Center(child: NoDataWidget(message: noDataMessage, axis: axis));
+              Center(
+                child: NoDataWidget(message: noDataMessage, axis: axis),
+              );
         } else {
           return child;
         }
