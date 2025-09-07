@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:postify/core/extension/animation_extensions/tap_scale_animation_extension.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
+import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
 
 class CustomTopicsListViewItemWidget extends StatelessWidget {
-  const CustomTopicsListViewItemWidget({super.key});
+  const CustomTopicsListViewItemWidget({
+    super.key,
+    this.topic,
+    required this.isSelected,
+    required this.onTap,
+  });
+  final InitiateGeneralModel? topic;
+  final bool isSelected;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +35,7 @@ class CustomTopicsListViewItemWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Influencer',
+                topic?.title ?? '',
                 style: AppTextStyle.text32BSecond(context),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
@@ -37,7 +47,7 @@ class CustomTopicsListViewItemWidget extends StatelessWidget {
               ),
               8.verticalSpace,
               Text(
-                'Build your voice, grow your audience, and connect.',
+                topic?.description ?? '',
                 style: AppTextStyle.text16MSecond(context),
                 maxLines: 2,
               ),
@@ -50,9 +60,13 @@ class CustomTopicsListViewItemWidget extends StatelessWidget {
           child: Container(
             width: 72.w,
             height: 54.h,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AppImages.assetsImagesTopicButtonShape),
+                image: AssetImage(
+                  isSelected
+                      ? AppImages.assetsImagesSelectedTopicButtonShape
+                      : AppImages.assetsImagesTopicButtonShape,
+                ),
                 fit: BoxFit.cover,
               ),
             ),
@@ -62,7 +76,7 @@ class CustomTopicsListViewItemWidget extends StatelessWidget {
                 child: SvgPicture.asset(AppImages.assetsSvgArrowBack),
               ),
             ),
-          ),
+          ).onTapScaleAnimation(onTap: onTap),
         ),
       ],
     );

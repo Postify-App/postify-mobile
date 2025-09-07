@@ -66,11 +66,18 @@ class _OtpScreenFormWidgetState extends State<OtpScreenFormWidget> {
       child: Builder(
         builder: (context) {
           return BlocConsumer<AuthCubit, AuthState>(
+            buildWhen: (previous, current) =>
+                previous.verifyOtpStatus != current.verifyOtpStatus,
+            listenWhen: (previous, current) =>
+                previous.verifyOtpStatus != current.verifyOtpStatus,
             listener: (context, state) {
               if (state.verifyOtpStatus == CubitStatus.failure) {
                 CommonMethods.showError(message: state.errorMessage);
               } else if (state.verifyOtpStatus == CubitStatus.success) {
-                NavigatorMethods.pushNamed(context, RoutesName.homeScreen);
+                NavigatorMethods.pushNamed(
+                  context,
+                  RoutesName.businessesScreen,
+                );
               }
             },
             builder: (context, state) {

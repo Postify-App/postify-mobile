@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:postify/core/images/app_images.dart';
+import 'package:postify/core/services/service_locator.imports.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/features/initiate_business/presentation/controller/initiate_business_cubit.dart';
 import 'package:postify/features/initiate_business/presentation/view/screen/page/custom_initiate_business_step_page.dart';
@@ -26,7 +27,8 @@ class _InitiateBusinessScreenState extends State<InitiateBusinessScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => InitiateBusinessCubit(),
+      create: (_) =>
+          sl<InitiateBusinessCubit>()..fetchAllInitiateBusinessData(),
       child: Scaffold(
         backgroundColor: AppColor.mainAppColor(context),
         body: SafeArea(
@@ -80,7 +82,7 @@ class _InitiateBusinessScreenState extends State<InitiateBusinessScreen> {
                           step: cubit.steps[index],
                           steps: cubit.steps,
                           currentPage: state.currentPage,
-                          nextPage: cubit.nextPage,
+                          nextPage: () => cubit.nextPage(cubit.steps[index]),
                         );
                       },
                     ),

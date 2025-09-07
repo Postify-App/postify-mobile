@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:postify/core/cache/hive/hive_methods.dart';
 import 'package:postify/core/custom_widgets/animated/animate_image_widget.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/routes/routes_name.dart';
@@ -18,23 +17,26 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      if (HiveMethods.isFirstTime()) {
-        NavigatorMethods.pushNamedAndRemoveUntil(
-          context,
-          RoutesName.onBoardingScreen,
-        );
-      } else if (HiveMethods.getAccessToken() != null) {
-        NavigatorMethods.pushNamedAndRemoveUntil(
-          context,
-          RoutesName.homeScreen,
-        );
-      } else {
-        NavigatorMethods.pushNamedAndRemoveUntil(
-          context,
-          RoutesName.loginScreen,
-        );
-      }
-      // NavigatorMethods.pushNamedAndRemoveUntil(context, RoutesName.homeScreen);
+      // if (HiveMethods.isFirstTime()) {
+      //   NavigatorMethods.pushNamedAndRemoveUntil(
+      //     context,
+      //     RoutesName.onBoardingScreen,
+      //   );
+      // } else if (HiveMethods.getAccessToken() != null) {
+      //   NavigatorMethods.pushNamedAndRemoveUntil(
+      //     context,
+      //     RoutesName.businessesScreen,
+      //   );
+      // } else {
+      //   NavigatorMethods.pushNamedAndRemoveUntil(
+      //     context,
+      //     RoutesName.loginScreen,
+      //   );
+      // }
+      NavigatorMethods.pushNamedAndRemoveUntil(
+        context,
+        RoutesName.businessesScreen,
+      );
     });
   }
 

@@ -10,11 +10,9 @@ import 'package:postify/features/map/presentation/controller/map_cubit.dart';
 import 'package:postify/features/map/presentation/view/widget/custom_place_picker_map_widget.dart';
 import 'package:postify/features/map/presentation/view/widget/handle_map_exeptions_widget.dart';
 
-
 class MapScreenArgs {
-  final bool isUpdate;
   final LatLng? latLng;
-  MapScreenArgs({this.isUpdate = false, this.latLng});
+  MapScreenArgs({this.latLng});
 }
 
 class MapScreen extends StatelessWidget {
@@ -46,7 +44,7 @@ class MapScreen extends StatelessWidget {
                     defaultLocation: _defaultLocation,
                   )
                 : CustomPlacePickerMapWidget(
-                    isUpdate: args?.isUpdate,
+                    isUpdate: args?.latLng != null,
                     defaultLocation: _defaultLocation,
                     initPosition: state.initPosition,
                   ),

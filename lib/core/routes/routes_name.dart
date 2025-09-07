@@ -4,7 +4,8 @@ class RoutesName {
   static const String loginScreen = 'loginScreen';
   static const String signUpScreen = 'signUpScreen';
   static const String otpScreen = 'otpScreen';
-  static const String homeScreen = 'homeScreen';
+  static const String businessesScreen = 'businessesScreen';
   static const String initiateBusinessScreen = 'initiateBusinessScreen';
+  static const String homeScreen = 'homeScreen';
   static const String mapScreen = 'mapScreen';
 }

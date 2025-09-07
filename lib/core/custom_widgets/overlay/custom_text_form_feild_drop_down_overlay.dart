@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:postify/core/extension/context_extension.dart';
 import '../custom_form_field/custom_form_field.dart';
 import '../../../../core/enum/cubit_state/cubit_status.dart';
 import '../../images/app_images.dart';
@@ -20,6 +21,7 @@ class CustomTextFormFieldDropdownOverlay extends StatefulWidget {
   final String? Function(String?)? validator;
   final String? selectedItem;
   final Color? fillColor;
+  final bool? inCenter;
 
   const CustomTextFormFieldDropdownOverlay({
     super.key,
@@ -34,6 +36,7 @@ class CustomTextFormFieldDropdownOverlay extends StatefulWidget {
     this.validator,
     this.selectedItem,
     this.fillColor,
+    this.inCenter = false,
   });
 
   @override
@@ -57,11 +60,21 @@ class _CustomTextFormFieldDropdownOverlayState
           child: CompositedTransformFollower(
             link: _layerLink,
             showWhenUnlinked: false,
-            offset: Offset(0, widget.height ?? 40.h),
+            offset: Offset(0, widget.height ?? 90.h),
+            targetAnchor: widget.inCenter!
+                ? Alignment.center
+                : context.isRTL()
+                ? Alignment.bottomRight
+                : Alignment.bottomLeft,
+            followerAnchor: widget.inCenter!
+                ? Alignment.center
+                : context.isRTL()
+                ? Alignment.topRight
+                : Alignment.topLeft,
             child: Material(
               elevation: 1,
               borderRadius: BorderRadius.circular(8.r),
-              color: AppColor.whiteColor(context),
+              color: AppColor.lightMainAppColor(context),
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxHeight: 250.h, minHeight: 50.h),
                 child: widget.items.isEmpty
