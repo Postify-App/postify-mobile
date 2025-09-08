@@ -12,16 +12,11 @@ import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/initiate_business/presentation/controller/initiate_business_cubit.dart';
 
-class CustomUploadBusinessLogo extends StatefulWidget {
-  const CustomUploadBusinessLogo({super.key});
+class CustomUploadBusinessLogo extends StatelessWidget {
+  const CustomUploadBusinessLogo({super.key, required this.selectedLogo});
 
-  @override
-  State<CustomUploadBusinessLogo> createState() =>
-      _CustomUploadBusinessLogoState();
-}
+  final ValueNotifier<File?> selectedLogo;
 
-class _CustomUploadBusinessLogoState extends State<CustomUploadBusinessLogo> {
-  ValueNotifier<String?> selectedLogo = ValueNotifier<String?>(null);
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -54,7 +49,7 @@ class _CustomUploadBusinessLogoState extends State<CustomUploadBusinessLogo> {
                   : Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.file(
-                        File(selectedLogo.value!),
+                        File(selectedLogo.value!.path),
                         fit: BoxFit.cover,
                         height: 50.h,
                         width: 50.w,
@@ -68,16 +63,16 @@ class _CustomUploadBusinessLogoState extends State<CustomUploadBusinessLogo> {
               context,
               onSuccessCamera: (file) {
                 Navigator.pop(context);
-                selectedLogo.value = file.path;
+                selectedLogo.value = file;
                 context.read<InitiateBusinessCubit>().setBusinessInfo(
-                  logo: file.path,
+                  logo: file,
                 );
               },
               onSuccessGallery: (files) {
                 Navigator.pop(context);
-                selectedLogo.value = files.first.path;
+                selectedLogo.value = files.first;
                 context.read<InitiateBusinessCubit>().setBusinessInfo(
-                  logo: files.first.path,
+                  logo: files.first,
                 );
               },
             );

@@ -124,5 +124,6 @@
   "continue_without_current_location": "Continue without current location",
   "using_default_location": "Using default location",
   "searchAboutLocation" : "Search about location",
-  "businessLocation" : "Business Location"
+  "businessLocation" : "Business Location",
+  "open" : "OPEN"
   }

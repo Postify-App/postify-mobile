@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:postify/core/extension/animation_extensions/tap_scale_animation_extension.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
+import 'package:postify/features/initiate_business/presentation/view/widget/custom_suffix_circle_icon.dart';
 
 class ToneOfVoiceCard extends StatelessWidget {
   const ToneOfVoiceCard({
@@ -45,39 +45,7 @@ class ToneOfVoiceCard extends StatelessWidget {
                   : AppTextStyle.text22BLightMain(context),
             ),
           ),
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: AppColor.lightMainAppColor(context),
-              shape: BoxShape.circle,
-              boxShadow: const [
-                BoxShadow(
-                  color: Color(0xFF3A3A3A),
-                  blurRadius: 0,
-                  offset: Offset(-2, 3),
-                  spreadRadius: 0,
-                ),
-              ],
-            ),
-            child: Center(
-              child: SvgPicture.network(
-                model.logo ?? '',
-                placeholderBuilder: (context) =>
-                    const CupertinoActivityIndicator(),
-                colorFilter: ColorFilter.mode(
-                  AppColor.blackColor(context),
-                  BlendMode.srcIn,
-                ),
-                width: 20,
-                height: 20,
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  return const SizedBox();
-                },
-              ),
-            ),
-          ),
+          CustomSuffixCircleIcon(icon: model.logo),
         ],
       ),
     ).onTapScaleAnimation(onTap: onTap);

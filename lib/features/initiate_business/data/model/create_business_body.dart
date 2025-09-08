@@ -1,3 +1,8 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
+
 class CreateBusinessBody {
   final String? name;
   final String? description;
@@ -10,7 +15,7 @@ class CreateBusinessBody {
   final String? mainGoalId;
   final String? toneOfVoiceId;
   final String? targetAudienceId;
-  final String? logo;
+  final File? logo;
 
   CreateBusinessBody({
     this.name,
@@ -39,7 +44,7 @@ class CreateBusinessBody {
     String? mainGoalId,
     String? toneOfVoiceId,
     String? targetAudienceId,
-    String? logo,
+    File? logo,
   }) {
     return CreateBusinessBody(
       name: name ?? this.name,
@@ -57,7 +62,7 @@ class CreateBusinessBody {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Future toJson() async {
     return {
       'name': name,
       'description': description,
@@ -69,7 +74,12 @@ class CreateBusinessBody {
       'mainGoalId': mainGoalId,
       'toneOfVoiceId': toneOfVoiceId,
       'targetAudienceId': targetAudienceId,
-      'logo': logo,
+      'logo': await MultipartFile.fromFile(
+        logo!.path,
+        filename: logo!.path.split('/').last,
+        
+        contentType: MediaType('image', logo!.path.split('.').last),
+      ),
     };
   }
 }

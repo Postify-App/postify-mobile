@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/utils/common_methods.dart';
-import 'package:postify/features/auth/presentation/controller/auth_cubit.dart';
+import 'package:postify/features/profile/presentation/controller/profile_cubit.dart';
 
 import '../cache/hive/hive_methods.dart';
 import '../locale/app_locale_key.dart';
@@ -71,7 +71,7 @@ class AppInterceptors extends Interceptor {
             'Your access token is invalid or has expired.') {
       try {
         await AppRouters.navigatorKey.currentContext!
-            .read<AuthCubit>()
+            .read<ProfileCubit>()
             .refreshToken();
         err.requestOptions.headers['Authorization'] =
             "Bearer ${HiveMethods.getAccessToken()}";
@@ -82,7 +82,7 @@ class AppInterceptors extends Interceptor {
         Navigator.of(
           AppRouters.navigatorKey.currentContext!,
         ).pushReplacementNamed(RoutesName.loginScreen);
-        handler.reject(err);
+        return;
       }
     }
 

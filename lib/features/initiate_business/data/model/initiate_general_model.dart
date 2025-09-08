@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:postify/core/images/app_images.dart';
 
 List<InitiateGeneralModel> initiateGeneralModelFromJson(List data) {
   return List<InitiateGeneralModel>.from(
@@ -35,3 +36,27 @@ class InitiateGeneralModel extends Equatable {
   @override
   List<Object?> get props => [id, title, description, logo];
 }
+
+  final List<InitiateGeneralModel> socialOptions = [
+    const InitiateGeneralModel(
+      title: "Facebook",
+      logo: AppImages.assetsImagesFacebook,
+    ),
+    const InitiateGeneralModel(
+      title: "Instagram",
+      logo: AppImages.assetsImagesInstagram,
+    ),
+
+    const InitiateGeneralModel(
+      title: "LinkedIn",
+      logo: AppImages.assetsImagesLinkedin,
+    ),
+    const InitiateGeneralModel(
+      title: "TikTok",
+      logo: AppImages.assetsImagesTiktok,
+    ),
+    const InitiateGeneralModel(
+      title: "Reddit",
+      logo: AppImages.assetsImagesReddit,
+    ),
+  ];

@@ -10,4 +10,6 @@ class EndPoints {
   static const String targetAudience = 'target-audience';
   static const String getBusinesses = 'business/me';
   static const String business = 'business';
+  //! Profile
+  static const String profile = 'user/me';
 }

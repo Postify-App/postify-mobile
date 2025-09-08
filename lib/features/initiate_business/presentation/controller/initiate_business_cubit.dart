@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -227,7 +228,7 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
     String? latitude,
     String? longitude,
     String? location,
-    String? logo,
+    File? logo,
   }) {
     final updatedBody = (state.createBusinessBody ?? CreateBusinessBody())
         .copyWith(
@@ -271,7 +272,6 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
             body.name!.isNotEmpty &&
             body.description!.isNotEmpty &&
             body.logo != null &&
-            body.logo!.isNotEmpty &&
             body.size != null &&
             body.size!.isNotEmpty &&
             body.latitude != null &&

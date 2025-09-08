@@ -39,6 +39,14 @@ class HiveMethods {
     _box.put('isFirstTime', false);
   }
 
+  static int getBusinessId() {
+    return _box.get('businessId', defaultValue: null);
+  }
+
+  static void updateBusinessId(int businessId) {
+    _box.put('businessId', businessId);
+  }
+
   static ThemeEnum getTheme() {
     return _box.get('theme', defaultValue: ThemeEnum.light);
   }

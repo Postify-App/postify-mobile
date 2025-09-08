@@ -52,6 +52,12 @@ class _CustomTextFormFieldDropdownOverlayState
   dynamic value;
   final ValueNotifier<bool> _isDropdownVisible = ValueNotifier<bool>(false);
 
+  @override
+  void initState() {
+    _selectedItemEc.text = widget.selectedItem ?? '';
+    super.initState();
+  }
+
   void _showOverlay(BuildContext context) {
     _overlayEntry = OverlayEntry(
       builder: (context) {
@@ -96,6 +102,7 @@ class _CustomTextFormFieldDropdownOverlayState
                                 setState(() {
                                   _selectedItemEc.text =
                                       widget.items[index].name;
+
                                   value = widget.items[index].value;
                                 });
                                 widget.onItemSelected(

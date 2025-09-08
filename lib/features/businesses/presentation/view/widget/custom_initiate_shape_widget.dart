@@ -15,7 +15,7 @@ class CustomInitiateSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 224.h,
+      height: 200,
       width: double.infinity,
       child: Stack(
         clipBehavior: Clip.none,
@@ -23,7 +23,7 @@ class CustomInitiateSectionWidget extends StatelessWidget {
           Positioned(
             right: 10.w,
             top: 20.h,
-            child: SvgPicture.asset(AppImages.assetsSvgInitialShape),
+            child: Image.asset(AppImages.assetsImagesInitiateBusinessShape),
           ),
           Positioned(
             right: 20.w,
@@ -75,7 +75,7 @@ class CustomInitiateSectionWidget extends StatelessWidget {
           Positioned(
             left: -30.w,
             top: -65.h,
-            child: SvgPicture.asset(AppImages.assetsSvgBG),
+            child: Image.asset(AppImages.assetsImagesBg),
           ),
         ],
       ),
