@@ -22,7 +22,10 @@ class CustomTopicsListViewItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(AppImages.assetsImagesTopicCardShape),
+        Transform.scale(
+          scale: 1.2,
+          child: Image.asset(AppImages.assetsImagesTopicCardShape),
+        ),
         Padding(
           padding: EdgeInsets.only(
             left: 40.w,
@@ -55,8 +58,8 @@ class CustomTopicsListViewItemWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 15.w,
-          bottom: 30.h,
+          right: 0,
+          bottom: 25.h,
           child: Container(
             width: 72.w,
             height: 54.h,

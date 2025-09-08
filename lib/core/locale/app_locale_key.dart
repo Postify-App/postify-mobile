@@ -140,4 +140,5 @@ class AppLocaleKey {
   static const String usingDefaultLocation = 'using_default_location';
   static const String searchAboutLocation = 'searchAboutLocation';
   static const String businessLocation = 'businessLocation';
+  static const String open = 'open';
 }

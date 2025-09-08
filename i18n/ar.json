@@ -124,6 +124,7 @@
   "continue_without_current_location": "المتابعة بدون الموقع الحالي",
   "using_default_location": "يتم استخدام الموقع الافتراضي",
   "searchAboutLocation" : "البحث عن الموقع",
-  "businessLocation" : "موقع العمل"
+  "businessLocation" : "موقع العمل",
+  "open" : "افتح"
   }
   

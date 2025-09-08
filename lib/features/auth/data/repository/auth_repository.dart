@@ -12,7 +12,7 @@ import '../../../../core/network/api_consumer.dart';
 abstract interface class AuthRepository {
   Future<Either<Failure, void>> sendOtp(AuthBodyModel body);
   Future<Either<Failure, UserModel>> verifyOtp(AuthBodyModel body);
-  Future<Either<Failure, UserModel>> refreshToken(String refreshToken);
+  
   Future<Either<Failure, UserModel>> signInWithGoogle();
 }
 
@@ -21,18 +21,7 @@ class AuthRepositoryImpl implements AuthRepository {
   final SocialAuthHandler socialAuthHandler;
   const AuthRepositoryImpl(this.apiConsumer, this.socialAuthHandler);
 
-  @override
-  Future<Either<Failure, UserModel>> refreshToken(String refreshToken) {
-    return handleDioRequest(
-      request: () async {
-        final response = await apiConsumer.post(
-          EndPoints.refreshToken,
-          body: {'refreshToken': refreshToken},
-        );
-        return UserModel.fromJson(response);
-      },
-    );
-  }
+
 
   @override
   Future<Either<Failure, void>> sendOtp(AuthBodyModel body) {

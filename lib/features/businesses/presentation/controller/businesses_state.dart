@@ -1,17 +1,28 @@
 part of 'businesses_cubit.dart';
 
 class BusinessesState extends Equatable {
-    final CubitStatus status;
+  final CubitStatus getBusinessesStatus;
+  final List<BusinessModel> businesses;
+  final String errorMessage;
 
+  const BusinessesState({
+    this.getBusinessesStatus = CubitStatus.initial,
+    this.businesses = const [],
+    this.errorMessage = '',
+  });
 
-  const BusinessesState({this.status = CubitStatus.initial});
-
-  BusinessesState copyWith({CubitStatus? status}){
-    return BusinessesState(status: status ?? this.status);
+  BusinessesState copyWith({
+    CubitStatus? getBusinessesStatus,
+    List<BusinessModel>? businesses,
+    String? errorMessage,
+  }) {
+    return BusinessesState(
+      getBusinessesStatus: getBusinessesStatus ?? this.getBusinessesStatus,
+      businesses: businesses ?? this.businesses,
+      errorMessage: errorMessage ?? this.errorMessage,
+    );
   }
 
-
-
   @override
-  List<Object> get props => [status];
+  List<Object> get props => [getBusinessesStatus, businesses, errorMessage];
 }

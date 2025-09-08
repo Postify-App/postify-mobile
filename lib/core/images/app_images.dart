@@ -90,6 +90,14 @@ class AppImages {
   /// assets/images/backShape.png
   static const String assetsImagesBackShape = "assets/images/backShape.png";
 
+  /// Assets for assetsImagesBg
+  /// assets/images/bg.png
+  static const String assetsImagesBg = "assets/images/bg.png";
+
+  /// Assets for assetsImagesBusinessBaseCard
+  /// assets/images/businessBaseCard.png
+  static const String assetsImagesBusinessBaseCard = "assets/images/businessBaseCard.png";
+
   /// Assets for assetsImagesFacebook
   /// assets/images/facebook.png
   static const String assetsImagesFacebook = "assets/images/facebook.png";
@@ -101,6 +109,10 @@ class AppImages {
   /// Assets for assetsImagesHomeLogo
   /// assets/images/homeLogo.png
   static const String assetsImagesHomeLogo = "assets/images/homeLogo.png";
+
+  /// Assets for assetsImagesInitiateBusinessShape
+  /// assets/images/initiateBusinessShape.png
+  static const String assetsImagesInitiateBusinessShape = "assets/images/initiateBusinessShape.png";
 
   /// Assets for assetsImagesInstagram
   /// assets/images/instagram.png
@@ -122,6 +134,10 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
+  /// Assets for assetsImagesOpenShape
+  /// assets/images/openShape.png
+  static const String assetsImagesOpenShape = "assets/images/openShape.png";
+
   /// Assets for assetsImagesReddit
   /// assets/images/reddit.png
   static const String assetsImagesReddit = "assets/images/reddit.png";
@@ -133,6 +149,10 @@ class AppImages {
   /// Assets for assetsImagesSelectedTopicButtonShape
   /// assets/images/SelectedTopicButtonShape.png
   static const String assetsImagesSelectedTopicButtonShape = "assets/images/SelectedTopicButtonShape.png";
+
+  /// Assets for assetsImagesSocialAccountsShape
+  /// assets/images/socialAccountsShape.png
+  static const String assetsImagesSocialAccountsShape = "assets/images/socialAccountsShape.png";
 
   /// Assets for assetsImagesTiktok
   /// assets/images/tiktok.png
@@ -182,14 +202,6 @@ class AppImages {
   /// assets/svg/arrowTop.svg
   static const String assetsSvgArrowTop = "assets/svg/arrowTop.svg";
 
-  /// Assets for assetsSvgBG
-  /// assets/svg/BG.svg
-  static const String assetsSvgBG = "assets/svg/BG.svg";
-
-  /// Assets for assetsSvgBusinessHere
-  /// assets/svg/businessHere.svg
-  static const String assetsSvgBusinessHere = "assets/svg/businessHere.svg";
-
   /// Assets for assetsSvgBusinessSize
   /// assets/svg/businessSize.svg
   static const String assetsSvgBusinessSize = "assets/svg/businessSize.svg";
@@ -202,13 +214,17 @@ class AppImages {
   /// assets/svg/fillStar.svg
   static const String assetsSvgFillStar = "assets/svg/fillStar.svg";
 
+  /// Assets for assetsSvgFollowers
+  /// assets/svg/followers.svg
+  static const String assetsSvgFollowers = "assets/svg/followers.svg";
+
   /// Assets for assetsSvgGoogleLogo
   /// assets/svg/googleLogo.svg
   static const String assetsSvgGoogleLogo = "assets/svg/googleLogo.svg";
 
-  /// Assets for assetsSvgInitialShape
-  /// assets/svg/initialShape.svg
-  static const String assetsSvgInitialShape = "assets/svg/initialShape.svg";
+  /// Assets for assetsSvgLikes
+  /// assets/svg/likes.svg
+  static const String assetsSvgLikes = "assets/svg/likes.svg";
 
   /// Assets for assetsSvgLocation
   /// assets/svg/location.svg
@@ -218,16 +234,16 @@ class AppImages {
   /// assets/svg/nameFeild.svg
   static const String assetsSvgNameFeild = "assets/svg/nameFeild.svg";
 
+  /// Assets for assetsSvgNotifications
+  /// assets/svg/notifications.svg
+  static const String assetsSvgNotifications = "assets/svg/notifications.svg";
+
+  /// Assets for assetsSvgOpen
+  /// assets/svg/open.svg
+  static const String assetsSvgOpen = "assets/svg/open.svg";
+
   /// Assets for assetsSvgRatingStar
   /// assets/svg/ratingStar.svg
   static const String assetsSvgRatingStar = "assets/svg/ratingStar.svg";
-
-  /// Assets for assetsSvgShape
-  /// assets/svg/Shape.svg
-  static const String assetsSvgShape = "assets/svg/Shape.svg";
-
-  /// Assets for assetsSvgSocialAccountsShape
-  /// assets/svg/socialAccountsShape.svg
-  static const String assetsSvgSocialAccountsShape = "assets/svg/socialAccountsShape.svg";
 }
 

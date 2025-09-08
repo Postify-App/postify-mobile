@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:postify/core/images/app_images.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
 import 'package:postify/features/initiate_business/presentation/view/widget/custom_add_social_card.dart';
 
@@ -12,29 +11,6 @@ class AddSocialContent extends StatefulWidget {
 }
 
 class _AddSocialContentState extends State<AddSocialContent> {
-  final List<InitiateGeneralModel> socialOptions = [
-    const InitiateGeneralModel(
-      title: "Facebook",
-      logo: AppImages.assetsImagesFacebook,
-    ),
-    const InitiateGeneralModel(
-      title: "Instagram",
-      logo: AppImages.assetsImagesInstagram,
-    ),
-
-    const InitiateGeneralModel(
-      title: "LinkedIn",
-      logo: AppImages.assetsImagesLinkedin,
-    ),
-    const InitiateGeneralModel(
-      title: "TikTok",
-      logo: AppImages.assetsImagesTiktok,
-    ),
-    const InitiateGeneralModel(
-      title: "Reddit",
-      logo: AppImages.assetsImagesReddit,
-    ),
-  ];
 
   final ValueNotifier<Set<int>> selectedIndices = ValueNotifier({});
 

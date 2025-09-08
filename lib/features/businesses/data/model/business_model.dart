@@ -1,5 +1,11 @@
 import 'package:equatable/equatable.dart';
 
+List<BusinessModel> businessModelFromJson(List data) {
+  return List<BusinessModel>.from(
+    data.map((item) => BusinessModel.fromJson(item)),
+  );
+}
+
 class BusinessModel extends Equatable {
   final String? id;
   final String? userId;
@@ -81,20 +87,20 @@ class BusinessModel extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        userId,
-        name,
-        email,
-        description,
-        size,
-        longitude,
-        latitude,
-        logo,
-        mainTopicId,
-        toneOfVoiceId,
-        mainGoalId,
-        targetAudienceId,
-        createdAt,
-        updatedAt,
-      ];
+    id,
+    userId,
+    name,
+    email,
+    description,
+    size,
+    longitude,
+    latitude,
+    logo,
+    mainTopicId,
+    toneOfVoiceId,
+    mainGoalId,
+    targetAudienceId,
+    createdAt,
+    updatedAt,
+  ];
 }

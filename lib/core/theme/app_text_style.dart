@@ -240,6 +240,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text16RWhite(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w400,
+      color: color ?? AppColor.whiteColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text16RMain(
     BuildContext context, {
     bool listen = true,
@@ -284,6 +296,18 @@ class AppTextStyle {
     return TextStyle(
       fontSize: 18.sp,
       fontWeight: FontWeight.w600,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text18MSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w500,
       color: color ?? AppColor.secondAppColor(context, listen: listen),
     );
   }
@@ -584,6 +608,18 @@ class AppTextStyle {
     return TextStyle(
       fontSize: 22.sp,
       fontWeight: FontWeight.w700,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text6SBSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 6.sp,
+      fontWeight: FontWeight.w600,
       color: color ?? AppColor.secondAppColor(context, listen: listen),
     );
   }

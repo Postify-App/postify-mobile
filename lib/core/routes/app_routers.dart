@@ -20,6 +20,8 @@ class AppRouters {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case RoutesName.businessesScreen:
         return MaterialPageRoute(builder: (_) => const BusinessesScreen());
+      case RoutesName.yourBusinessesScreen:
+        return MaterialPageRoute(builder: (_) => const YourBusinessesScreen());
       case RoutesName.initiateBusinessScreen:
         return MaterialPageRoute(
           builder: (_) => const InitiateBusinessScreen(),

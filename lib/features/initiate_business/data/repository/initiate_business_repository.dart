@@ -62,7 +62,11 @@ class InitiateBusinessRepositoryImpl implements InitiateBusinessRepository {
   Future<Either<Failure, void>> createBusiness(CreateBusinessBody body) {
     return handleDioRequest(
       request: () async {
-        await apiConsumer.post(EndPoints.business, body: body.toJson());
+        await apiConsumer.post(
+          EndPoints.business,
+          body: await body.toJson(),
+          isFormData: true,
+        );
       },
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +28,12 @@ class _BusinessInfoContentState extends State<BusinessInfoContent>
     with ValidationMixin {
   late final Debouncer _nameDebouncer;
   late final Debouncer _descriptionDebouncer;
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final descriptionController = TextEditingController();
+  ValueNotifier<String?> selectedBusinessSize = ValueNotifier(null);
+  ValueNotifier<File?> selectedLogo = ValueNotifier(null);
+
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -33,6 +41,14 @@ class _BusinessInfoContentState extends State<BusinessInfoContent>
     super.initState();
     _nameDebouncer = Debouncer(delay: const Duration(milliseconds: 500));
     _descriptionDebouncer = Debouncer(delay: const Duration(milliseconds: 500));
+    final initiateBusinessState = context.read<InitiateBusinessCubit>().state;
+    nameController.text = initiateBusinessState.createBusinessBody?.name ?? '';
+    emailController.text =
+        initiateBusinessState.createBusinessBody?.email ?? '';
+    descriptionController.text =
+        initiateBusinessState.createBusinessBody?.description ?? '';
+    selectedBusinessSize.value = initiateBusinessState.createBusinessBody?.size;
+    selectedLogo.value = initiateBusinessState.createBusinessBody?.logo;
   }
 
   @override
@@ -64,6 +80,7 @@ class _BusinessInfoContentState extends State<BusinessInfoContent>
                 child: SvgPicture.asset(AppImages.assetsSvgNameFeild),
               ),
               fillColor: AppColor.lightMainAppColor(context),
+              controller: nameController,
               onChanged: (value) {
                 _nameDebouncer(() {
                   context.read<InitiateBusinessCubit>().setBusinessInfo(
@@ -79,6 +96,7 @@ class _BusinessInfoContentState extends State<BusinessInfoContent>
                 child: SvgPicture.asset(AppImages.assetsSvgEmailFeild),
               ),
               fillColor: AppColor.lightMainAppColor(context),
+              controller: emailController,
               onChanged: (value) {
                 if (formKey.currentState!.validate()) {
                   context.read<InitiateBusinessCubit>().setBusinessInfo(
@@ -92,6 +110,7 @@ class _BusinessInfoContentState extends State<BusinessInfoContent>
               hintText: AppLocaleKey.businessDescription.tr(),
               maxLines: 4,
               fillColor: AppColor.lightMainAppColor(context),
+              controller: descriptionController,
               onChanged: (value) {
                 _descriptionDebouncer(() {
                   context.read<InitiateBusinessCubit>().setBusinessInfo(
@@ -109,6 +128,7 @@ class _BusinessInfoContentState extends State<BusinessInfoContent>
                   size: value,
                 );
               },
+              selectedItem: selectedBusinessSize.value,
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: SvgPicture.asset(AppImages.assetsSvgBusinessSize),
@@ -116,7 +136,7 @@ class _BusinessInfoContentState extends State<BusinessInfoContent>
               hintText: AppLocaleKey.businessSize.tr(),
               fillColor: AppColor.lightMainAppColor(context),
             ),
-            const CustomUploadBusinessLogo(),
+            CustomUploadBusinessLogo(selectedLogo: selectedLogo),
           ],
         ),
       ),
