@@ -20,8 +20,8 @@ cd mason
 mason init
 ```
 
-### 🧱 Add Bricks
-# Edit mason.yaml and replace the paths with your actual brick locations:
+## 🧱 Add Bricks
+### Edit mason.yaml and replace the paths with your actual brick locations:
 
 
 ```yaml
@@ -48,7 +48,7 @@ mason get
 
 Below is a list of default dependencies used in this project:
 
-```yaml
+
 | Category                    | Package                                                                                                                                                                                                                                                                                         | Purpose                                                                                                   |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | 🎨 UI & Animations          | `animate_do`<br>`shimmer_animation`<br>`loading_animation_widget`<br>`carousel_slider`<br>`flutter_screenutil`<br>`smooth_page_indicator`<br>`flutter_staggered_animations`<br>`timeline_tile`                                                                                                  | Animations, responsive UI, indicators, timelines                                                          |
@@ -63,7 +63,7 @@ Below is a list of default dependencies used in this project:
 | 🌐 Web & Browser            | `webview_flutter`<br>`webview_flutter_android`<br>`webview_flutter_wkwebview`                                                                                                                                                                                                                   | WebView support                                                                                           |
 | 🛠️ Utilities & Helpers     | `get_it`<br>`uuid`<br>`path`<br>`path_provider`<br>`crypto`<br>`connectivity_plus`<br>`internet_connection_checker_plus`<br>`country_picker`<br>`custom_timer`<br>`timeago`<br>`url_launcher`<br>`bot_toast`<br>`rename`<br>`change_app_package_name`<br>`flutter_widget_from_html`<br>`pinput` | Dependency injection, UUID, file utils, crypto, network, pickers, timers, URL launching, toasts, renaming |
 
-```
+
 
 ### ⚡ Generate with Mason
 
