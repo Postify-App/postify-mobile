@@ -10,91 +10,97 @@ This guide helps you set up your Flutter project using **Mason CLI** and apply a
 
 ```sh
 dart pub global activate mason_cli
-2️⃣ Initialize Mason in Project
+```
+
+### 2️⃣ Initialize Mason in Project
+
+```shell
 mkdir mason
 cd mason
 mason init
-🧱 Add Bricks
-Edit mason.yaml and replace the paths with your actual brick locations:
+```
+
+### 🧱 Add Bricks
+# Edit mason.yaml and replace the paths with your actual brick locations:
+
+
+```yaml
 bricks:
   i18n:
-    path: D:/projects/bricks/i18n
+    path: D:/projects/bricks/i18n (replace with real path)
   readme:
-    path: D:/projects/bricks/readme
+    path: D:/projects/bricks/readme (replace with real path)
   assets:
-    path: D:/projects/bricks/assets
+    path: D:/projects/bricks/assets (replace with real path)
   core:
-    path: D:/projects/bricks/core
+    path: D:/projects/bricks/core (replace with real path)
   feature:
-    path: D:/projects/bricks/feature
-📦 Fetch bricks
+    path: D:/projects/bricks/feature (replace with real path)
+```
+
+### 📦 Fetch bricks
+
+```shell
 mason get
-📚 Dependencies
-Here’s a curated list of default dependencies for the project:
-Category	Package	Purpose
-🎨 UI & Animations	animate_do
-shimmer_animation
-loading_animation_widget
-carousel_slider
-flutter_screenutil
-smooth_page_indicator
-flutter_staggered_animations
-timeline_tile	Animations, responsive UI, indicators, timelines
-🖼️ Media & Graphics	cached_network_image
-flutter_svg
-flutter_svg_provider
-photo_view
-image_picker
-mime	Image loading, SVG rendering, zoom, picker
-🌍 Localization	easy_localization	Multi-language support
-⚡ State Management	flutter_bloc
-equatable
-dartz	Bloc/Cubit, equality, functional helpers
-🌐 Networking & APIs	dio
-pretty_dio_logger
-http
-http_parser	HTTP client, interceptors, parsers
-🔥 Firebase & Notifications	firebase_core
-firebase_messaging
-flutter_local_notifications	Firebase services & push notifications
-📍 Location & Maps	location
-geocoding
-google_maps_flutter	GPS, geocoding, maps
-📡 Real-time	pusher_channels_flutter	Real-time events
-💾 Storage & Database	hive
-hive_flutter	Local storage
-🌐 Web & Browser	webview_flutter
-webview_flutter_android
-webview_flutter_wkwebview	WebView support
-🛠️ Utilities & Helpers	get_it
-uuid
-path
-path_provider
-crypto
-connectivity_plus
-internet_connection_checker_plus
-country_picker
-custom_timer
-timeago
-url_launcher
-bot_toast
-rename
-change_app_package_name
-flutter_widget_from_html
-pinput	Dependency injection, UUID, file utils, crypto, network, pickers, timers, URL launching, toasts, renaming
-⚡ Generate with Mason
-🎯 Core Project Template
+```
+
+## 📚 Dependencies
+
+Below is a list of default dependencies used in this project:
+
+```yaml
+| Category                    | Package                                                                                                                                                                                                                                                                                         | Purpose                                                                                                   |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 🎨 UI & Animations          | `animate_do`<br>`shimmer_animation`<br>`loading_animation_widget`<br>`carousel_slider`<br>`flutter_screenutil`<br>`smooth_page_indicator`<br>`flutter_staggered_animations`<br>`timeline_tile`                                                                                                  | Animations, responsive UI, indicators, timelines                                                          |
+| 🖼️ Media & Graphics        | `cached_network_image`<br>`flutter_svg`<br>`flutter_svg_provider`<br>`photo_view`<br>`image_picker`<br>`mime`                                                                                                                                                                                   | Image loading, SVG rendering, zoom, picker                                                                |
+| 🌍 Localization             | `easy_localization`                                                                                                                                                                                                                                                                             | Multi-language support                                                                                    |
+| ⚡ State Management          | `flutter_bloc`<br>`equatable`<br>`dartz`                                                                                                                                                                                                                                                        | Bloc/Cubit, equality, functional helpers                                                                  |
+| 🌐 Networking & APIs        | `dio`<br>`pretty_dio_logger`<br>`http`<br>`http_parser`                                                                                                                                                                                                                                         | HTTP client, interceptors, parsers                                                                        |
+| 🔥 Firebase & Notifications | `firebase_core`<br>`firebase_messaging`<br>`flutter_local_notifications`                                                                                                                                                                                                                        | Firebase services & push notifications                                                                    |
+| 📍 Location & Maps          | `location`<br>`geocoding`<br>`google_maps_flutter`                                                                                                                                                                                                                                              | GPS, geocoding, maps                                                                                      |
+| 📡 Real-time                | `pusher_channels_flutter`                                                                                                                                                                                                                                                                       | Real-time events                                                                                          |
+| 💾 Storage & Database       | `hive`<br>`hive_flutter`                                                                                                                                                                                                                                                                        | Local storage                                                                                             |
+| 🌐 Web & Browser            | `webview_flutter`<br>`webview_flutter_android`<br>`webview_flutter_wkwebview`                                                                                                                                                                                                                   | WebView support                                                                                           |
+| 🛠️ Utilities & Helpers     | `get_it`<br>`uuid`<br>`path`<br>`path_provider`<br>`crypto`<br>`connectivity_plus`<br>`internet_connection_checker_plus`<br>`country_picker`<br>`custom_timer`<br>`timeago`<br>`url_launcher`<br>`bot_toast`<br>`rename`<br>`change_app_package_name`<br>`flutter_widget_from_html`<br>`pinput` | Dependency injection, UUID, file utils, crypto, network, pickers, timers, URL launching, toasts, renaming |
+
+```
+
+### ⚡ Generate with Mason
+
+### 🎯 Core Project Template
+
+```shell
 mason make core -o .././lib
-🧩 Add New Feature
+```
+
+### 🧩 Add New Feature (enter feature name)
+
+```shell
 mason make feature -o .././lib/features
-🌍 Generate i18n
+```
+
+### 🌍 Generate i18n
+
+```shell
 mason make i18n -o ../i18n
-🖼️ Generate Assets Folder
+```
+
+### 🖼️ Generate Assets Folder
+
+```shell
 mason make assets -o ../assets
-📄 Generate README
+```
+
+### 📄 Generate README
+
+```shell
 mason make readme -o ../
-🖋️ Add Assets & Fonts
-In your pubspec.yaml:
+```
+
+### 🖋️ Add Assets & Fonts
+## in pubspec.yaml file :
+
+```yaml
 assets:
   - i18n/
   - assets/
@@ -113,36 +119,47 @@ fonts:
         weight: 500
       - asset: assets/fonts/fontName/fontName-Bold.ttf
         weight: 600
-💡 Generate assets class with:
+
 flutter_assets:
   assets_path: assets/
   output_path: lib/core/images/
   filename: app_images.dart
   classname: AppImages
-🧹 Mason Cache
-mason cache clear
-📱 Android Flavors
-In android/app/build.gradle:
-flavorDimensions += "default"
+```
 
-productFlavors {
-    create("development") {
-        dimension = "default"
-        resValue("string", "app_name", "Your App Dev")
-        applicationIdSuffix = ".dev"
-    }
-    create("production") {
-        dimension = "default"
-        resValue("string", "app_name", "Your App")
-    }
-}
-🔖 Update AndroidManifest.xml:
+### clear mason cache
+
+```shell
+mason cache clear
+```
+
+## create android flavors
+
+### add this to android/app/build.gradle.
+
+```shell
+  flavorDimensions += "default"
+
+  productFlavors {
+      create("development") {
+          dimension = "default"
+          resValue(type = "string", name = "app_name", value = "your app name")
+          applicationIdSuffix = ".dev"
+      }
+      create("production") {
+          dimension = "default"
+          resValue(type = "string", name = "app_name", value = "your app name")
+      }
+```
+
+### change label in AndroidManifest.xml
+
+```shell
 android:label="@string/app_name"
-⚙️ VSCode Launch Config
+```
+
+### generate launch file (vscode configuration)
+
+```shell
 mason make launch -o ../.vscode
-✨ Tips
-🔄 Run flutter clean + mason cache clear if something feels off.
-🧩 Keep features modular → each new feature gets its own folder.
-🌍 Use easy_localization for translation consistency.
-🎨 Apply flutter_screenutil for responsive design across devices.
 ```
