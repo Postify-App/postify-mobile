@@ -230,6 +230,10 @@ class AppImages {
   /// assets/svg/location.svg
   static const String assetsSvgLocation = "assets/svg/location.svg";
 
+  /// Assets for assetsSvgMenu
+  /// assets/svg/menu.svg
+  static const String assetsSvgMenu = "assets/svg/menu.svg";
+
   /// Assets for assetsSvgNameFeild
   /// assets/svg/nameFeild.svg
   static const String assetsSvgNameFeild = "assets/svg/nameFeild.svg";

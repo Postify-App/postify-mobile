@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:postify/core/app_bloc_observer.dart/app_bloc_observer.dart';
@@ -19,7 +20,7 @@ class ServiceInitialize {
     await initDependencies();
     await Hive.initFlutter();
     await ScreenUtil.ensureScreenSize();
-
+    await dotenv.load(fileName: ".env");
     Hive.registerAdapter(ThemeEnumAdapter());
     await Hive.openBox('app');
     // FirebaseMessaging.onBackgroundMessage(onAppBackground);

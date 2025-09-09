@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:postify/core/extension/context_extension.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
@@ -13,24 +14,30 @@ class CustomSocialShapeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       left: 20.w,
-      bottom: -40,
+      bottom: 40.h,
       child: Stack(
         children: [
-          Image.asset(AppImages.assetsImagesSocialAccountsShape),
+          Image.asset(
+            AppImages.assetsImagesSocialAccountsShape,
+            width: context.width() / 2,
+          ),
           Positioned(
-            left: 20,
+            left: 20.w,
             child: Row(
               children: List.generate(socialOptions.length, (index) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 2, top: 5),
-                  child: Image.asset(socialOptions[index].logo!, height: 15),
+                  padding: EdgeInsets.only(left: 2.w, top: 5.h),
+                  child: Image.asset(
+                    socialOptions[index].logo!,
+                    height: context.height() * .02,
+                  ),
                 );
               }),
             ),
           ),
           Positioned(
-            left: 20,
-            bottom: 10,
+            left: 20.w,
+            bottom: 10.h,
             child: Row(
               children: [
                 Column(

@@ -1,3 +1,5 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class Constants {
   static const String testBlueCarImage =
       'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&amp;dl=pexels-mike-b-170811.jpg&amp;fm=jpg';
@@ -17,6 +19,5 @@ class Constants {
       "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4";
   static const String baseUrl =
       'https://postify-api-d0a4haegh6ascugv.uaenorth-01.azurewebsites.net/api/v1/';
-  static const String googleMapsApiKey =
-      "AIzaSyBhVCRwaYlmeEnZKiaagiu8b3XzSgGbxoQ";
+  static const String googleApiKey = 'GOOGLE_API_KEY';
 }

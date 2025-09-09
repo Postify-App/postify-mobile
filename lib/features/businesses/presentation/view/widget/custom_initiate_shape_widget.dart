@@ -19,6 +19,7 @@ class CustomInitiateSectionWidget extends StatelessWidget {
       width: double.infinity,
       child: Stack(
         clipBehavior: Clip.none,
+        alignment: Alignment.centerLeft,
         children: [
           Positioned(
             right: 10.w,

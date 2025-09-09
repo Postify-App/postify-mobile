@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
@@ -20,12 +21,13 @@ class CustomPlacePickerMapWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String apiKey = dotenv.env[Constants.googleApiKey] ?? '';
     return PlacePicker(
       searchForInitialValue: true,
       selectInitialPosition: true,
       hintText: AppLocaleKey.searchAboutLocation.tr(),
       automaticallyImplyAppBarLeading: false,
-      apiKey: Constants.googleMapsApiKey,
+      apiKey: apiKey,
       resizeToAvoidBottomInset: true,
       useCurrentLocation: isUpdate == false,
       initialPosition: initPosition,

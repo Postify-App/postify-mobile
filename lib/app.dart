@@ -1,4 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,6 +33,8 @@ class _PostifyState extends State<Postify> {
               ...context.localizationDelegates,
               CountryLocalizations.delegate,
             ],
+            // builder: DevicePreview.appBuilder,
+            // locale: DevicePreview.locale(context),
             supportedLocales: context.supportedLocales,
             locale: context.locale,
             debugShowCheckedModeBanner: false,
