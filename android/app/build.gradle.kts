@@ -7,7 +7,9 @@ plugins {
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
-def MAPS_API_KEY = project.hasProperty("MAPS_API_KEY") ? project.MAPS_API_KEY : ""
+
+
+val MAPS_API_KEY: String = project.findProperty("MAPS_API_KEY") as String? ?: ""
 
 android {
     namespace = "com.example.postify"
@@ -31,7 +33,7 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true
-        resValue "string", "google_maps_key", MAPS_API_KEY
+        resValue("string", "google_maps_key", MAPS_API_KEY)
     }
 
     buildTypes {
