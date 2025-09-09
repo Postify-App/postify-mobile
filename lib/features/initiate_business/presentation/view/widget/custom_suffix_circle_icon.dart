@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:postify/core/custom_widgets/custom_image/custom_network_image.dart';
 import 'package:postify/core/theme/app_colors.dart';
 
 class CustomSuffixCircleIcon extends StatelessWidget {
-  const CustomSuffixCircleIcon({
-    super.key,
-     this.icon,
-  });
+  const CustomSuffixCircleIcon({super.key, this.icon});
 
   final String? icon;
 
@@ -29,21 +26,7 @@ class CustomSuffixCircleIcon extends StatelessWidget {
         ],
       ),
       child: Center(
-        child: SvgPicture.network(
-          icon ?? '',
-          placeholderBuilder: (context) =>
-              const CupertinoActivityIndicator(),
-          colorFilter: ColorFilter.mode(
-            AppColor.blackColor(context),
-            BlendMode.srcIn,
-          ),
-          width: 20,
-          height: 20,
-          fit: BoxFit.contain,
-          errorBuilder: (context, error, stackTrace) {
-            return const SizedBox();
-          },
-        ),
+        child: CustomNetworkImage(imageUrl: icon ?? "", isSvg: true),
       ),
     );
   }

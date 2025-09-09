@@ -6,6 +6,7 @@ import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
+import 'package:postify/features/initiate_business/presentation/view/widget/custom_suffix_circle_icon.dart';
 
 class CustomTopicsListViewItemWidget extends StatelessWidget {
   const CustomTopicsListViewItemWidget({
@@ -25,6 +26,11 @@ class CustomTopicsListViewItemWidget extends StatelessWidget {
         Transform.scale(
           scale: 1.2,
           child: Image.asset(AppImages.assetsImagesTopicCardShape),
+        ),
+        Positioned(
+          right: 20,
+          top: 50,
+          child: CustomSuffixCircleIcon(icon: topic?.logo),
         ),
         Padding(
           padding: EdgeInsets.only(

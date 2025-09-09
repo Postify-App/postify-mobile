@@ -11,7 +11,6 @@ import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/businesses/data/model/business_model.dart';
-import 'package:postify/features/businesses/presentation/view/widget/custom_business_base_shape_widget.dart';
 import 'package:postify/features/businesses/presentation/view/widget/custom_social_shape_widget.dart';
 import 'package:postify/features/initiate_business/presentation/view/widget/custom_suffix_circle_icon.dart';
 
