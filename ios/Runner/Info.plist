@@ -49,6 +49,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	    <!-- Google Maps -->
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+	<key>GMSApiKey</key>
+	<string>AIzaSyBhVCRwaYlmeEnZKiaagiu8b3XzSgGbxoQ</string>
 		<!-- Google Sign-In URL Scheme -->
 	<key>CFBundleURLTypes</key>
 <array>
