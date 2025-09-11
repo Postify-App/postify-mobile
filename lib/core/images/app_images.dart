@@ -98,6 +98,10 @@ class AppImages {
   /// assets/images/businessBaseCard.png
   static const String assetsImagesBusinessBaseCard = "assets/images/businessBaseCard.png";
 
+  /// Assets for assetsImagesCreatePost
+  /// assets/images/createPost.svg
+  static const String assetsImagesCreatePost = "assets/images/createPost.svg";
+
   /// Assets for assetsImagesFacebook
   /// assets/images/facebook.png
   static const String assetsImagesFacebook = "assets/images/facebook.png";
@@ -245,6 +249,10 @@ class AppImages {
   /// Assets for assetsSvgOpen
   /// assets/svg/open.svg
   static const String assetsSvgOpen = "assets/svg/open.svg";
+
+  /// Assets for assetsSvgPosts
+  /// assets/svg/posts.svg
+  static const String assetsSvgPosts = "assets/svg/posts.svg";
 
   /// Assets for assetsSvgRatingStar
   /// assets/svg/ratingStar.svg

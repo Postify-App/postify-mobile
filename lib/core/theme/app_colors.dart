@@ -21,6 +21,15 @@ class AppColor {
     );
   }
 
+  static Color secondPrimaryColor(BuildContext context, {bool listen = true}) {
+    return AppTheme.getByTheme(
+      context,
+      light: const Color(0xFFDBB0F9),
+      dark: const Color(0xFFDBB0F9),
+      listen: listen,
+    );
+  }
+
   static Color secondAppColor(BuildContext context, {bool listen = true}) {
     return AppTheme.getByTheme(
       context,
@@ -29,7 +38,6 @@ class AppColor {
       listen: listen,
     );
   }
-
 
   static Color borderColor(BuildContext context, {bool listen = true}) {
     return AppTheme.getByTheme(
@@ -61,8 +69,8 @@ class AppColor {
   static Color darkTextColor(BuildContext context, {bool listen = true}) {
     return AppTheme.getByTheme(
       context,
-      light: const Color(0xFF010917),
-      dark: const Color(0xFF010917),
+      light: const Color(0xFF31064F),
+      dark: const Color(0xFF31064F),
       listen: listen,
     );
   }
@@ -153,6 +161,15 @@ class AppColor {
       context,
       light: const Color(0xff6BED12),
       dark: const Color(0xff6BED12),
+      listen: listen,
+    );
+  }
+
+  static Color darkGreenColor(BuildContext context, {bool listen = true}) {
+    return AppTheme.getByTheme(
+      context,
+      light: const Color(0xff32B369),
+      dark: const Color(0xff32B369),
       listen: listen,
     );
   }

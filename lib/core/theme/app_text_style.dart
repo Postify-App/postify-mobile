@@ -276,6 +276,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text20MDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 20.sp,
+      fontWeight: FontWeight.w500,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text16MSecond(
     BuildContext context, {
     bool listen = true,
@@ -308,6 +320,18 @@ class AppTextStyle {
     return TextStyle(
       fontSize: 18.sp,
       fontWeight: FontWeight.w500,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text18BlackSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w900,
       color: color ?? AppColor.secondAppColor(context, listen: listen),
     );
   }
@@ -381,6 +405,18 @@ class AppTextStyle {
       fontSize: 10.sp,
       fontWeight: FontWeight.w400,
       color: color ?? AppColor.greyColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text10SBDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 10.sp,
+      fontWeight: FontWeight.w600,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
     );
   }
 
@@ -540,6 +576,30 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text32SBDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.w600,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text32SBDarkGreen(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.w600,
+      color: color ?? AppColor.darkGreenColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text28SBWhite(
     BuildContext context, {
     bool listen = true,
@@ -621,6 +681,18 @@ class AppTextStyle {
       fontSize: 6.sp,
       fontWeight: FontWeight.w600,
       color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text24BDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
     );
   }
 }
