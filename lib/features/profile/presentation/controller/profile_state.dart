@@ -3,26 +3,26 @@ part of 'profile_cubit.dart';
 class ProfileState extends Equatable {
   final CubitStatus getProfileStatus;
   final ProfileModel? profileModel;
-  final UserModel? userModel;
+  final BusinessModel? selectedBusiness;
   final String errorMessage;
 
   const ProfileState({
     this.getProfileStatus = CubitStatus.initial,
     this.profileModel,
-    this.userModel,
+    this.selectedBusiness,
     this.errorMessage = '',
   });
 
   ProfileState copyWith({
     CubitStatus? getProfileStatus,
     ProfileModel? profileModel,
-    UserModel? userModel,
+    BusinessModel? selectedBusiness,
     String? errorMessage,
   }) {
     return ProfileState(
       getProfileStatus: getProfileStatus ?? this.getProfileStatus,
       profileModel: profileModel ?? this.profileModel,
-      userModel: userModel ?? this.userModel,
+      selectedBusiness: selectedBusiness ?? this.selectedBusiness,
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
@@ -31,7 +31,7 @@ class ProfileState extends Equatable {
   List<Object?> get props => [
     getProfileStatus,
     profileModel,
-    userModel,
+    selectedBusiness,
     errorMessage,
   ];
 }

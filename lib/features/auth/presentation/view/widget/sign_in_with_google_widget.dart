@@ -15,6 +15,7 @@ import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/core/utils/common_methods.dart';
 import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/auth/presentation/controller/auth_cubit.dart';
+import 'package:postify/features/profile/presentation/controller/profile_cubit.dart';
 
 class SigninWithGoogleWidget extends StatelessWidget {
   const SigninWithGoogleWidget({super.key});
@@ -30,6 +31,7 @@ class SigninWithGoogleWidget extends StatelessWidget {
         if (state.signInWithGoogleStatus == CubitStatus.failure) {
           CommonMethods.showError(message: state.errorMessage);
         } else if (state.signInWithGoogleStatus == CubitStatus.success) {
+          context.read<ProfileCubit>().updateProfile(state.userModel?.data);
           NavigatorMethods.pushNamedAndRemoveUntil(
             context,
             RoutesName.bottomNavBar,

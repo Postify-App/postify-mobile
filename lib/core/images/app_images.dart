@@ -214,6 +214,10 @@ class AppImages {
   /// assets/svg/businessSize.svg
   static const String assetsSvgBusinessSize = "assets/svg/businessSize.svg";
 
+  /// Assets for assetsSvgClose
+  /// assets/svg/close.svg
+  static const String assetsSvgClose = "assets/svg/close.svg";
+
   /// Assets for assetsSvgCreateNavBar
   /// assets/svg/createNavBar.svg
   static const String assetsSvgCreateNavBar = "assets/svg/createNavBar.svg";
@@ -277,5 +281,17 @@ class AppImages {
   /// Assets for assetsSvgRatingStar
   /// assets/svg/ratingStar.svg
   static const String assetsSvgRatingStar = "assets/svg/ratingStar.svg";
+
+  /// Assets for assetsSvgSend
+  /// assets/svg/send.svg
+  static const String assetsSvgSend = "assets/svg/send.svg";
+
+  /// Assets for assetsSvgUpload
+  /// assets/svg/upload.svg
+  static const String assetsSvgUpload = "assets/svg/upload.svg";
+
+  /// Assets for assetsSvgVoice
+  /// assets/svg/voice.svg
+  static const String assetsSvgVoice = "assets/svg/voice.svg";
 }
 

@@ -178,6 +178,10 @@
   "positive": "إيجابي",
   "negative": "سلبي",
   "neutral": "محايد",
-  "question": "سؤال"
+  "question": "سؤال",
+  "edit" : "تعديل",
+  "delete" : "حذف",
+  "forbiddenWords" : "كلمات ممنوعة",
+  "generateImage" : "توليد صورة"
   }
   

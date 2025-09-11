@@ -7,9 +7,9 @@ import 'package:postify/features/auth/presentation/view/screen/sign_up_screen.da
 import 'package:postify/features/bottom_nav_bar/presentation/view/screen/bottom_nav_bar_screen.dart';
 import 'package:postify/features/businesses/presentation/view/screen/businesses_screen.dart';
 import 'package:postify/features/businesses/presentation/view/screen/your_businesses_screen.dart';
-import 'package:postify/features/home/presentation/view/screen/home_screen.dart';
 import 'package:postify/features/initiate_business/presentation/view/screen/initiate_business_screen.dart';
 import 'package:postify/features/map/presentation/view/screen/map_screen.dart';
 import 'package:postify/features/on_boarding/presentation/view/screen/on_boarding_screen.dart';
+import 'package:postify/features/posts/presentation/view/screen/create_post_screen.dart';
 import 'package:postify/features/splash/presentation/view/screen/splash_screen.dart';
 part 'app_routers.dart';

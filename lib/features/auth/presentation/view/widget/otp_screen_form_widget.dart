@@ -18,6 +18,7 @@ import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/auth/data/model/auth_body_model.dart';
 import 'package:postify/features/auth/presentation/controller/auth_cubit.dart';
 import 'package:postify/features/auth/presentation/view/screen/otp_screen.dart';
+import 'package:postify/features/profile/presentation/controller/profile_cubit.dart';
 
 class OtpScreenFormWidget extends StatefulWidget {
   const OtpScreenFormWidget({super.key, required this.args});
@@ -74,6 +75,7 @@ class _OtpScreenFormWidgetState extends State<OtpScreenFormWidget> {
               if (state.verifyOtpStatus == CubitStatus.failure) {
                 CommonMethods.showError(message: state.errorMessage);
               } else if (state.verifyOtpStatus == CubitStatus.success) {
+                context.read<ProfileCubit>().updateProfile(state.userModel?.data);
                 NavigatorMethods.pushNamed(
                   context,
                   RoutesName.businessesScreen,

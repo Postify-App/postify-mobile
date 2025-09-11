@@ -5,7 +5,7 @@ import 'package:postify/core/routes/app_routers_import.dart';
 import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/utils/common_methods.dart';
 import 'package:postify/core/utils/navigator_methods.dart';
-import 'package:postify/features/auth/data/model/user_model.dart';
+import 'package:postify/features/businesses/data/model/business_model.dart';
 import 'package:postify/features/profile/data/model/profile_model.dart';
 import 'package:postify/features/profile/data/repository/profile_repository.dart';
 import '../../../../core/enum/cubit_state/cubit_status.dart';
@@ -16,24 +16,24 @@ class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepository profileRepository;
   ProfileCubit(this.profileRepository) : super(const ProfileState());
 
-  // Future<void> getProfile() async {
-  //   emit(state.copyWith(getProfileStatus: CubitStatus.loading));
-  //   final result = await profileRepository.getProfile();
-  //   result.fold(
-  //     (failure) => emit(
-  //       state.copyWith(
-  //         getProfileStatus: CubitStatus.failure,
-  //         errorMessage: failure.errMessage,
-  //       ),
-  //     ),
-  //     (profileModel) => emit(
-  //       state.copyWith(
-  //         getProfileStatus: CubitStatus.success,
-  //         profileModel: profileModel,
-  //       ),
-  //     ),
-  //   );
-  // }
+  Future<void> getProfile() async {
+    emit(state.copyWith(getProfileStatus: CubitStatus.loading));
+    final result = await profileRepository.getProfile();
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          getProfileStatus: CubitStatus.failure,
+          errorMessage: failure.errMessage,
+        ),
+      ),
+      (profileModel) => emit(
+        state.copyWith(
+          getProfileStatus: CubitStatus.success,
+          profileModel: profileModel,
+        ),
+      ),
+    );
+  }
 
   //! refresh token if it is expired
   Future<void> refreshToken() async {
@@ -63,8 +63,16 @@ class ProfileCubit extends Cubit<ProfileState> {
         if (user.accessToken != null) {
           HiveMethods.updateAccessToken(user.accessToken!);
         }
-        emit(state.copyWith(userModel: user));
+        emit(state.copyWith(profileModel: user.data));
       },
     );
+  }
+
+  void updateProfile(ProfileModel? profileModel) {
+    emit(state.copyWith(profileModel: profileModel));
+  }
+
+  void updateSelectedBusiness(BusinessModel? businessModel) {
+    emit(state.copyWith(selectedBusiness: businessModel));
   }
 }

@@ -228,6 +228,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text16RDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w400,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text16RGrey(
     BuildContext context, {
     bool listen = true,
@@ -300,6 +312,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text16MDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w500,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text18SSecond(
     BuildContext context, {
     bool listen = true,
@@ -357,6 +381,18 @@ class AppTextStyle {
       fontSize: 12.sp,
       fontWeight: FontWeight.w400,
       color: color ?? AppColor.blackColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text12BDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
     );
   }
 
@@ -585,6 +621,18 @@ class AppTextStyle {
       fontSize: 32.sp,
       fontWeight: FontWeight.w700,
       color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text32BDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
     );
   }
 

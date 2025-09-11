@@ -194,4 +194,8 @@ class AppLocaleKey {
   static const negative = 'negative';
   static const neutral = 'neutral';
   static const question = 'question';
+  static const edit = 'edit';
+  static const delete = 'delete';
+  static const forbiddenWords = 'forbiddenWords';
+  static const generateImage = 'generateImage';
 }

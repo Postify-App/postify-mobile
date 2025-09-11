@@ -158,8 +158,8 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                 icon,
                 colorFilter: ColorFilter.mode(
                   isSelected
-                      ? AppColor.mainAppColor(context)
-                      : AppColor.lightGreyColor(context),
+                      ? AppColor.darkTextColor(context)
+                      : AppColor.greyColor(context),
                   BlendMode.srcIn,
                 ),
               ),

@@ -178,5 +178,9 @@
   "positive": "Positive",
   "negative": "Negative",
   "neutral": "Neutral",
-  "question": "Question"
+  "question": "Question",
+  "edit" : "Edit",
+  "delete" : "Delete",
+  "forbiddenWords" : "Forbidden Words",
+  "generateImage" : "Generate Image"
   }

@@ -5,8 +5,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:postify/core/extension/context_extension.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
+import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
+import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/businesses/presentation/view/widget/custom_home_button.dart';
 
 class CustomCreatePostWidget extends StatelessWidget {
@@ -40,6 +42,8 @@ class CustomCreatePostWidget extends StatelessWidget {
           color: AppColor.greenColor(context),
           hasShadow: true,
           radius: 30,
+          onPressed: () =>
+              NavigatorMethods.pushNamed(context, RoutesName.createPostScreen),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,

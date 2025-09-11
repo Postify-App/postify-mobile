@@ -9,4 +9,5 @@ class RoutesName {
   static const String initiateBusinessScreen = 'initiateBusinessScreen';
   static const String bottomNavBar = 'bottomNavBar';
   static const String mapScreen = 'mapScreen';
+  static const String createPostScreen = 'createPostScreen';
 }

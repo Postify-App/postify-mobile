@@ -95,7 +95,7 @@ class _CustomButtonState extends State<CustomHomeButton>
             borderRadius:
                 widget.borderRadius ?? BorderRadius.circular(widget.radius),
             border: widget.borderColor != null
-                ? Border.all(color: widget.borderColor!, width: 2)
+                ? Border.all(color: widget.borderColor!, width: 1)
                 : null,
             boxShadow: widget.hasShadow
                 ? widget.boxShadow ??
