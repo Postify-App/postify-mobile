@@ -326,6 +326,14 @@ class AppColor {
     );
   }
 
+  static Gradient darkGradient(BuildContext context) {
+    return const LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.topLeft,
+      colors: [Color(0xff1E042F), Color(0xff4A0977)],
+    );
+  }
+
   static Gradient appGradientLight(BuildContext context) {
     return const LinearGradient(
       begin: Alignment.topCenter,

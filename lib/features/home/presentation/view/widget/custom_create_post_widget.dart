@@ -44,7 +44,7 @@ class CustomCreatePostWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgPicture.asset(AppImages.assetsImagesCreatePost),
+              SvgPicture.asset(AppImages.assetsSvgCreatePost),
               4.verticalSpace,
               Text(
                 AppLocaleKey.createPost.tr(),

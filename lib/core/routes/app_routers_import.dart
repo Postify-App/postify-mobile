@@ -4,6 +4,7 @@ import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/features/auth/presentation/view/screen/login_screen.dart';
 import 'package:postify/features/auth/presentation/view/screen/otp_screen.dart';
 import 'package:postify/features/auth/presentation/view/screen/sign_up_screen.dart';
+import 'package:postify/features/bottom_nav_bar/presentation/view/screen/bottom_nav_bar_screen.dart';
 import 'package:postify/features/businesses/presentation/view/screen/businesses_screen.dart';
 import 'package:postify/features/businesses/presentation/view/screen/your_businesses_screen.dart';
 import 'package:postify/features/home/presentation/view/screen/home_screen.dart';

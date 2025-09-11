@@ -7,6 +7,6 @@ class RoutesName {
   static const String businessesScreen = 'businessesScreen';
   static const String yourBusinessesScreen = 'yourBusinessesScreen';
   static const String initiateBusinessScreen = 'initiateBusinessScreen';
-  static const String homeScreen = 'homeScreen';
+  static const String bottomNavBar = 'bottomNavBar';
   static const String mapScreen = 'mapScreen';
 }

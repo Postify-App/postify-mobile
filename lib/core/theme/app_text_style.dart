@@ -336,6 +336,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text8BDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 8.sp,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text12RBlack(
     BuildContext context, {
     bool listen = true,

@@ -98,10 +98,6 @@ class AppImages {
   /// assets/images/businessBaseCard.png
   static const String assetsImagesBusinessBaseCard = "assets/images/businessBaseCard.png";
 
-  /// Assets for assetsImagesCreatePost
-  /// assets/images/createPost.svg
-  static const String assetsImagesCreatePost = "assets/images/createPost.svg";
-
   /// Assets for assetsImagesFacebook
   /// assets/images/facebook.png
   static const String assetsImagesFacebook = "assets/images/facebook.png";
@@ -190,6 +186,14 @@ class AppImages {
   /// assets/svg/addBorder.svg
   static const String assetsSvgAddBorder = "assets/svg/addBorder.svg";
 
+  /// Assets for assetsSvgAi
+  /// assets/svg/ai.svg
+  static const String assetsSvgAi = "assets/svg/ai.svg";
+
+  /// Assets for assetsSvgAnalysisNavBar
+  /// assets/svg/analysisNavBar.svg
+  static const String assetsSvgAnalysisNavBar = "assets/svg/analysisNavBar.svg";
+
   /// Assets for assetsSvgArrowBack
   /// assets/svg/arrowBack.svg
   static const String assetsSvgArrowBack = "assets/svg/arrowBack.svg";
@@ -210,6 +214,14 @@ class AppImages {
   /// assets/svg/businessSize.svg
   static const String assetsSvgBusinessSize = "assets/svg/businessSize.svg";
 
+  /// Assets for assetsSvgCreateNavBar
+  /// assets/svg/createNavBar.svg
+  static const String assetsSvgCreateNavBar = "assets/svg/createNavBar.svg";
+
+  /// Assets for assetsSvgCreatePost
+  /// assets/svg/createPost.svg
+  static const String assetsSvgCreatePost = "assets/svg/createPost.svg";
+
   /// Assets for assetsSvgEmailFeild
   /// assets/svg/emailFeild.svg
   static const String assetsSvgEmailFeild = "assets/svg/emailFeild.svg";
@@ -225,6 +237,10 @@ class AppImages {
   /// Assets for assetsSvgGoogleLogo
   /// assets/svg/googleLogo.svg
   static const String assetsSvgGoogleLogo = "assets/svg/googleLogo.svg";
+
+  /// Assets for assetsSvgHomeNavBar
+  /// assets/svg/homeNavBar.svg
+  static const String assetsSvgHomeNavBar = "assets/svg/homeNavBar.svg";
 
   /// Assets for assetsSvgLikes
   /// assets/svg/likes.svg
@@ -253,6 +269,10 @@ class AppImages {
   /// Assets for assetsSvgPosts
   /// assets/svg/posts.svg
   static const String assetsSvgPosts = "assets/svg/posts.svg";
+
+  /// Assets for assetsSvgPostsNavBar
+  /// assets/svg/postsNavBar.svg
+  static const String assetsSvgPostsNavBar = "assets/svg/postsNavBar.svg";
 
   /// Assets for assetsSvgRatingStar
   /// assets/svg/ratingStar.svg

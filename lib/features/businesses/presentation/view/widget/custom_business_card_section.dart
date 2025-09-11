@@ -108,7 +108,7 @@ class CustomBusinessCardSectionWidget extends StatelessWidget {
         ),
       ],
     ).onTapScaleAnimation(
-      onTap: () => NavigatorMethods.pushNamed(context, RoutesName.homeScreen),
+      onTap: () => NavigatorMethods.pushNamed(context, RoutesName.bottomNavBar),
     );
   }
 }

@@ -52,7 +52,7 @@ class CustomInitiateBusinessStepPage extends StatelessWidget {
                   if (state.createBusinessStatus == CubitStatus.success) {
                     NavigatorMethods.pushNamedAndRemoveUntil(
                       context,
-                      RoutesName.homeScreen,
+                      RoutesName.bottomNavBar,
                     );
                   }
                   if (state.createBusinessStatus == CubitStatus.failure) {

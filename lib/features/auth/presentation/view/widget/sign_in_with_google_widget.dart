@@ -32,7 +32,7 @@ class SigninWithGoogleWidget extends StatelessWidget {
         } else if (state.signInWithGoogleStatus == CubitStatus.success) {
           NavigatorMethods.pushNamedAndRemoveUntil(
             context,
-            RoutesName.homeScreen,
+            RoutesName.bottomNavBar,
           );
         }
       },
