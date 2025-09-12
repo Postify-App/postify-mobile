@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:postify/core/cache/hive/hive_methods.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
+import 'package:postify/core/routes/routes_name.dart';
 import 'package:postify/core/services/service_locator.imports.dart';
 import 'package:postify/core/theme/app_colors.dart';
+import 'package:postify/core/utils/navigator_methods.dart';
 import 'package:postify/features/businesses/presentation/controller/businesses_cubit.dart';
 import 'package:postify/features/businesses/presentation/view/screen/your_businesses_screen.dart';
 import 'package:postify/features/businesses/presentation/view/widget/businesses_list_widget.dart';
@@ -71,43 +74,54 @@ class BusinessesScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Positioned(
-                  //   bottom: 35.h,
-                  //   left: 35.w,
-                  //   child: CustomHomeButton(
-                  //     text: AppLocaleKey.add.tr(),
-                  //     prefixIcon: SvgPicture.asset(AppImages.assetsSvgArrowTop),
-                  //     width: 100.w,
-                  //     height: 48.h,
-                  //     color: AppColor.greenColor(context),
-                  //     textColor: AppColor.blackColor(context),
-                  //     hasShadow: true,
-                  //     onPressed: () {
-                  //       HiveMethods.deleteTokens();
-                  //       NavigatorMethods.pushNamedAndRemoveUntil(
-                  //         context,
-                  //         RoutesName.loginScreen,
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
-                  // Positioned(
-                  //   bottom: 15.h,
-                  //   right: 15.w,
-                  //   child: CustomHomeButton(
-                  //     text: AppLocaleKey.recommendation.tr(),
-                  //     suffixIcon: CircleAvatar(
-                  //       radius: 15,
-                  //       backgroundColor: AppColor.secondAppColor(context),
-                  //       child: SvgPicture.asset(AppImages.assetsSvgArrowRight),
-                  //     ),
-                  //     width: 213.w,
-                  //     height: 48.h,
-                  //     color: AppColor.greenColor(context),
-                  //     textColor: AppColor.blackColor(context),
-                  //     hasShadow: true,
-                  //   ),
-                  // ),
+                  Positioned(
+                    bottom: 35.h,
+                    left: 35.w,
+                    child: CustomHomeButton(
+                      text: AppLocaleKey.logout.tr(),
+                      prefixIcon: SvgPicture.asset(AppImages.assetsSvgArrowTop),
+                      width: 100.w,
+                      height: 48.h,
+                      color: AppColor.greenColor(context),
+                      textColor: AppColor.blackColor(context),
+                      hasShadow: true,
+                      onPressed: () {
+                        HiveMethods.deleteTokens();
+                        NavigatorMethods.pushNamedAndRemoveUntil(
+                          context,
+                          RoutesName.loginScreen,
+                        );
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 15.h,
+                    right: 15.w,
+                    child: CustomHomeButton(
+                      text: AppLocaleKey.recommendation.tr(),
+                      suffixIcon: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: AppColor.secondAppColor(context),
+                        child: SvgPicture.asset(AppImages.assetsSvgArrowRight),
+                      ),
+                      width: 213.w,
+                      height: 48.h,
+                      color: AppColor.greenColor(context),
+                      textColor: AppColor.blackColor(context),
+                      hasShadow: true,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => BlocProvider.value(
+                              value: context.read<BusinessesCubit>(),
+                              child: const YourBusinessesScreen(),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
