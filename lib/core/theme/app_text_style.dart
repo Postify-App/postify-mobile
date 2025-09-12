@@ -83,6 +83,17 @@ class AppTextStyle {
       color: color ?? AppColor.darkGreyColor(context, listen: listen),
     );
   }
+  static TextStyle text10RSecond(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 10.sp,
+      fontWeight: FontWeight.w400,
+      color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
 
   static TextStyle text10LDarkGrey(
     BuildContext context, {
@@ -287,6 +298,17 @@ class AppTextStyle {
       color: color ?? AppColor.mainAppColor(context, listen: listen),
     );
   }
+  static TextStyle text16LLightMain(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w300,
+      color: color ?? AppColor.lightMainAppColor(context, listen: listen),
+    );
+  }
 
   static TextStyle text20SSecond(
     BuildContext context, {
@@ -477,6 +499,17 @@ class AppTextStyle {
       fontSize: 10.sp,
       fontWeight: FontWeight.w600,
       color: color ?? AppColor.darkTextColor(context, listen: listen),
+    );
+  }
+  static TextStyle text11BlackLightMain(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 11.sp,
+      fontWeight: FontWeight.w900,
+      color: color ?? AppColor.lightMainAppColor(context, listen: listen),
     );
   }
 

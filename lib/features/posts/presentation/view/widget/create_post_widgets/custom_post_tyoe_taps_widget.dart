@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:postify/features/posts/data/enum/post_writing_type_enum.dart';
-import 'package:postify/features/posts/presentation/view/widget/post_writing_type_tap_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/post_writing_type_tap_widget.dart';
 
 class CustomPostTypeTapsWidget extends StatefulWidget {
   const CustomPostTypeTapsWidget({super.key});

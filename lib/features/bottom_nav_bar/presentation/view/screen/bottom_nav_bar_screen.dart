@@ -29,12 +29,14 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
           return Scaffold(
             extendBody: true,
+            backgroundColor: AppColor.lightMainAppColor(context),
             body: LazyIndexedStack(
               index: currentIndex,
               children: bottomNavCubit.screens,
             ),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: currentIndex,
+
               onTap: (index) async {
                 context.read<BottomNavCubit>().changeScreen(index);
               },
@@ -72,7 +74,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                 context,
                 color: AppColor.greyColor(context),
               ),
-              backgroundColor: AppColor.whiteColor(context),
+              backgroundColor: AppColor.lightMainAppColor(context),
               type: BottomNavigationBarType.fixed,
             ),
 

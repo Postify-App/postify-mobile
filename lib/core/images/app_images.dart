@@ -190,6 +190,10 @@ class AppImages {
   /// assets/svg/ai.svg
   static const String assetsSvgAi = "assets/svg/ai.svg";
 
+  /// Assets for assetsSvgAnalysisButton
+  /// assets/svg/analysisButton.svg
+  static const String assetsSvgAnalysisButton = "assets/svg/analysisButton.svg";
+
   /// Assets for assetsSvgAnalysisNavBar
   /// assets/svg/analysisNavBar.svg
   static const String assetsSvgAnalysisNavBar = "assets/svg/analysisNavBar.svg";

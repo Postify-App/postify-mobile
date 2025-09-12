@@ -10,11 +10,11 @@ import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/businesses/presentation/view/widget/custom_home_button.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_home_app_bar.dart';
-import 'package:postify/features/posts/presentation/view/widget/ai_output_widget.dart';
-import 'package:postify/features/posts/presentation/view/widget/approximate_words_widget.dart';
-import 'package:postify/features/posts/presentation/view/widget/create_post_header_widget.dart';
-import 'package:postify/features/posts/presentation/view/widget/custom_post_tyoe_taps_widget.dart';
-import 'package:postify/features/posts/presentation/view/widget/custom_words_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/ai_output_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/approximate_words_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/create_post_header_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/custom_post_tyoe_taps_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/custom_words_widget.dart';
 
 class AiPromptContent extends StatefulWidget {
   const AiPromptContent({super.key, required this.onPressed});
