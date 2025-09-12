@@ -10,10 +10,7 @@ class DateMethods {
   static String formatToDate(String? date) {
     DateTime? dateTime = DateTime.tryParse(date.toString());
     return dateTime != null
-        ? DateFormat(
-            'yyyy-MM-dd',
-            'en',
-          ).format(dateTime)
+        ? DateFormat('yyyy-MM-dd', 'en').format(dateTime)
         : "";
   }
 
@@ -43,8 +40,9 @@ class DateMethods {
     int hours = s?.containsKey(0) == true ? int.parse(s![0]!) : 00;
     int minutes = s?.containsKey(1) == true ? int.parse(s![1]!) : 00;
 
-    DateTime? dateTime =
-        s != null ? DateTime(0000, 00, 00, hours, minutes) : null;
+    DateTime? dateTime = s != null
+        ? DateTime(0000, 00, 00, hours, minutes)
+        : null;
     return dateTime != null
         ? DateFormat(
             "hh:mm a",
@@ -64,10 +62,12 @@ class DateMethods {
     int hoursE = e?.containsKey(0) == true ? int.parse(e![0]!) : 00;
     int minutesE = e?.containsKey(1) == true ? int.parse(e![1]!) : 00;
 
-    DateTime? startTime =
-        s != null ? DateTime(0000, 00, 00, hoursS, minutesS) : null;
-    DateTime? endTime =
-        e != null ? DateTime(0000, 00, 00, hoursE, minutesE) : null;
+    DateTime? startTime = s != null
+        ? DateTime(0000, 00, 00, hoursS, minutesS)
+        : null;
+    DateTime? endTime = e != null
+        ? DateTime(0000, 00, 00, hoursE, minutesE)
+        : null;
     DateTime? nowTime = e != null
         ? DateTime(0000, 00, 00, TimeOfDay.now().hour, TimeOfDay.now().minute)
         : null;
@@ -87,10 +87,7 @@ class DateMethods {
     DateTime? dateTime = DateTime.tryParse(date.toString());
 
     return dateTime != null
-        ? timeago.format(
-            dateTime,
-            locale: context.locale.languageCode,
-          )
+        ? timeago.format(dateTime, locale: context.locale.languageCode)
         : "";
   }
 
@@ -178,31 +175,22 @@ class DateMethods {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: initialDate,
-      firstDate: firstDate ??
-          DateTime.now().subtract(
-            const Duration(days: 365 * 10),
-          ),
-      lastDate: lastDate ??
-          DateTime.now().add(
-            const Duration(days: 365 * 30),
-          ),
+      firstDate:
+          firstDate ?? DateTime.now().subtract(const Duration(days: 365 * 10)),
+      lastDate: lastDate ?? DateTime.now().add(const Duration(days: 365 * 30)),
       builder: (context, child) {
         return Theme(
-          data: ThemeData(
-            fontFamily: context.fontFamily(),
-          ).copyWith(
+          data: ThemeData(fontFamily: context.fontFamily()).copyWith(
             colorScheme: ColorScheme.dark(
               primary: mainColor ?? AppColor.mainAppColor(context),
               onPrimary: backgroundColor,
               surface: backgroundColor,
               onSurface: textColor,
             ),
-            dialogBackgroundColor: backgroundColor,
             textButtonTheme: TextButtonThemeData(
-              style: TextButton.styleFrom(
-                foregroundColor: textColor,
-              ),
+              style: TextButton.styleFrom(foregroundColor: textColor),
             ),
+            dialogTheme: DialogThemeData(backgroundColor: backgroundColor),
           ),
           child: child!,
         );
@@ -223,27 +211,25 @@ class DateMethods {
   }) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
-      initialTime:
-          TimeOfDay(hour: initialDate.hour, minute: initialDate.minute),
+      initialTime: TimeOfDay(
+        hour: initialDate.hour,
+        minute: initialDate.minute,
+      ),
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
           child: Theme(
-            data: ThemeData(
-              fontFamily: context.fontFamily(),
-            ).copyWith(
+            data: ThemeData(fontFamily: context.fontFamily()).copyWith(
               colorScheme: ColorScheme.dark(
                 primary: mainColor ?? AppColor.mainAppColor(context),
                 onPrimary: backgroundColor,
                 surface: backgroundColor,
                 onSurface: textColor,
               ),
-              dialogBackgroundColor: backgroundColor,
               textButtonTheme: TextButtonThemeData(
-                style: TextButton.styleFrom(
-                  foregroundColor: textColor,
-                ),
+                style: TextButton.styleFrom(foregroundColor: textColor),
               ),
+              dialogTheme: DialogThemeData(backgroundColor: backgroundColor),
             ),
             child: child!,
           ),
@@ -255,5 +241,97 @@ class DateMethods {
       DateTime time = DateTime(0000, 00, 00, picked.hour, picked.minute);
       onSuccess.call(time);
     }
+  }
+
+  static Future<void> pickDateTime(
+    BuildContext context, {
+    required DateTime initialDate,
+    required void Function(String) onSuccess,
+    DateTime? firstDate,
+    DateTime? lastDate,
+    Color? mainColor,
+    Color backgroundColor = Colors.white,
+    Color textColor = Colors.black,
+    bool useUtc = true,
+  }) async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: initialDate,
+      firstDate:
+          firstDate ?? DateTime.now().subtract(const Duration(days: 365 * 10)),
+      lastDate: lastDate ?? DateTime.now().add(const Duration(days: 365 * 30)),
+      builder: (context, child) {
+        return Theme(
+          data: ThemeData(fontFamily: context.fontFamily()).copyWith(
+            colorScheme: ColorScheme.dark(
+              primary: mainColor ?? AppColor.mainAppColor(context),
+              onPrimary: backgroundColor,
+              surface: backgroundColor,
+              onSurface: textColor,
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(foregroundColor: textColor),
+            ),
+            dialogTheme: DialogThemeData(backgroundColor: backgroundColor),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (pickedDate == null) return;
+
+    final TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(
+        hour: initialDate.hour,
+        minute: initialDate.minute,
+      ),
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+          child: Theme(
+            data: ThemeData(fontFamily: context.fontFamily()).copyWith(
+              colorScheme: ColorScheme.dark(
+                primary: mainColor ?? AppColor.mainAppColor(context),
+                onPrimary: backgroundColor,
+                surface: backgroundColor,
+                onSurface: textColor,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(foregroundColor: textColor),
+              ),
+              dialogTheme: DialogThemeData(backgroundColor: backgroundColor),
+            ),
+            child: child!,
+          ),
+        );
+      },
+    );
+
+    if (pickedTime == null) return;
+
+    DateTime combined = DateTime(
+      pickedDate.year,
+      pickedDate.month,
+      pickedDate.day,
+      pickedTime.hour,
+      pickedTime.minute,
+    );
+
+    if (useUtc) {
+      combined = combined.toUtc();
+    }
+
+    final String formatted =
+        "${combined.year.toString().padLeft(4, '0')}-"
+        "${combined.month.toString().padLeft(2, '0')}-"
+        "${combined.day.toString().padLeft(2, '0')}T"
+        "${combined.hour.toString().padLeft(2, '0')}:"
+        "${combined.minute.toString().padLeft(2, '0')}:"
+        "${combined.second.toString().padLeft(2, '0')}"
+        "${useUtc ? 'Z' : ''}";
+
+    onSuccess.call(formatted);
   }
 }

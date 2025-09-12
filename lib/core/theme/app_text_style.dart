@@ -144,6 +144,18 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle text13RDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 13.sp,
+      fontWeight: FontWeight.w400,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
+    );
+  }
+
   static TextStyle text14RSecond(
     BuildContext context, {
     bool listen = true,
@@ -573,6 +585,18 @@ class AppTextStyle {
       fontSize: 14.sp,
       fontWeight: FontWeight.w700,
       color: color ?? AppColor.secondAppColor(context, listen: listen),
+    );
+  }
+
+  static TextStyle text14BDark(
+    BuildContext context, {
+    bool listen = true,
+    Color? color,
+  }) {
+    return TextStyle(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w700,
+      color: color ?? AppColor.darkTextColor(context, listen: listen),
     );
   }
 

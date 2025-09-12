@@ -14,7 +14,6 @@ import 'package:postify/features/posts/presentation/view/widget/ai_output_widget
 import 'package:postify/features/posts/presentation/view/widget/approximate_words_widget.dart';
 import 'package:postify/features/posts/presentation/view/widget/create_post_header_widget.dart';
 import 'package:postify/features/posts/presentation/view/widget/custom_post_tyoe_taps_widget.dart';
-import 'package:postify/features/posts/presentation/view/widget/custom_tone_of_voice_selected_widget.dart';
 import 'package:postify/features/posts/presentation/view/widget/custom_words_widget.dart';
 
 class AiPromptContent extends StatefulWidget {
@@ -28,7 +27,7 @@ class AiPromptContent extends StatefulWidget {
 class _AiPromptContentState extends State<AiPromptContent> {
   final aiPromptController = TextEditingController();
 
-    @override
+  @override
   void dispose() {
     aiPromptController.dispose();
     super.dispose();
@@ -37,61 +36,58 @@ class _AiPromptContentState extends State<AiPromptContent> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
-              child: Column(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+        child: Column(
+          children: [
+            const CustomHomeAppBar(),
+            16.verticalSpace,
+            const CreatePostHeaderWidget(),
+            const AiOutputWidget(),
+            const CustomPostTypeTapsWidget(),
+            24.verticalSpace,
+            const ApproximateWordsWidget(),
+            // 24.verticalSpace,
+            // const CustomToneOfVoiceSelectedWidget(),
+            8.verticalSpace,
+            CustomWordsWidget(
+              wordsNotifier: ValueNotifier(['Organic', 'Handmade', 'Travel']),
+            ).setTitle(
+              title: AppLocaleKey.requiredWords.tr(),
+              titleStyle: AppTextStyle.text16RDark(context),
+            ),
+            24.verticalSpace,
+            CustomWordsWidget(
+              wordsNotifier: ValueNotifier(['Cheap', 'Discount']),
+            ).setTitle(
+              title: AppLocaleKey.forbiddenWords.tr(),
+              titleStyle: AppTextStyle.text16RDark(context),
+            ),
+            24.verticalSpace,
+            CustomFormField(
+              controller: aiPromptController,
+              hintText: AppLocaleKey.aiPrompt.tr(),
+              unFocusColor: AppColor.darkTextColor(context),
+              suffixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  const CustomHomeAppBar(),
-                  16.verticalSpace,
-                  const CreatePostHeaderWidget(),
-                  const AiOutputWidget(),
-                  const CustomPostTypeTapsWidget(),
-                  24.verticalSpace,
-                  const ApproximateWordsWidget(),
-                  24.verticalSpace,
-                  const CustomToneOfVoiceSelectedWidget(),
-                  24.verticalSpace,
-                  CustomWordsWidget(
-                    wordsNotifier: ValueNotifier([
-                      'Organic',
-                      'Handmade',
-                      'Travel',
-                    ]),
-                  ).setTitle(
-                    title: AppLocaleKey.requiredWords.tr(),
-                    titleStyle: AppTextStyle.text16RDark(context),
-                  ),
-                  24.verticalSpace,
-                  CustomWordsWidget(
-                    wordsNotifier: ValueNotifier(['Cheap', 'Discount']),
-                  ).setTitle(
-                    title: AppLocaleKey.forbiddenWords.tr(),
-                    titleStyle: AppTextStyle.text16RDark(context),
-                  ),
-                  24.verticalSpace,
-                  CustomFormField(
-                    controller: aiPromptController,
-                    hintText: AppLocaleKey.aiPrompt.tr(),
-                    unFocusColor: AppColor.darkTextColor(context),
-                    suffixIcon: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SvgPicture.asset(AppImages.assetsSvgVoice),
-                        8.horizontalSpace,
-                        SvgPicture.asset(AppImages.assetsSvgSend),
-                        8.horizontalSpace,
-                      ],
-                    ),
-                  ),
-                  24.verticalSpace,
-                  CustomHomeButton(
-                    text: AppLocaleKey.continueKey.tr(),
-                    color: AppColor.darkTextColor(context),
-                    onPressed: widget.onPressed,
-                  ),
+                  SvgPicture.asset(AppImages.assetsSvgVoice),
+                  8.horizontalSpace,
+                  SvgPicture.asset(AppImages.assetsSvgSend),
+                  8.horizontalSpace,
                 ],
               ),
             ),
-          );
+            24.verticalSpace,
+            CustomHomeButton(
+              text: AppLocaleKey.continueKey.tr(),
+              color: AppColor.darkTextColor(context),
+              onPressed: widget.onPressed,
+            ),
+            100.verticalSpace,
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -9,6 +9,8 @@ import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/businesses/presentation/view/widget/custom_home_button.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_home_app_bar.dart';
 import 'package:postify/features/posts/presentation/view/widget/create_post_header_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/schedule_post_section_widget.dart';
+import 'package:postify/features/posts/presentation/view/widget/select_social_platform_section_widget.dart';
 import 'package:postify/features/posts/presentation/view/widget/upload_media_widget.dart';
 
 class GenerateImageContent extends StatefulWidget {
@@ -29,32 +31,41 @@ class _GenerateImageContentState extends State<GenerateImageContent> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
-        child: Column(
-          children: [
-            const CustomHomeAppBar(),
-            16.verticalSpace,
-            CreatePostHeaderWidget(onTap: _goToPreviousPage),
-            const UploadMediaWidget(),
-            CustomHomeButton(
-              hasShadow: true,
-              text: AppLocaleKey.generateImage.tr(),
-              color: AppColor.lightMainAppColor(context),
-              borderColor: AppColor.darkTextColor(context),
-              style: AppTextStyle.text16SBMain(
-                context,
-                color: AppColor.darkTextColor(context),
-              ),
-              radius: 10,
-              suffixIcon: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SvgPicture.asset(AppImages.assetsSvgOpen),
-              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CustomHomeAppBar(),
+          16.verticalSpace,
+          CreatePostHeaderWidget(onTap: _goToPreviousPage),
+          const UploadMediaWidget(),
+          CustomHomeButton(
+            hasShadow: true,
+            text: AppLocaleKey.generateImage.tr(),
+            color: AppColor.lightMainAppColor(context),
+            borderColor: AppColor.darkTextColor(context),
+            style: AppTextStyle.text16SBMain(
+              context,
+              color: AppColor.darkTextColor(context),
             ),
-          ],
-        ),
+            radius: 10,
+            suffixIcon: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: SvgPicture.asset(AppImages.assetsSvgOpen),
+            ),
+          ),
+          32.verticalSpace,
+          const SelectSocialPlatformSectionWidget(),
+          16.verticalSpace,
+          const SchedulePostSectionWidget(),
+          const Spacer(),
+          CustomHomeButton(
+            text: AppLocaleKey.done.tr(),
+            color: AppColor.darkTextColor(context),
+            onPressed: () {},
+          ),
+        ],
       ),
     );
   }
