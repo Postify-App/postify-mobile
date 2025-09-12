@@ -10,4 +10,5 @@ class RoutesName {
   static const String bottomNavBar = 'bottomNavBar';
   static const String mapScreen = 'mapScreen';
   static const String createPostScreen = 'createPostScreen';
+  static const String postDetailsScreen = 'postDetailsScreen';
 }

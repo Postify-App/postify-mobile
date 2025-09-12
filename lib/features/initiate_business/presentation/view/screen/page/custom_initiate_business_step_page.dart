@@ -14,6 +14,7 @@ import 'package:postify/features/businesses/presentation/view/widget/custom_home
 import 'package:postify/features/initiate_business/data/enum/initiate_business_step_type_enum.dart';
 import 'package:postify/features/initiate_business/data/extension/initiate_business_step_extension.dart';
 import 'package:postify/features/initiate_business/presentation/controller/initiate_business_cubit.dart';
+import 'package:postify/features/profile/presentation/controller/profile_cubit.dart';
 
 class CustomInitiateBusinessStepPage extends StatelessWidget {
   const CustomInitiateBusinessStepPage({
@@ -50,6 +51,9 @@ class CustomInitiateBusinessStepPage extends StatelessWidget {
                     current.createBusinessStatus,
                 listener: (context, state) {
                   if (state.createBusinessStatus == CubitStatus.success) {
+                    context.read<ProfileCubit>().updateSelectedBusiness(
+                      state.businessModel,
+                    );
                     NavigatorMethods.pushNamedAndRemoveUntil(
                       context,
                       RoutesName.bottomNavBar,

@@ -38,7 +38,7 @@ class _GenerateImageContentState extends State<GenerateImageContent> {
         children: [
           const CustomHomeAppBar(),
           16.verticalSpace,
-          CreatePostHeaderWidget(onTap: _goToPreviousPage),
+          CustomHeaderWidget(onTap: _goToPreviousPage),
           const UploadMediaWidget(),
           CustomHomeButton(
             hasShadow: true,
@@ -56,7 +56,16 @@ class _GenerateImageContentState extends State<GenerateImageContent> {
             ),
           ),
           32.verticalSpace,
-          const SelectSocialPlatformSectionWidget(),
+          Text(
+            AppLocaleKey.socialPlatform.tr(),
+            style: AppTextStyle.text20MDark(context),
+          ),
+          Text(
+            AppLocaleKey.selectPlatforms.tr(),
+            style: AppTextStyle.text13RDark(context),
+          ),
+          16.verticalSpace,
+          const SelectSocialPlatformListWidget(),
           16.verticalSpace,
           const SchedulePostSectionWidget(),
           const Spacer(),

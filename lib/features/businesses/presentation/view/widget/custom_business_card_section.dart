@@ -76,9 +76,9 @@ class CustomBusinessCardSectionWidget extends StatelessWidget {
           top: 60.h,
           child: Column(
             children: [
-              CustomSuffixCircleIcon(icon: businessModel.logo),
+              CustomSuffixCircleIcon(icon: businessModel.mainTopic?.logo),
               8.verticalSpace,
-              CustomSuffixCircleIcon(icon: businessModel.logo),
+              CustomSuffixCircleIcon(icon: businessModel.toneOfVoice?.logo),
             ],
           ),
         ),

@@ -12,25 +12,28 @@ class PostsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-          sliver: SliverList(
-            delegate: SliverChildListDelegate([
-              const CustomHomeAppBar(),
-              24.verticalSpace,
-              const ScheduledPostsListWidget(),
-              45.verticalSpace,
-              Text(
-                AppLocaleKey.posted.tr(),
-                style: AppTextStyle.text32BDark(context).copyWith(height: 1),
-              ),
-            ]),
+    return SafeArea(
+      bottom: false,
+      child: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                const CustomHomeAppBar(),
+                24.verticalSpace,
+                const ScheduledPostsListWidget(),
+                45.verticalSpace,
+                Text(
+                  AppLocaleKey.posted.tr(),
+                  style: AppTextStyle.text32BDark(context).copyWith(height: 1),
+                ),
+              ]),
+            ),
           ),
-        ),
-        const CustomPostedListWidget(),
-      ],
+          const CustomPostedListWidget(),
+        ],
+      ),
     );
   }
 }

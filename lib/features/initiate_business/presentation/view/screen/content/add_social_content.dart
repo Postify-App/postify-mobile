@@ -11,7 +11,6 @@ class AddSocialContent extends StatefulWidget {
 }
 
 class _AddSocialContentState extends State<AddSocialContent> {
-
   final ValueNotifier<Set<int>> selectedIndices = ValueNotifier({});
 
   @override

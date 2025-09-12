@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:postify/core/utils/common_methods.dart';
+import 'package:postify/features/businesses/data/model/business_model.dart';
 import 'package:postify/features/initiate_business/data/enum/initiate_business_step_type_enum.dart';
 import 'package:postify/features/initiate_business/data/model/create_business_body.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
@@ -191,7 +192,12 @@ class InitiateBusinessCubit extends Cubit<InitiateBusinessState> {
           errorMessage: failure.errMessage,
         ),
       ),
-      (data) => emit(state.copyWith(createBusinessStatus: CubitStatus.success)),
+      (business) => emit(
+        state.copyWith(
+          createBusinessStatus: CubitStatus.success,
+          businessModel: business,
+        ),
+      ),
     );
   }
 

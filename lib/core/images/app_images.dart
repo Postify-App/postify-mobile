@@ -214,6 +214,10 @@ class AppImages {
   /// assets/svg/arrowTop.svg
   static const String assetsSvgArrowTop = "assets/svg/arrowTop.svg";
 
+  /// Assets for assetsSvgBookMarks
+  /// assets/svg/bookMarks.svg
+  static const String assetsSvgBookMarks = "assets/svg/bookMarks.svg";
+
   /// Assets for assetsSvgBusinessSize
   /// assets/svg/businessSize.svg
   static const String assetsSvgBusinessSize = "assets/svg/businessSize.svg";
@@ -221,6 +225,10 @@ class AppImages {
   /// Assets for assetsSvgClose
   /// assets/svg/close.svg
   static const String assetsSvgClose = "assets/svg/close.svg";
+
+  /// Assets for assetsSvgComments
+  /// assets/svg/comments.svg
+  static const String assetsSvgComments = "assets/svg/comments.svg";
 
   /// Assets for assetsSvgCreateNavBar
   /// assets/svg/createNavBar.svg
@@ -233,6 +241,10 @@ class AppImages {
   /// Assets for assetsSvgEmailFeild
   /// assets/svg/emailFeild.svg
   static const String assetsSvgEmailFeild = "assets/svg/emailFeild.svg";
+
+  /// Assets for assetsSvgFacebook
+  /// assets/svg/facebook.svg
+  static const String assetsSvgFacebook = "assets/svg/facebook.svg";
 
   /// Assets for assetsSvgFillStar
   /// assets/svg/fillStar.svg
@@ -250,9 +262,17 @@ class AppImages {
   /// assets/svg/homeNavBar.svg
   static const String assetsSvgHomeNavBar = "assets/svg/homeNavBar.svg";
 
+  /// Assets for assetsSvgInstagram
+  /// assets/svg/instagram.svg
+  static const String assetsSvgInstagram = "assets/svg/instagram.svg";
+
   /// Assets for assetsSvgLikes
   /// assets/svg/likes.svg
   static const String assetsSvgLikes = "assets/svg/likes.svg";
+
+  /// Assets for assetsSvgLinkedin
+  /// assets/svg/linkedin.svg
+  static const String assetsSvgLinkedin = "assets/svg/linkedin.svg";
 
   /// Assets for assetsSvgLocation
   /// assets/svg/location.svg
@@ -286,9 +306,25 @@ class AppImages {
   /// assets/svg/ratingStar.svg
   static const String assetsSvgRatingStar = "assets/svg/ratingStar.svg";
 
+  /// Assets for assetsSvgReach
+  /// assets/svg/reach.svg
+  static const String assetsSvgReach = "assets/svg/reach.svg";
+
+  /// Assets for assetsSvgReddit
+  /// assets/svg/reddit.svg
+  static const String assetsSvgReddit = "assets/svg/reddit.svg";
+
   /// Assets for assetsSvgSend
   /// assets/svg/send.svg
   static const String assetsSvgSend = "assets/svg/send.svg";
+
+  /// Assets for assetsSvgShare
+  /// assets/svg/share.svg
+  static const String assetsSvgShare = "assets/svg/share.svg";
+
+  /// Assets for assetsSvgTiktok
+  /// assets/svg/tiktok.svg
+  static const String assetsSvgTiktok = "assets/svg/tiktok.svg";
 
   /// Assets for assetsSvgUpload
   /// assets/svg/upload.svg

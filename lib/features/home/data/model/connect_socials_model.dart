@@ -31,7 +31,7 @@ List<ConnectSocialsModel> mockConnectSocials = [
     userSocialImage: '',
     userSocialName: 'ibrahimFacebook',
     socialName: 'Facebook',
-    socialIcon: AppImages.assetsImagesFacebook,
+    socialIcon: AppImages.assetsSvgFacebook,
     postsCount: 10,
   ),
 
@@ -39,7 +39,7 @@ List<ConnectSocialsModel> mockConnectSocials = [
     userSocialImage: '',
     userSocialName: 'instaIbrahim',
     socialName: 'Instagram',
-    socialIcon: AppImages.assetsImagesInstagram,
+    socialIcon: AppImages.assetsSvgInstagram,
     postsCount: 5,
   ),
 
@@ -47,7 +47,7 @@ List<ConnectSocialsModel> mockConnectSocials = [
     userSocialImage: '',
     userSocialName: '@user4444',
     socialName: 'TikTok',
-    socialIcon: AppImages.assetsImagesTiktok,
+    socialIcon: AppImages.assetsSvgTiktok,
     postsCount: 2,
   ),
 
@@ -55,7 +55,14 @@ List<ConnectSocialsModel> mockConnectSocials = [
     userSocialImage: '',
     userSocialName: '@user456',
     socialName: 'Linkedin',
-    socialIcon: AppImages.assetsImagesLinkedin,
+    socialIcon: AppImages.assetsSvgLinkedin,
     postsCount: 7,
+  ),
+  const ConnectSocialsModel(
+    userSocialImage: '',
+    userSocialName: '@user896',
+    socialName: 'Reddit',
+    socialIcon: AppImages.assetsSvgReddit,
+    postsCount: 156,
   ),
 ];

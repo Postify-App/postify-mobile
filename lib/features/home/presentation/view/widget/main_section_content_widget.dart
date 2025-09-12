@@ -65,9 +65,13 @@ class MainSectionContentWidget extends StatelessWidget {
                 16.horizontalSpace,
                 Row(
                   children: [
-                    CustomSuffixCircleIcon(icon: businessModel?.logo ?? ''),
+                    CustomSuffixCircleIcon(
+                      icon: businessModel?.mainTopic?.logo ?? '',
+                    ),
                     16.horizontalSpace,
-                    CustomSuffixCircleIcon(icon: businessModel?.logo ?? ''),
+                    CustomSuffixCircleIcon(
+                      icon: businessModel?.toneOfVoice?.logo ?? '',
+                    ),
                   ],
                 ),
               ],

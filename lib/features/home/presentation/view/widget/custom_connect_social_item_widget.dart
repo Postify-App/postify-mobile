@@ -67,7 +67,7 @@ class CustomConnectSocialsItemWidget extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Image.asset(connectSocialsModel.socialIcon, height: 15),
+                  SvgPicture.asset(connectSocialsModel.socialIcon, height: 15),
                 ],
               ),
               4.verticalSpace,

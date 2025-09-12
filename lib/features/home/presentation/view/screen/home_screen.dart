@@ -8,14 +8,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-        child: Column(
-          children: [
-            const CustomHomeAppBar(),
-            24.verticalSpace,
-            const CustomHomeMainSection(),
-          ],
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              const CustomHomeAppBar(),
+              24.verticalSpace,
+              const CustomHomeMainSection(),
+            ],
+          ),
         ),
       ),
     );

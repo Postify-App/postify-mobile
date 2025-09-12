@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../initiate_business/data/model/initiate_general_model.dart';
+
 List<BusinessModel> businessModelFromJson(List data) {
   return List<BusinessModel>.from(
     data.map((item) => BusinessModel.fromJson(item)),
@@ -16,10 +18,10 @@ class BusinessModel extends Equatable {
   final double? longitude;
   final double? latitude;
   final String? logo;
-  final String? mainTopicId;
-  final String? toneOfVoiceId;
-  final String? mainGoalId;
-  final String? targetAudienceId;
+  final InitiateGeneralModel? mainTopic;
+  final InitiateGeneralModel? toneOfVoice;
+  final InitiateGeneralModel? mainGoal;
+  final InitiateGeneralModel? targetAudience;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -33,10 +35,10 @@ class BusinessModel extends Equatable {
     this.longitude,
     this.latitude,
     this.logo,
-    this.mainTopicId,
-    this.toneOfVoiceId,
-    this.mainGoalId,
-    this.targetAudienceId,
+    this.mainTopic,
+    this.toneOfVoice,
+    this.mainGoal,
+    this.targetAudience,
     this.createdAt,
     this.updatedAt,
   });
@@ -52,10 +54,10 @@ class BusinessModel extends Equatable {
       longitude: (json['longitude'] as num?)?.toDouble(),
       latitude: (json['latitude'] as num?)?.toDouble(),
       logo: json['logo'] as String?,
-      mainTopicId: json['mainTopicId'] as String?,
-      toneOfVoiceId: json['toneOfVoiceId'] as String?,
-      mainGoalId: json['mainGoalId'] as String?,
-      targetAudienceId: json['targetAudienceId'] as String?,
+      mainTopic: InitiateGeneralModel.fromJson(json['mainTopic']),
+      toneOfVoice: InitiateGeneralModel.fromJson(json['toneOfVoice']),
+      mainGoal: InitiateGeneralModel.fromJson(json['mainGoal']),
+      targetAudience: InitiateGeneralModel.fromJson(json['targetAudience']),
       createdAt: json['createdAt'] != null
           ? DateTime.tryParse(json['createdAt'])
           : null,
@@ -76,10 +78,6 @@ class BusinessModel extends Equatable {
       'longitude': longitude,
       'latitude': latitude,
       'logo': logo,
-      'mainTopicId': mainTopicId,
-      'toneOfVoiceId': toneOfVoiceId,
-      'mainGoalId': mainGoalId,
-      'targetAudienceId': targetAudienceId,
       'createdAt': createdAt?.toIso8601String(),
       'updatedAt': updatedAt?.toIso8601String(),
     };
@@ -96,10 +94,10 @@ class BusinessModel extends Equatable {
     longitude,
     latitude,
     logo,
-    mainTopicId,
-    toneOfVoiceId,
-    mainGoalId,
-    targetAudienceId,
+    mainTopic,
+    toneOfVoice,
+    mainGoal,
+    targetAudience,
     createdAt,
     updatedAt,
   ];

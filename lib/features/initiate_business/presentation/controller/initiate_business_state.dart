@@ -12,6 +12,7 @@ class InitiateBusinessState extends Equatable {
   final List<InitiateGeneralModel> targetAudience;
   final int currentPage;
   final CreateBusinessBody? createBusinessBody;
+  final BusinessModel? businessModel;
   final String errorMessage;
 
   const InitiateBusinessState({
@@ -26,6 +27,7 @@ class InitiateBusinessState extends Equatable {
     this.targetAudience = const [],
     this.currentPage = 0,
     this.createBusinessBody,
+    this.businessModel,
     this.errorMessage = '',
   });
 
@@ -41,6 +43,7 @@ class InitiateBusinessState extends Equatable {
     List<InitiateGeneralModel>? targetAudience,
     int? currentPage,
     CreateBusinessBody? createBusinessBody,
+    BusinessModel? businessModel,
     String? errorMessage,
   }) {
     return InitiateBusinessState(
@@ -55,6 +58,7 @@ class InitiateBusinessState extends Equatable {
       targetAudience: targetAudience ?? this.targetAudience,
       currentPage: currentPage ?? this.currentPage,
       createBusinessBody: createBusinessBody ?? this.createBusinessBody,
+      businessModel: businessModel ?? this.businessModel,
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
@@ -72,6 +76,7 @@ class InitiateBusinessState extends Equatable {
     targetAudience,
     currentPage,
     createBusinessBody,
+    businessModel,
     errorMessage,
   ];
 }

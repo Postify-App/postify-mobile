@@ -182,6 +182,14 @@
   "edit" : "تعديل",
   "delete" : "حذف",
   "forbiddenWords" : "كلمات ممنوعة",
-  "generateImage" : "توليد صورة"
+  "generateImage" : "توليد صورة",
+  "overview": "نظرة عامة",
+  "sentiment": "المشاعر",
+  "type": "النوع",
+  "action": "إجراء",
+  "clear": "مسح",
+  "reply": "رد",
+  "smartReply": "رد ذكي",
+  "deleteComment": "حذف التعليق"
   }
   

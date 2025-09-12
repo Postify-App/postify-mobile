@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:postify/core/extension/animation_extensions/tap_scale_animation_extension.dart';
 import 'package:postify/core/extension/widget_extension.dart';
 import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
@@ -9,6 +10,7 @@ import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/businesses/presentation/view/widget/custom_home_button.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
+import 'package:postify/features/posts/presentation/view/screen/post_details_screen.dart';
 import 'package:postify/features/posts/presentation/view/widget/posts_widgets/scheduled_posts_list_widgets.dart';
 
 class CustomPostWidget extends StatelessWidget {
@@ -152,6 +154,13 @@ class CustomPostWidget extends StatelessWidget {
           ),
         ],
       ),
+    ).onTapScaleAnimation(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const PostDetailsScreen()),
+        );
+      },
     );
   }
 }

@@ -7,9 +7,14 @@ import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 
-class CreatePostHeaderWidget extends StatelessWidget {
-  const CreatePostHeaderWidget({super.key, this.onTap});
+class CustomHeaderWidget extends StatelessWidget {
+  const CustomHeaderWidget({
+    super.key,
+    this.onTap,
+    this.title,
+  });
   final VoidCallback? onTap;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,7 @@ class CreatePostHeaderWidget extends StatelessWidget {
         ).onTapScaleAnimation(onTap: onTap ?? () => Navigator.pop(context)),
         16.horizontalSpace,
         Text(
-          AppLocaleKey.createPost.tr(),
+          title ?? AppLocaleKey.createPost.tr(),
           style: AppTextStyle.text32BDark(context),
         ),
       ],

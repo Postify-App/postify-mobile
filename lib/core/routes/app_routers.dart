@@ -30,6 +30,8 @@ class AppRouters {
         return MaterialPageRoute(builder: (_) => const MapScreen());
       case RoutesName.createPostScreen:
         return MaterialPageRoute(builder: (_) => const CreatePostScreen());
+      case RoutesName.postDetailsScreen:
+        return MaterialPageRoute(builder: (_) => const PostDetailsScreen());
       default:
         return null;
     }

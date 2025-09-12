@@ -182,5 +182,14 @@
   "edit" : "Edit",
   "delete" : "Delete",
   "forbiddenWords" : "Forbidden Words",
-  "generateImage" : "Generate Image"
+  "generateImage" : "Generate Image",
+    "overview": "Overview",
+
+  "sentiment": "Sentiment",
+  "type": "Type",
+  "action": "Action",
+  "clear": "Clear",
+  "reply": "Reply",
+  "smartReply": "Smart Reply",
+  "deleteComment": "Delete Comment"
   }

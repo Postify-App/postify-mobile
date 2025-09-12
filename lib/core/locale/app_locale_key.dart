@@ -198,4 +198,12 @@ class AppLocaleKey {
   static const delete = 'delete';
   static const forbiddenWords = 'forbiddenWords';
   static const generateImage = 'generateImage';
+  static const overview = 'overview';
+  static const sentiment = 'sentiment';
+  static const type = 'type';
+  static const action = 'action';
+  static const clear = 'clear';
+  static const reply = 'reply';
+  static const smartReply = 'smartReply';
+  static const deleteComment = 'deleteComment';
 }

@@ -42,7 +42,7 @@ class _AiPromptContentState extends State<AiPromptContent> {
           children: [
             const CustomHomeAppBar(),
             16.verticalSpace,
-            const CreatePostHeaderWidget(),
+            const CustomHeaderWidget(),
             const AiOutputWidget(),
             const CustomPostTypeTapsWidget(),
             24.verticalSpace,

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:postify/core/network/end_points.dart';
 import 'package:postify/core/network/handle_dio_request.dart';
+import 'package:postify/features/businesses/data/model/business_model.dart';
 import 'package:postify/features/initiate_business/data/model/create_business_body.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
 import '../../../../core/error/failures.dart';
@@ -11,7 +12,9 @@ abstract interface class InitiateBusinessRepository {
   Future<Either<Failure, List<InitiateGeneralModel>>> toneOfVoice();
   Future<Either<Failure, List<InitiateGeneralModel>>> mainGoal();
   Future<Either<Failure, List<InitiateGeneralModel>>> targetAudience();
-  Future<Either<Failure, void>> createBusiness(CreateBusinessBody body);
+  Future<Either<Failure, BusinessModel>> createBusiness(
+    CreateBusinessBody body,
+  );
 }
 
 class InitiateBusinessRepositoryImpl implements InitiateBusinessRepository {
@@ -59,14 +62,17 @@ class InitiateBusinessRepositoryImpl implements InitiateBusinessRepository {
   }
 
   @override
-  Future<Either<Failure, void>> createBusiness(CreateBusinessBody body) {
+  Future<Either<Failure, BusinessModel>> createBusiness(
+    CreateBusinessBody body,
+  ) {
     return handleDioRequest(
       request: () async {
-        await apiConsumer.post(
+        final response = await apiConsumer.post(
           EndPoints.business,
           body: await body.toJson(),
           isFormData: true,
         );
+        return BusinessModel.fromJson(response['data']);
       },
     );
   }

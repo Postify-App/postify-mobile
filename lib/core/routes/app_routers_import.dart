@@ -11,5 +11,6 @@ import 'package:postify/features/initiate_business/presentation/view/screen/init
 import 'package:postify/features/map/presentation/view/screen/map_screen.dart';
 import 'package:postify/features/on_boarding/presentation/view/screen/on_boarding_screen.dart';
 import 'package:postify/features/posts/presentation/view/screen/create_post_screen.dart';
+import 'package:postify/features/posts/presentation/view/screen/post_details_screen.dart';
 import 'package:postify/features/splash/presentation/view/screen/splash_screen.dart';
 part 'app_routers.dart';
