@@ -46,6 +46,7 @@ class _AiPromptContentState extends State<AiPromptContent>
     return BlocProvider(
       create: (context) => GeneratePostCubit(businessId),
       child: BlocConsumer<GeneratePostCubit, GeneratePostState>(
+        buildWhen: (previous, current) => previous.status != current.status,
         listener: (context, state) {
           if (state.status == CubitStatus.failure) {
             CommonMethods.showError(message: state.errorMessage);
@@ -53,86 +54,94 @@ class _AiPromptContentState extends State<AiPromptContent>
         },
         builder: (context, state) {
           return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
-              child: Column(
-                children: [
-                  const CustomHomeAppBar(),
-                  16.verticalSpace,
-                  const CustomHeaderWidget(),
-                  const AiOutputWidget(),
-                  const CustomPostTypeTapsWidget(),
-                  24.verticalSpace,
-                  const ApproximateWordsWidget(),
-                  8.verticalSpace,
-                  CustomWordsWidget(
-                    wordsNotifier: ValueNotifier(
-                      state.generateRequestBody?.requiredWords ??
-                          ['Organic', 'Handmade', 'Travel'],
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 28,
+                ),
+                child: Column(
+                  children: [
+                    const CustomHomeAppBar(),
+                    16.verticalSpace,
+                    const CustomHeaderWidget(),
+                    const AiOutputWidget(),
+                    const CustomPostTypeTapsWidget(),
+                    24.verticalSpace,
+                    const ApproximateWordsWidget(),
+                    8.verticalSpace,
+                    CustomWordsWidget(
+                      wordsNotifier: ValueNotifier(
+                        state.generateRequestBody?.requiredWords ??
+                            ['Organic', 'Handmade', 'Travel'],
+                      ),
+                      wordsCallback: (requiredWords) {
+                        context.read<GeneratePostCubit>().setRequiredWords(
+                          requiredWords,
+                        );
+                      },
+                    ).setTitle(
+                      title: AppLocaleKey.requiredWords.tr(),
+                      titleStyle: AppTextStyle.text16RDark(context),
                     ),
-                    wordsCallback: (requiredWords) {
-                      context.read<GeneratePostCubit>().setRequiredWords(
-                        requiredWords,
-                      );
-                    },
-                  ).setTitle(
-                    title: AppLocaleKey.requiredWords.tr(),
-                    titleStyle: AppTextStyle.text16RDark(context),
-                  ),
-                  24.verticalSpace,
-                  CustomWordsWidget(
-                    wordsNotifier: ValueNotifier(
-                      state.generateRequestBody?.forbiddenWords ??
-                          ['Cheap', 'Discount'],
+                    24.verticalSpace,
+                    CustomWordsWidget(
+                      wordsNotifier: ValueNotifier(
+                        state.generateRequestBody?.forbiddenWords ??
+                            ['Cheap', 'Discount'],
+                      ),
+                      wordsCallback: (forbiddenWords) {
+                        context.read<GeneratePostCubit>().setForbiddenWords(
+                          forbiddenWords,
+                        );
+                      },
+                    ).setTitle(
+                      title: AppLocaleKey.forbiddenWords.tr(),
+                      titleStyle: AppTextStyle.text16RDark(context),
                     ),
-                    wordsCallback: (forbiddenWords) {
-                      context.read<GeneratePostCubit>().setForbiddenWords(
-                        forbiddenWords,
-                      );
-                    },
-                  ).setTitle(
-                    title: AppLocaleKey.forbiddenWords.tr(),
-                    titleStyle: AppTextStyle.text16RDark(context),
-                  ),
-                  24.verticalSpace,
-                  const AiPromptFieldWidget(),
-                  24.verticalSpace,
-                  BlocConsumer<GeneratePostCubit, GeneratePostState>(
-                    // buildWhen: (previous, current) =>
-                    //     previous.publishPostStatus != current.publishPostStatus,
-                    // listenWhen: (previous, current) =>
-                    //     previous.publishPostStatus != current.publishPostStatus,
-                    listener: (context, state) {
-                      if (state.publishPostStatus == CubitStatus.success) {
-                        widget.onPressed();
-                      } else if (state.publishPostStatus ==
-                          CubitStatus.failure) {
-                        CommonMethods.showError(message: state.errorMessage);
-                      }
-                    },
-                    builder: (context, state) {
-                      return CustomHomeButton(
-                        cubitState: state.publishPostStatus,
-                        text: AppLocaleKey.continueKey.tr(),
-                        color: AppColor.darkTextColor(context),
-                        onPressed: () {
-                          log(
-                            state.generateRequestBody?.message.toString() ?? '',
-                          );
-                          if (state.generateRequestBody?.message.isEmpty ??
-                              true) {
-                            CommonMethods.showError(
-                              message: 'Please enter prompt',
+                    24.verticalSpace,
+                    const AiPromptFieldWidget(),
+                    24.verticalSpace,
+                    BlocConsumer<GeneratePostCubit, GeneratePostState>(
+                      buildWhen: (previous, current) =>
+                          previous.publishPostStatus !=
+                          current.publishPostStatus,
+                      listenWhen: (previous, current) =>
+                          previous.publishPostStatus !=
+                          current.publishPostStatus,
+                      listener: (context, state) {
+                        if (state.publishPostStatus == CubitStatus.success) {
+                          widget.onPressed();
+                        } else if (state.publishPostStatus ==
+                            CubitStatus.failure) {
+                          CommonMethods.showError(message: state.errorMessage);
+                        }
+                      },
+                      builder: (context, state) {
+                        return CustomHomeButton(
+                          cubitState: state.publishPostStatus,
+                          text: AppLocaleKey.continueKey.tr(),
+                          color: AppColor.darkTextColor(context),
+                          onPressed: () {
+                            log(
+                              state.generateRequestBody?.message.toString() ??
+                                  '',
                             );
-                            return;
-                          }
-                          context.read<GeneratePostCubit>().publishPost();
-                        },
-                      );
-                    },
-                  ),
-                  100.verticalSpace,
-                ],
+                            if (state.generateRequestBody?.message.isEmpty ??
+                                true) {
+                              CommonMethods.showError(
+                                message: 'Please enter prompt',
+                              );
+                              return;
+                            }
+                            context.read<GeneratePostCubit>().publishPost();
+                          },
+                        );
+                      },
+                    ),
+                    100.verticalSpace,
+                  ],
+                ),
               ),
             ),
           );

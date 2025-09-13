@@ -24,9 +24,7 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColor.popupColor(context),
-        borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(20),
-        ),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -94,44 +92,51 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                   ),
                   Divider(color: AppColor.hintColor(context)),
 
-                  // 🎥 Capture Video from Camera
-                  TextButton(
-                    onPressed: onCameraVideo,
-                    child: Row(
-                      children: [
-                        Icon(Icons.videocam, color: AppColor.mainAppColor(context)),
-                        const SizedBox(width: 10),
-                        Text(
-                          tr("Video Camera"),
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
+                  if (onCameraVideo != null && onGalleryVideo != null) ...{
+                    TextButton(
+                      onPressed: onCameraVideo,
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.videocam,
                             color: AppColor.mainAppColor(context),
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 10),
+                          Text(
+                            tr("Video Camera"),
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.mainAppColor(context),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Divider(color: AppColor.hintColor(context)),
+                    Divider(color: AppColor.hintColor(context)),
 
-                  // 🎞️ Pick Video from Gallery
-                  TextButton(
-                    onPressed: onGalleryVideo,
-                    child: Row(
-                      children: [
-                        Icon(Icons.video_library, color: AppColor.mainAppColor(context)),
-                        const SizedBox(width: 10),
-                        Text(
-                          tr("Video Gallery"),
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
+                    // 🎞️ Pick Video from Gallery
+                    TextButton(
+                      onPressed: onGalleryVideo,
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.video_library,
                             color: AppColor.mainAppColor(context),
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 10),
+                          Text(
+                            tr("Video Gallery"),
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.mainAppColor(context),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                  },
 
                   const SizedBox(height: 15),
                 ],
