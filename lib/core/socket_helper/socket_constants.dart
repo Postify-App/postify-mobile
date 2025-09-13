@@ -6,6 +6,8 @@ class SocketConstants {
 class SocketEvents {
   static const String initUser = 'init_user';
   static const String generatePost = 'generate_request';
+  static const String ack = 'ack';
+  static const String error = 'error';
   static const String botTyping = 'bot_typing';
   static const String botMessage = 'bot_message';
   static const String toggleHashtags = 'toggle_hashtags';

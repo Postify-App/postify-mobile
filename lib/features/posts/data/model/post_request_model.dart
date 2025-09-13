@@ -1,30 +1,30 @@
 import 'package:equatable/equatable.dart';
 
-class PostRequest extends Equatable {
+class GenerateRequestBody extends Equatable {
   final String message;
-  final int? approximateWords;
-  final bool? hashtags;
-  final bool? emojis;
-  final List<String>? requiredWords;
-  final List<String>? forbiddenWords;
+  final int approximateWords;
+  final bool hashtags;
+  final bool emojis;
+  final List<String> requiredWords;
+  final List<String> forbiddenWords;
 
-  const PostRequest({
+  const GenerateRequestBody({
     required this.message,
-    this.approximateWords,
-    this.hashtags,
-    this.emojis,
-    this.requiredWords,
-    this.forbiddenWords,
+    this.approximateWords = 100,
+    this.hashtags = true,
+    this.emojis = true,
+    this.requiredWords = const [],
+    this.forbiddenWords = const [],
   });
 
   Map<String, dynamic> toJson() {
     return {
       'message': message,
-      if (approximateWords != null) 'approximate_words': approximateWords,
-      if (hashtags != null) 'hashtags': hashtags,
-      if (emojis != null) 'emojis': emojis,
-      if (requiredWords != null) 'required_words': requiredWords,
-      if (forbiddenWords != null) 'forbidden_words': forbiddenWords,
+      'approximate_words': approximateWords,
+      'hashtags': hashtags,
+      'emojis': emojis,
+      'required_words': requiredWords,
+      'forbidden_words': forbiddenWords,
     };
   }
 
