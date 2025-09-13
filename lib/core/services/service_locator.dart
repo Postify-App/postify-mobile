@@ -38,4 +38,8 @@ Future<void> initDependencies() async {
     () => ProfileRepositoryImpl(sl()),
   );
   sl.registerFactory<ProfileCubit>(() => ProfileCubit(sl()));
+
+  //! Posts
+  sl.registerLazySingleton<PostsRepository>(() => PostsRepositoryImpl(sl()));
+  sl.registerFactory<PostsCubit>(() => PostsCubit(sl()));
 }

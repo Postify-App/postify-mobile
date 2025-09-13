@@ -6,13 +6,19 @@ import '../../theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
-  final void Function()? onCamera;
-  final void Function()? onGallery;
+  final void Function()? onCameraImage;
+  final void Function()? onGalleryImage;
+  final void Function()? onCameraVideo;
+  final void Function()? onGalleryVideo;
+
   const ChooseGalleryOrCameraBottomSheet({
     super.key,
-    this.onCamera,
-    this.onGallery,
+    this.onCameraImage,
+    this.onGalleryImage,
+    this.onCameraVideo,
+    this.onGalleryVideo,
   });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,8 +42,9 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
+                  // 📸 Pick Image from Camera
                   TextButton(
-                    onPressed: onCamera,
+                    onPressed: onCameraImage,
                     child: Row(
                       children: [
                         SvgPicture.asset(
@@ -49,7 +56,7 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          AppLocaleKey.camera.tr(),
+                          AppLocaleKey.camera.tr(), // "Camera"
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -59,11 +66,11 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Divider(
-                    color: AppColor.hintColor(context),
-                  ),
+                  Divider(color: AppColor.hintColor(context)),
+
+                  // 🖼️ Pick Image from Gallery
                   TextButton(
-                    onPressed: onGallery,
+                    onPressed: onGalleryImage,
                     child: Row(
                       children: [
                         SvgPicture.asset(
@@ -75,7 +82,7 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          tr(AppLocaleKey.gallery),
+                          tr(AppLocaleKey.gallery), // "Gallery"
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -85,6 +92,47 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                       ],
                     ),
                   ),
+                  Divider(color: AppColor.hintColor(context)),
+
+                  // 🎥 Capture Video from Camera
+                  TextButton(
+                    onPressed: onCameraVideo,
+                    child: Row(
+                      children: [
+                        Icon(Icons.videocam, color: AppColor.mainAppColor(context)),
+                        const SizedBox(width: 10),
+                        Text(
+                          tr("Video Camera"),
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.mainAppColor(context),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Divider(color: AppColor.hintColor(context)),
+
+                  // 🎞️ Pick Video from Gallery
+                  TextButton(
+                    onPressed: onGalleryVideo,
+                    child: Row(
+                      children: [
+                        Icon(Icons.video_library, color: AppColor.mainAppColor(context)),
+                        const SizedBox(width: 10),
+                        Text(
+                          tr("Video Gallery"),
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.mainAppColor(context),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
                   const SizedBox(height: 15),
                 ],
               ),

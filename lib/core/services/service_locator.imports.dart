@@ -8,6 +8,8 @@ import 'package:postify/features/businesses/data/repository/businesses_repositor
 import 'package:postify/features/businesses/presentation/controller/businesses_cubit.dart';
 import 'package:postify/features/initiate_business/data/repository/initiate_business_repository.dart';
 import 'package:postify/features/initiate_business/presentation/controller/initiate_business_cubit.dart';
+import 'package:postify/features/posts/data/repository/posts_repository.dart';
+import 'package:postify/features/posts/presentation/controller/posts_cubit.dart';
 import 'package:postify/features/profile/data/repository/profile_repository.dart';
 import 'package:postify/features/profile/presentation/controller/profile_cubit.dart';
 import '../network/api_consumer.dart';

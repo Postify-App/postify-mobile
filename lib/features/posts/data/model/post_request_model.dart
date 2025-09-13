@@ -9,13 +9,31 @@ class GenerateRequestBody extends Equatable {
   final List<String> forbiddenWords;
 
   const GenerateRequestBody({
-    required this.message,
-    this.approximateWords = 100,
-    this.hashtags = true,
-    this.emojis = true,
-    this.requiredWords = const [],
-    this.forbiddenWords = const [],
+    this.message = '',
+    this.approximateWords = 32,
+    this.hashtags = false,
+    this.emojis = false,
+    this.requiredWords = const ['Organic', 'Handmade', 'Travel'],
+    this.forbiddenWords = const ['Cheap', 'Discount'],
   });
+
+  GenerateRequestBody copyWith({
+    String? message,
+    int? approximateWords,
+    bool? hashtags,
+    bool? emojis,
+    List<String>? requiredWords,
+    List<String>? forbiddenWords,
+  }) {
+    return GenerateRequestBody(
+      message: message ?? this.message,
+      approximateWords: approximateWords ?? this.approximateWords,
+      hashtags: hashtags ?? this.hashtags,
+      emojis: emojis ?? this.emojis,
+      requiredWords: requiredWords ?? this.requiredWords,
+      forbiddenWords: forbiddenWords ?? this.forbiddenWords,
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {

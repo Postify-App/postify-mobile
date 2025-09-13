@@ -36,7 +36,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
         children: [
           AiPromptContent(onPressed: _goToNextPage),
 
-           GenerateImageContent(pageController: _pageController,),
+          GenerateImageContent(pageController: _pageController),
         ],
       ),
     );

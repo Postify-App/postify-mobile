@@ -1,0 +1,1 @@
+enum PostsTypeEnum { scheduled, posted }

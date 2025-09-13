@@ -191,5 +191,8 @@
   "clear": "Clear",
   "reply": "Reply",
   "smartReply": "Smart Reply",
-  "deleteComment": "Delete Comment"
+  "deleteComment": "Delete Comment",
+  "chooseType" : "Choose Type",
+  "image" : "Image",
+  "video" : "Video"
   }

@@ -12,4 +12,9 @@ class EndPoints {
   static const String business = 'business';
   //! Profile
   static const String profile = 'user/me';
+  //! posts
+  static String publishPost(String businessId) => 'post/publish/$businessId';
+  static String businessesPosts(String businessId) =>
+      'post/business/$businessId';
+  static String showPost(String postId) => 'post/business/$postId';
 }

@@ -7,16 +7,14 @@ import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/core/utils/date_methods.dart';
 
-class SchedulePostSectionWidget extends StatefulWidget {
-  const SchedulePostSectionWidget({super.key});
+class SchedulePostSectionWidget extends StatelessWidget {
+  const SchedulePostSectionWidget({
+    super.key,
+    required this.selectedDateAndTimeNotifier,
+  });
 
-  @override
-  State<SchedulePostSectionWidget> createState() =>
-      _SchedulePostSectionWidgetState();
-}
+  final ValueNotifier<String?> selectedDateAndTimeNotifier;
 
-class _SchedulePostSectionWidgetState extends State<SchedulePostSectionWidget> {
-  ValueNotifier<String?> selectedDateAndTimeNotifier = ValueNotifier(null);
   @override
   Widget build(BuildContext context) {
     return Column(

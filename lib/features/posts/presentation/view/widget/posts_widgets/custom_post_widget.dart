@@ -8,15 +8,23 @@ import 'package:postify/core/images/app_images.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
+import 'package:postify/core/utils/date_methods.dart';
 import 'package:postify/features/businesses/presentation/view/widget/custom_home_button.dart';
 import 'package:postify/features/initiate_business/data/model/initiate_general_model.dart';
+import 'package:postify/features/posts/data/model/posts_model.dart';
 import 'package:postify/features/posts/presentation/view/screen/post_details_screen.dart';
 import 'package:postify/features/posts/presentation/view/widget/posts_widgets/scheduled_posts_list_widgets.dart';
 
 class CustomPostWidget extends StatelessWidget {
-  const CustomPostWidget({super.key, this.isLight = false, this.button});
+  const CustomPostWidget({
+    super.key,
+    this.isLight = false,
+    this.button,
+    this.post,
+  });
   final bool isLight;
   final Widget? button;
+  final PostModel? post;
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +47,14 @@ class CustomPostWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Title',
+                  post?.title ?? '',
                   style: AppTextStyle.text24BDark(
                     context,
                     color: isLight
                         ? AppColor.darkTextColor(context)
                         : AppColor.lightMainAppColor(context),
                   ),
+                  maxLines: 2,
                 ),
                 5.verticalSpace,
                 Divider(
@@ -67,28 +76,36 @@ class CustomPostWidget extends StatelessWidget {
                 ),
 
                 8.verticalSpace,
-                Row(
-                  children: List.generate(3, (index) {
-                    return Text(
-                      ' #Tag',
-                      style: AppTextStyle.text10RSecond(
-                        context,
-                        color: isLight
-                            ? AppColor.lightMainAppColor(context)
-                            : AppColor.secondAppColor(context),
+                Visibility(
+                  visible: post?.hashtags?.isNotEmpty ?? false,
+                  child: Flexible(
+                    child: Row(
+                      children: List.generate(
+                        post!.hashtags!.length > 2 ? 2 : 0,
+                        (index) {
+                          return Text(
+                            post?.hashtags?[index] ?? '',
+                            style: AppTextStyle.text10RSecond(
+                              context,
+                              color: isLight
+                                  ? AppColor.lightMainAppColor(context)
+                                  : AppColor.secondAppColor(context),
+                            ),
+                          ).setContainerToView(
+                            color: isLight
+                                ? AppColor.darkTextColor(context)
+                                : AppColor.lightMainAppColor(context),
+                            radius: 100,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 2,
+                            ),
+                            margin: EdgeInsets.only(right: 8.w),
+                          );
+                        },
                       ),
-                    ).setContainerToView(
-                      color: isLight
-                          ? AppColor.darkTextColor(context)
-                          : AppColor.lightMainAppColor(context),
-                      radius: 100,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 2,
-                      ),
-                      margin: EdgeInsets.only(right: 8.w),
-                    );
-                  }),
+                    ),
+                  ),
                 ),
                 32.verticalSpace,
                 Row(
@@ -123,7 +140,9 @@ class CustomPostWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '10:30 pm, 20 Dec',
+                            DateMethods.formatToFullData(
+                              post?.scheduledAt?.toIso8601String(),
+                            ),
                             style: AppTextStyle.text11BlackLightMain(
                               context,
                               color: isLight
@@ -158,7 +177,9 @@ class CustomPostWidget extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const PostDetailsScreen()),
+          MaterialPageRoute(
+            builder: (context) => PostDetailsScreen(postModel: post),
+          ),
         );
       },
     );

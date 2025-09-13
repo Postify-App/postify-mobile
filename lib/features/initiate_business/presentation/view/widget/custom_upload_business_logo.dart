@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:postify/core/extension/animation_extensions/tap_scale_animation_extension.dart';
 import 'package:postify/core/images/app_images.dart';
-import 'package:postify/core/images/image_methods.dart';
+import 'package:postify/core/images/media_methods.dart';
 import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
@@ -59,7 +59,7 @@ class CustomUploadBusinessLogo extends StatelessWidget {
           ),
         ).onTapScaleAnimation(
           onTap: () {
-            ImageMethods.pickImageBottomSheet(
+            MediaMethods.pickImageBottomSheet(
               context,
               onSuccessCamera: (file) {
                 Navigator.pop(context);

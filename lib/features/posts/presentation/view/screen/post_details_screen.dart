@@ -5,13 +5,15 @@ import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 import 'package:postify/features/home/presentation/view/widget/custom_home_app_bar.dart';
+import 'package:postify/features/posts/data/model/posts_model.dart';
 import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/create_post_header_widget.dart';
 import 'package:postify/features/posts/presentation/view/widget/create_post_widgets/select_social_platform_section_widget.dart';
 import 'package:postify/features/posts/presentation/view/widget/posts_widgets/custom_post_details_card_widget.dart';
 import 'package:postify/features/posts/presentation/view/widget/posts_widgets/social_states_grid_widget.dart';
 
 class PostDetailsScreen extends StatelessWidget {
-  const PostDetailsScreen({super.key});
+  const PostDetailsScreen({super.key, this.postModel});
+  final PostModel? postModel;
 
   @override
   Widget build(BuildContext context) {

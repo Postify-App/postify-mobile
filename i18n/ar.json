@@ -190,6 +190,9 @@
   "clear": "مسح",
   "reply": "رد",
   "smartReply": "رد ذكي",
-  "deleteComment": "حذف التعليق"
+  "deleteComment": "حذف التعليق",
+  "chooseType" : "اختر النوع",
+  "image" : " صورة",
+  "video" : "فيديو"
   }
   

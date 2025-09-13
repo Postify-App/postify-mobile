@@ -20,78 +20,72 @@ class BottomNavBarScreen extends StatefulWidget {
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BottomNavCubit(),
-      child: BlocBuilder<BottomNavCubit, BottomNavState>(
-        builder: (context, state) {
-          final bottomNavCubit = context.read<BottomNavCubit>();
-          final currentIndex = bottomNavCubit.currentIndex;
+    return BlocBuilder<BottomNavCubit, BottomNavState>(
+      builder: (context, state) {
+        final bottomNavCubit = context.read<BottomNavCubit>();
+        final currentIndex = bottomNavCubit.currentIndex;
 
-          return Scaffold(
-            extendBody: true,
+        return Scaffold(
+          extendBody: true,
+          backgroundColor: AppColor.lightMainAppColor(context),
+          body: LazyIndexedStack(
+            index: currentIndex,
+            children: bottomNavCubit.screens,
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: currentIndex,
+
+            onTap: (index) async {
+              context.read<BottomNavCubit>().changeScreen(index);
+            },
+            items: [
+              _buildBottomNavItem(
+                icon: AppImages.assetsSvgHomeNavBar,
+                label: AppLocaleKey.home.tr(),
+                isSelected: currentIndex == 0,
+              ),
+
+              _buildBottomNavItem(
+                icon: AppImages.assetsSvgPostsNavBar,
+                label: AppLocaleKey.posts.tr(),
+                isSelected: currentIndex == 1,
+              ),
+              const BottomNavigationBarItem(icon: SizedBox.shrink(), label: ''),
+              _buildBottomNavItem(
+                icon: AppImages.assetsSvgAnalysisNavBar,
+                label: AppLocaleKey.analysis.tr(),
+                isSelected: currentIndex == 3,
+              ),
+              _buildBottomNavItem(
+                icon: AppImages.assetsSvgCreateNavBar,
+                label: AppLocaleKey.create.tr(),
+                isSelected: currentIndex == 4,
+              ),
+            ],
+            selectedItemColor: AppColor.darkTextColor(context),
+            unselectedItemColor: AppColor.greyColor(context),
+            selectedLabelStyle: AppTextStyle.text8BDark(context),
+            unselectedLabelStyle: AppTextStyle.text8BDark(
+              context,
+              color: AppColor.greyColor(context),
+            ),
             backgroundColor: AppColor.lightMainAppColor(context),
-            body: LazyIndexedStack(
-              index: currentIndex,
-              children: bottomNavCubit.screens,
-            ),
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: currentIndex,
+            type: BottomNavigationBarType.fixed,
+          ),
 
-              onTap: (index) async {
-                context.read<BottomNavCubit>().changeScreen(index);
-              },
-              items: [
-                _buildBottomNavItem(
-                  icon: AppImages.assetsSvgHomeNavBar,
-                  label: AppLocaleKey.home.tr(),
-                  isSelected: currentIndex == 0,
-                ),
-
-                _buildBottomNavItem(
-                  icon: AppImages.assetsSvgPostsNavBar,
-                  label: AppLocaleKey.posts.tr(),
-                  isSelected: currentIndex == 1,
-                ),
-                const BottomNavigationBarItem(
-                  icon: SizedBox.shrink(),
-                  label: '',
-                ),
-                _buildBottomNavItem(
-                  icon: AppImages.assetsSvgAnalysisNavBar,
-                  label: AppLocaleKey.analysis.tr(),
-                  isSelected: currentIndex == 3,
-                ),
-                _buildBottomNavItem(
-                  icon: AppImages.assetsSvgCreateNavBar,
-                  label: AppLocaleKey.create.tr(),
-                  isSelected: currentIndex == 4,
-                ),
-              ],
-              selectedItemColor: AppColor.darkTextColor(context),
-              unselectedItemColor: AppColor.greyColor(context),
-              selectedLabelStyle: AppTextStyle.text8BDark(context),
-              unselectedLabelStyle: AppTextStyle.text8BDark(
-                context,
-                color: AppColor.greyColor(context),
-              ),
-              backgroundColor: AppColor.lightMainAppColor(context),
-              type: BottomNavigationBarType.fixed,
+          floatingActionButton: GestureDetector(
+            onTap: () {
+              context.read<BottomNavCubit>().changeScreen(2);
+            },
+            child: _buildAnimatedIconHome(
+              icon: AppImages.assetsSvgAi,
+              isSelected: currentIndex == 2,
             ),
-
-            floatingActionButton: GestureDetector(
-              onTap: () {
-                context.read<BottomNavCubit>().changeScreen(2);
-              },
-              child: _buildAnimatedIconHome(
-                icon: AppImages.assetsSvgAi,
-                isSelected: currentIndex == 2,
-              ),
-            ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-          );
-        },
-      ),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+        );
+      },
     );
   }
 

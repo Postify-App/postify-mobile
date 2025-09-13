@@ -206,4 +206,7 @@ class AppLocaleKey {
   static const reply = 'reply';
   static const smartReply = 'smartReply';
   static const deleteComment = 'deleteComment';
+  static const chooseType = 'chooseType';
+  static const image = 'image';
+  static const video = 'video';
 }

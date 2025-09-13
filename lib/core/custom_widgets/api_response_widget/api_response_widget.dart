@@ -130,7 +130,6 @@ class ApiResponseWidget extends StatelessWidget {
     if (child is SliverGrid ||
         child is SliverList ||
         child is SliverToBoxAdapter) {
-      // 👇 نسخة خاصة للـ Slivers
       switch (cubitState) {
         case CubitStatus.initial:
           return initialChild
@@ -153,8 +152,6 @@ class ApiResponseWidget extends StatelessWidget {
               _buildSliverError(onReload, axis, exceptionMessage);
       }
     }
-
-    // 👇 النسخة العادية (مش sliver)
     switch (cubitState) {
       case CubitStatus.initial:
         return initialChild ? child : const SizedBox();

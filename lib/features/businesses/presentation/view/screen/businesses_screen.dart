@@ -79,7 +79,6 @@ class BusinessesScreen extends StatelessWidget {
                     left: 35.w,
                     child: CustomHomeButton(
                       text: AppLocaleKey.logout.tr(),
-                      prefixIcon: SvgPicture.asset(AppImages.assetsSvgArrowTop),
                       width: 100.w,
                       height: 48.h,
                       color: AppColor.greenColor(context),

@@ -9,21 +9,39 @@ import 'package:postify/core/locale/app_locale_key.dart';
 import 'package:postify/core/theme/app_colors.dart';
 import 'package:postify/core/theme/app_text_style.dart';
 
-class CustomWordsWidget extends StatelessWidget {
+class CustomWordsWidget extends StatefulWidget {
   final ValueNotifier<List<String>> wordsNotifier;
+  final Function(List<String>) wordsCallback;
 
-  const CustomWordsWidget({super.key, required this.wordsNotifier});
+  const CustomWordsWidget({
+    super.key,
+    required this.wordsNotifier,
+    required this.wordsCallback,
+  });
 
+  @override
+  State<CustomWordsWidget> createState() => _CustomWordsWidgetState();
+}
+
+class _CustomWordsWidgetState extends State<CustomWordsWidget> {
   void _removeWord(int index) {
-    final words = List<String>.from(wordsNotifier.value);
+    final words = List<String>.from(widget.wordsNotifier.value);
     words.removeAt(index);
-    wordsNotifier.value = words;
+    widget.wordsNotifier.value = words;
+    widget.wordsCallback(widget.wordsNotifier.value);
   }
 
   void _addWord(String word) {
-    final words = List<String>.from(wordsNotifier.value);
+    final words = List<String>.from(widget.wordsNotifier.value);
     words.add(word);
-    wordsNotifier.value = words;
+    widget.wordsNotifier.value = words;
+    widget.wordsCallback(widget.wordsNotifier.value);
+  }
+
+  @override
+  initState() {
+    super.initState();
+    widget.wordsCallback(widget.wordsNotifier.value);
   }
 
   @override
@@ -85,7 +103,7 @@ class CustomWordsWidget extends StatelessWidget {
 
         Expanded(
           child: ValueListenableBuilder<List<String>>(
-            valueListenable: wordsNotifier,
+            valueListenable: widget.wordsNotifier,
             builder: (context, words, _) {
               return Wrap(
                 spacing: 8,
