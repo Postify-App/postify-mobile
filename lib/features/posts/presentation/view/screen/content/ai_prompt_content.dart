@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -123,18 +121,19 @@ class _AiPromptContentState extends State<AiPromptContent>
                           text: AppLocaleKey.continueKey.tr(),
                           color: AppColor.darkTextColor(context),
                           onPressed: () {
-                            log(
-                              state.generateRequestBody?.message.toString() ??
-                                  '',
-                            );
-                            if (state.generateRequestBody?.message.isEmpty ??
-                                true) {
-                              CommonMethods.showError(
-                                message: 'Please enter prompt',
-                              );
-                              return;
-                            }
-                            context.read<GeneratePostCubit>().publishPost();
+                            // log(
+                            //   state.generateRequestBody?.message.toString() ??
+                            //       '',
+                            // );
+                            // if (state.generateRequestBody?.message.isEmpty ??
+                            //     true) {
+                            //   CommonMethods.showError(
+                            //     message: 'Please enter prompt',
+                            //   );
+                            //   return;
+                            // }
+                            // context.read<GeneratePostCubit>().publishPost();
+                            widget.onPressed();
                           },
                         );
                       },

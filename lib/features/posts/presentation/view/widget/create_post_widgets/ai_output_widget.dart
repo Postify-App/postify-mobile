@@ -15,6 +15,7 @@ class AiOutputWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GeneratePostCubit, GeneratePostState>(
+      buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         return Container(
           height: 172.h,

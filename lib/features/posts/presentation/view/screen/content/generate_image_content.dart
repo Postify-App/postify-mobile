@@ -49,86 +49,92 @@ class _GenerateImageContentState extends State<GenerateImageContent> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<PostsCubit>(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomHomeAppBar(),
-            16.verticalSpace,
-            CustomHeaderWidget(onTap: _goToPreviousPage),
-            UploadMediaWidget(mediaNotifier: mediaNotifier),
-            CustomHomeButton(
-              hasShadow: true,
-              text: AppLocaleKey.generateImage.tr(),
-              color: AppColor.lightMainAppColor(context),
-              borderColor: AppColor.darkTextColor(context),
-              style: AppTextStyle.text16SBMain(
-                context,
-                color: AppColor.darkTextColor(context),
-              ),
-              radius: 10,
-              suffixIcon: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SvgPicture.asset(AppImages.assetsSvgOpen),
-              ),
-            ),
-            32.verticalSpace,
-            Text(
-              AppLocaleKey.socialPlatform.tr(),
-              style: AppTextStyle.text20MDark(context),
-            ),
-            Text(
-              AppLocaleKey.selectPlatforms.tr(),
-              style: AppTextStyle.text13RDark(context),
-            ),
-            16.verticalSpace,
-            const SelectSocialPlatformListWidget(),
-            16.verticalSpace,
-            SchedulePostSectionWidget(
-              selectedDateAndTimeNotifier: selectedDateAndTimeNotifier,
-            ),
-            const Spacer(),
-            BlocConsumer<PostsCubit, PostsState>(
-              buildWhen: (previous, current) =>
-                  previous.createPostStatus != current.createPostStatus,
-              listenWhen: (previous, current) =>
-                  previous.createPostStatus != current.createPostStatus,
-              listener: (context, state) {
-                if (state.createPostStatus == CubitStatus.failure) {
-                  CommonMethods.showError(message: state.errorMessage);
-                } else if (state.createPostStatus == CubitStatus.success) {
-                  NavigatorMethods.pushNamedAndRemoveUntil(
-                    context,
-                    RoutesName.bottomNavBar,
-                  );
-                  context.read<BottomNavCubit>().changeScreen(1);
-                }
-              },
-              builder: (context, state) {
-                return CustomHomeButton(
-                  cubitState: state.createPostStatus,
-                  text: AppLocaleKey.done.tr(),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomHomeAppBar(),
+              16.verticalSpace,
+              CustomHeaderWidget(onTap: _goToPreviousPage),
+              UploadMediaWidget(mediaNotifier: mediaNotifier),
+              CustomHomeButton(
+                hasShadow: true,
+                text: AppLocaleKey.generateImage.tr(),
+                color: AppColor.lightMainAppColor(context),
+                borderColor: AppColor.darkTextColor(context),
+                style: AppTextStyle.text16SBMain(
+                  context,
                   color: AppColor.darkTextColor(context),
-                  onPressed: () {
-                    context.read<PostsCubit>().publishPost(
-                      businessId:
-                          context
-                              .read<ProfileCubit>()
-                              .state
-                              .selectedBusiness
-                              ?.id ??
-                          '',
-                      body: CreatePostBody(
-                        file: mediaNotifier.value,
-                        scheduledAt: selectedDateAndTimeNotifier.value,
-                      ),
+                ),
+                radius: 10,
+                suffixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: SvgPicture.asset(AppImages.assetsSvgOpen),
+                ),
+              ),
+              32.verticalSpace,
+              Text(
+                AppLocaleKey.socialPlatform.tr(),
+                style: AppTextStyle.text20MDark(context),
+              ),
+              Text(
+                AppLocaleKey.selectPlatforms.tr(),
+                style: AppTextStyle.text13RDark(context),
+              ),
+              16.verticalSpace,
+              const SelectSocialPlatformListWidget(),
+              16.verticalSpace,
+              SchedulePostSectionWidget(
+                selectedDateAndTimeNotifier: selectedDateAndTimeNotifier,
+              ),
+              const Spacer(),
+              BlocConsumer<PostsCubit, PostsState>(
+                buildWhen: (previous, current) =>
+                    previous.createPostStatus != current.createPostStatus,
+                listenWhen: (previous, current) =>
+                    previous.createPostStatus != current.createPostStatus,
+                listener: (context, state) {
+                  if (state.createPostStatus == CubitStatus.failure) {
+                    CommonMethods.showError(message: state.errorMessage);
+                    NavigatorMethods.pushNamedAndRemoveUntil(
+                      context,
+                      RoutesName.bottomNavBar,
                     );
-                  },
-                );
-              },
-            ),
-          ],
+                  } else if (state.createPostStatus == CubitStatus.success) {
+                    NavigatorMethods.pushNamedAndRemoveUntil(
+                      context,
+                      RoutesName.bottomNavBar,
+                    );
+                    context.read<BottomNavCubit>().changeScreen(1);
+                  }
+                },
+                builder: (context, state) {
+                  return CustomHomeButton(
+                    cubitState: state.createPostStatus,
+                    text: AppLocaleKey.done.tr(),
+                    color: AppColor.darkTextColor(context),
+                    onPressed: () {
+                      context.read<PostsCubit>().publishPost(
+                        businessId:
+                            context
+                                .read<ProfileCubit>()
+                                .state
+                                .selectedBusiness
+                                ?.id ??
+                            '',
+                        body: CreatePostBody(
+                          file: mediaNotifier.value,
+                          scheduledAt: selectedDateAndTimeNotifier.value,
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -11,8 +11,8 @@ class GenerateRequestBody extends Equatable {
   const GenerateRequestBody({
     this.message = '',
     this.approximateWords = 32,
-    this.hashtags = false,
-    this.emojis = false,
+    this.hashtags = true,
+    this.emojis = true,
     this.requiredWords = const ['Organic', 'Handmade', 'Travel'],
     this.forbiddenWords = const ['Cheap', 'Discount'],
   });
